@@ -1,2 +1,4 @@
-package seedu.duke;public class ModulePlanner {
+package seedu.duke;
+
+public class ModulePlanner {
 }
