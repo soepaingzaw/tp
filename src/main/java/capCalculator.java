@@ -8,4 +8,8 @@ public class capCalculator {
 
     }
 
+    public void randomMethod2() {
+        
+    }
+
 }
