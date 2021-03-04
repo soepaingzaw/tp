@@ -4,4 +4,8 @@ public class capCalculator {
 
     }
 
+    public void someRandomMethod() {
+
+    }
+
 }
