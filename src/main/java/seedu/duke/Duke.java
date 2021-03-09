@@ -27,22 +27,29 @@ public class Duke {
     }
 
     public static void readModuleInputs() {
+        ModuleList moduleList = new ModuleList();
 
-        while(true) {
+        while (true) {
             Scanner scan = new Scanner(System.in);
             String line;
             line = scan.nextLine();
             if (line.length() == 0) {
                 break;
-            }
-            String[] data = line.split(" ");
-            capCalculator modules = new capCalculator(data[0],data[1],Integer.parseInt(data[2]));
+            } else if (line.equals("list")) {
+                for (int i = 0; i < moduleList.size(); i++) {
+                    System.out.print(moduleList.get(i).toString());
+                }
+            } else {
+                String[] data = line.split(" ");
+                CapCalculator modules = new CapCalculator(data[0], data[1], Integer.parseInt(data[2]));
 
-            System.out.print(modules.toString());
+                moduleList.add(modules);
+
+            }
+
         }
         System.out.print("Bye See ya!\n");
     }
-
 
 
 }
