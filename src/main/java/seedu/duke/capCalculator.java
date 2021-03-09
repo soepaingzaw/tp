@@ -1,15 +1,15 @@
+package seedu.duke;
+
 public class capCalculator {
 
     public capCalculator() {
 
     }
 
-<<<<<<< HEAD
     public void myOwnMethod(){
 
     }
 
-=======
     public void someRandomMethod() {
 
     }
@@ -18,5 +18,4 @@ public class capCalculator {
         
     }
 
->>>>>>> d79df2fd6226aef075f882208d2f0bfe40c2d17c
 }
