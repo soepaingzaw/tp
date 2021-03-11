@@ -1,4 +1,7 @@
 package ModulePlanner;
 
-public enum Chance {
+public enum Priority {
+    LOW,
+    MEDIUM,
+    HIGH
 }
