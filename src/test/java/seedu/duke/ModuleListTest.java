@@ -11,6 +11,6 @@ class ModuleListTest {
         ModuleList ml = new ModuleList();
         String inputString = "A-";
         double number = ml.gradesToPoints(inputString);
-        assertEquals(4.5,ml.gradesToPoints(inputString));
+        assertEquals(4.0,ml.gradesToPoints(inputString));
     }
 }

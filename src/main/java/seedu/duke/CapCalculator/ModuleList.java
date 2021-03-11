@@ -1,15 +1,16 @@
-package seedu.duke;
+package seedu.duke.CapCalculator;
 
 import java.util.ArrayList;
 
 public class ModuleList {
     protected ArrayList<CapCalculator> moduleList = new ArrayList<>();
 
-    public ModuleList(ArrayList<CapCalculator> moduleList) {
-        this.moduleList = moduleList;
+    /*
+        public ModuleList(ArrayList<CapCalculator> moduleList) {
+            this.moduleList = moduleList;
 
-    }
-
+        }
+    */
     public ModuleList() {
 
     }

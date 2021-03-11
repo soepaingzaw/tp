@@ -1,4 +1,4 @@
-package seedu.duke;
+package seedu.duke.CapCalculator;
 
 public class CapCalculator {
 
