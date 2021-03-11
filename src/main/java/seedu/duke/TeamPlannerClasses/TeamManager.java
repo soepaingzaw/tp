@@ -7,16 +7,17 @@ public class TeamManager {
     private ArrayList<TeamMember> team;
     private int memberCount = 0;
 
-    public TeamManager(){
+    public TeamManager() {
         this.team = new ArrayList<TeamMember>();
     }
 
-    public void addMember(TeamMember teamMember){
+    public void addMember(TeamMember teamMember) {
         team.add(teamMember);
         memberCount++;
     }
-    public void removeMember(int memberNum){
-        if(memberNum < memberCount && memberCount >= 0){
+
+    public void removeMember(int memberNum) {
+        if (memberNum < memberCount && memberCount >= 0) {
             System.out.println(team.get(memberNum) + " has been removed");
             team.remove(memberNum);
             memberCount--;
@@ -25,15 +26,15 @@ public class TeamManager {
         }
     }
 
-    public int getMemberCount(){
+    public int getMemberCount() {
         return memberCount;
     }
 
-    public TeamMember getTeamMember(int index){
+    public TeamMember getTeamMember(int index) {
         return team.get(index);
     }
 
-    public void clearTeam(){
+    public void clearTeam() {
         team.clear();
     }
 
