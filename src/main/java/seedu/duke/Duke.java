@@ -44,10 +44,31 @@ public class Duke {
                     System.out.print(moduleList.get(i).toString());
                 }
                 break;
-   /*
+
             case "calculate":
-                moduleList.calculate()
-     */
+                System.out.printf("%.2f is my CAP\n",moduleList.calculate());
+                break;
+
+            case "delete":
+                System.out.print("Which module do you want to delete? Enter the module code:\n");
+                String moduleToDelete = scan.nextLine();
+                moduleList.delete(moduleToDelete);
+                System.out.print("Deleted " + moduleToDelete + "\n");
+                break;
+
+            case "edit":
+                int index;
+                System.out.print("Which module do you want to edit? Enter the module code:\n");
+                String moduleToEdit = scan.nextLine();
+
+                System.out.print("Enter your desired grade:\n");
+                String newGrade = scan.nextLine();
+
+                index = moduleList.edit(moduleToEdit,newGrade);
+
+                System.out.print("Edited. New data:\n" + moduleList.get(index) + "\n");
+
+                break;
 
             default:
                 String[] data = command.split(" ");
@@ -55,22 +76,9 @@ public class Duke {
 
                 moduleList.add(modules);
 
+                System.out.print("Added " + modules.moduleCode + "\n");
 
             }
-/*
-            } else if (command.equals("list")) {
-                for (int i = 0; i < moduleList.size(); i++) {
-                    System.out.print(moduleList.get(i).toString());
-                }
-            } else {
-                String[] data = command.split(" ");
-                CapCalculator modules = new CapCalculator(data[0], data[1], Integer.parseInt(data[2]));
-
-                moduleList.add(modules);
-
-            }
-
- */
 
         }
         System.out.print("Bye See ya!\n");
