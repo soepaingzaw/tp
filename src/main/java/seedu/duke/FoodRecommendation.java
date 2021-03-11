@@ -11,7 +11,9 @@ public class FoodRecommendation {
 
     private final List<FoodStore> foodStoreList = new ArrayList<>();
 
-    public FoodRecommendation(){}
+    public FoodRecommendation(){
+
+    }
 
     public void add(FoodStore toAdd) {
         foodStoreList.add(toAdd);
@@ -36,7 +38,7 @@ public class FoodRecommendation {
     }
 
     public void find(FoodStore toFind) {
-        if(foodStoreList.contains(toFind)){
+        if (foodStoreList.contains(toFind)) {
             printStore(toFind);
         } else {
             System.out.println(UNABLE_TO_FIND_MESSAGE);
