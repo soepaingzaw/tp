@@ -31,21 +31,46 @@ public class Duke {
 
         while (true) {
             Scanner scan = new Scanner(System.in);
-            String line;
-            line = scan.nextLine();
-            if (line.length() == 0) {
+            String command;
+            command = scan.nextLine();
+
+            if (command.length() == 0) {
                 break;
-            } else if (line.equals("list")) {
+            }
+
+            switch (command) {
+            case "list":
+                for (int i = 0; i < moduleList.size(); i++) {
+                    System.out.print(moduleList.get(i).toString());
+                }
+                break;
+   /*
+            case "calculate":
+                moduleList.calculate()
+     */
+
+            default:
+                String[] data = command.split(" ");
+                CapCalculator modules = new CapCalculator(data[0], data[1], Integer.parseInt(data[2]));
+
+                moduleList.add(modules);
+
+
+            }
+/*
+            } else if (command.equals("list")) {
                 for (int i = 0; i < moduleList.size(); i++) {
                     System.out.print(moduleList.get(i).toString());
                 }
             } else {
-                String[] data = line.split(" ");
+                String[] data = command.split(" ");
                 CapCalculator modules = new CapCalculator(data[0], data[1], Integer.parseInt(data[2]));
 
                 moduleList.add(modules);
 
             }
+
+ */
 
         }
         System.out.print("Bye See ya!\n");
