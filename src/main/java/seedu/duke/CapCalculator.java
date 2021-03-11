@@ -1,9 +1,13 @@
-package seedu.duke.CapCalculator;
+package seedu.duke;
 
+import seedu.duke.CapCalculatorClasses.ModuleList;
+import seedu.duke.CapCalculatorClasses.ModuleData;
 
 import java.util.Scanner;
 
-public class CapCalculatorCommands {
+
+
+public class CapCalculator {
 
     public static void requestForModule() {
         System.out.print("Welcome to CAP Calculator!\n");
@@ -60,7 +64,7 @@ public class CapCalculatorCommands {
 
             default:
                 String[] data = command.split(" ");
-                CapCalculator modules = new CapCalculator(data[0], data[1], Integer.parseInt(data[2]));
+                ModuleData modules = new ModuleData(data[0], data[1], Integer.parseInt(data[2]));
 
                 moduleList.add(modules);
 

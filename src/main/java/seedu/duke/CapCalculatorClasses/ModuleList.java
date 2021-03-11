@@ -1,21 +1,15 @@
-package seedu.duke.CapCalculator;
+package seedu.duke.CapCalculatorClasses;
 
 import java.util.ArrayList;
 
 public class ModuleList {
-    protected ArrayList<CapCalculator> moduleList = new ArrayList<>();
+    protected ArrayList<ModuleData> moduleList = new ArrayList<>();
 
-    /*
-        public ModuleList(ArrayList<CapCalculator> moduleList) {
-            this.moduleList = moduleList;
-
-        }
-    */
     public ModuleList() {
 
     }
 
-    public void add(CapCalculator moduleData) {
+    public void add(ModuleData moduleData) {
         moduleList.add(moduleData);
     }
 
@@ -23,11 +17,7 @@ public class ModuleList {
         return moduleList.size();
     }
 
-    public void remove(CapCalculator moduleData) {
-        moduleList.remove(moduleData);
-    }
-
-    public CapCalculator get(int index) {
+    public ModuleData get(int index) {
         return moduleList.get(index);
     }
 
@@ -56,22 +46,22 @@ public class ModuleList {
     }
 
     public double calculate() {
-        double CAP = 0;
+        double CAP;
         int summationOfMCs = 0;
         double summationOfGradeTimesMCs = 0.0;
         boolean isNotSUmod;
         boolean isNotPassFailMod;
         String score;
 
-        for (int i = 0; i < moduleList.size(); i++) {
-            score = moduleList.get(i).grade;
-            summationOfGradeTimesMCs += gradesToPoints(score) * moduleList.get(i).MCs;
+        for (ModuleData capCalculator : moduleList) {
+            score = capCalculator.grade;
+            summationOfGradeTimesMCs += gradesToPoints(score) * capCalculator.MCs;
 
             isNotSUmod = !score.equals("S") && !score.equals("U");
             isNotPassFailMod = !score.equals("CS") && !score.equals("CU");
 
             if (isNotPassFailMod && isNotSUmod) {
-                summationOfMCs += moduleList.get(i).MCs;
+                summationOfMCs += capCalculator.MCs;
             }
         }
 
@@ -112,21 +102,10 @@ public class ModuleList {
         case "D":
             Points = 1.0;
             break;
-
-        case "F":
-        case "S":
-        case "U":
-        case "CS":
-        case "CU":
-            Points = 0.0;
-            break;
-
         default:
             Points = 0.0;
             break;
-
         }
-
 
         return Points;
     }

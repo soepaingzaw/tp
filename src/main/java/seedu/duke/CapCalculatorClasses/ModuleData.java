@@ -1,13 +1,14 @@
-package seedu.duke.CapCalculator;
+package seedu.duke.CapCalculatorClasses;
 
-public class CapCalculator {
+public class ModuleData {
 
 
-    protected String moduleCode;
+    public String moduleCode;
+   // protected String moduleCode;
     protected String grade;
     protected int MCs;
 
-    public CapCalculator(String moduleCode, String grade, int MCs) {
+    public ModuleData(String moduleCode, String grade, int MCs) {
         this.moduleCode = moduleCode;
         this.grade = grade;
         this.MCs = MCs;
