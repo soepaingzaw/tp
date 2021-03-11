@@ -26,9 +26,9 @@ public class FoodStore {
 
     public String toString() {
         if (isHalal()) {
-            return "[H]" + getStoreName() + ": " + getStoreDescription();
+            return "[H] " + getStoreName() + ": " + getStoreDescription();
         } else {
-            return "[X]" + getStoreName() + ": " + getStoreDescription();
+            return "[X] " + getStoreName() + ": " + getStoreDescription();
         }
     }
 }
