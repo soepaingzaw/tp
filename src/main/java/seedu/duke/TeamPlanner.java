@@ -42,43 +42,43 @@ public class TeamPlanner {
             }
         }
         System.out.println(displayCommandsAvailable);
-        while(programOn) {
+        while (programOn) {
             Scanner in = new Scanner(System.in);
             String command = in.nextLine();
             String[] commandArguments = command.split(" ");
-            if(commandArguments[0].equals("add")){
-                while(!passwordCorrect){
+            if (commandArguments[0].equals("add")) {
+                while (!passwordCorrect) {
                     System.out.println(requestPassword);
                     Scanner input = new Scanner(System.in);
                     String passwordInputed = input.nextLine();
-                    if(passwordInputed.equals(password)){
+                    if (passwordInputed.equals(password)) {
                         passwordCorrect = true;
                     }
                 }
                 String teamMemberName = "";
-                for(String word:commandArguments){
-                    if(word.equals("add")){
+                for (String word : commandArguments) {
+                    if (word.equals("add")) {
                         continue;
-                    } else{
-                      teamMemberName += word;
+                    } else {
+                        teamMemberName += word;
                     }
                 }
-                TeamMember teamMember = new TeamMember(teamMemberName,false);
+                TeamMember teamMember = new TeamMember(teamMemberName, false);
                 team.addMember(teamMember);
-                System.out.println(team.getTeamMember(team.getMemberCount()-1) +" has been added to the team");
+                System.out.println(team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
                 passwordCorrect = false;
-            } else if(commandArguments[0].equals("delete")){
-                while(!passwordCorrect){
+            } else if (commandArguments[0].equals("delete")) {
+                while (!passwordCorrect) {
                     System.out.println(requestPassword);
                     Scanner input = new Scanner(System.in);
                     String passwordInputed = input.nextLine();
-                    if(passwordInputed.equals(password)){
+                    if (passwordInputed.equals(password)) {
                         passwordCorrect = true;
                     }
                 }
-                try{
+                try {
                     int indexOfMemberToBeDeleted = Integer.parseInt(commandArguments[1]);
-                    if(indexOfMemberToBeDeleted<team.getMemberCount()){
+                    if (indexOfMemberToBeDeleted < team.getMemberCount()) {
                         System.out.println(team.getTeamMember(indexOfMemberToBeDeleted) + " will be removed");
                         team.removeMember(indexOfMemberToBeDeleted);
                     } else {
@@ -88,11 +88,11 @@ public class TeamPlanner {
                     System.out.println("Invalid input for member index");
                 }
                 passwordCorrect = false;
-            } else if(commandArguments[0].equals("show")){
+            } else if (commandArguments[0].equals("show")) {
                 System.out.println("The team details are as follows:");
                 showTeamMembers();
                 passwordCorrect = false;
-            } else if(commandArguments[0].equals("clear")){
+            } else if (commandArguments[0].equals("clear")) {
                 team.clearTeam();
                 passwordEntered = false;
                 password = "";
@@ -111,9 +111,9 @@ public class TeamPlanner {
                     }
                 }
                 passwordCorrect = false;
-            } else if(commandArguments[0].equals("help")){
+            } else if (commandArguments[0].equals("help")) {
                 System.out.println(displayCommandsAvailable);
-            } else if(commandArguments[0].equals("quit")){
+            } else if (commandArguments[0].equals("quit")) {
                 programOn = false;
             } else {
                 System.out.println("Invalid Input");
