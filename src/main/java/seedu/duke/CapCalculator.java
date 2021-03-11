@@ -7,7 +7,7 @@ public class CapCalculator {
     protected String grade;
     protected int MCs;
 
-    public CapCalculator(String moduleCode,String grade, int MCs) {
+    public CapCalculator(String moduleCode, String grade, int MCs) {
         this.moduleCode = moduleCode;
         this.grade = grade;
         this.MCs = MCs;
@@ -21,9 +21,8 @@ public class CapCalculator {
 
     public String toString() {
         return "[" + moduleCode + "] " + "[" + grade + "] "
-                + "[" + MCs +"]\n";
+                + "[" + MCs + "]\n";
     }
-
 
 
 }

@@ -30,7 +30,7 @@ public class ModuleList {
         return moduleList.get(index);
     }
 
-    public void delete (String moduleName) {
+    public void delete(String moduleName) {
 
         for (int i = 0; i < moduleList.size(); i++) {
             String moduleToRemove = moduleList.get(i).moduleCode;
@@ -41,7 +41,7 @@ public class ModuleList {
 
     }
 
-    public int edit (String moduleName,String newGrade) {
+    public int edit(String moduleName, String newGrade) {
         int i;
         for (i = 0; i < moduleList.size(); i++) {
             String moduleToEdit = moduleList.get(i).moduleCode;
@@ -67,7 +67,7 @@ public class ModuleList {
             summationOfGradeTimesMCs += gradesToPoints(score) * moduleList.get(i).MCs;
 
             isNotSUmod = !score.equals("S") && !score.equals("U");
-            isNotPassFailMod =  !score.equals("CS") && !score.equals("CU");
+            isNotPassFailMod = !score.equals("CS") && !score.equals("CU");
 
             if (isNotPassFailMod && isNotSUmod) {
                 summationOfMCs += moduleList.get(i).MCs;

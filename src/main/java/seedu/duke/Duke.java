@@ -46,7 +46,7 @@ public class Duke {
                 break;
 
             case "calculate":
-                System.out.printf("%.2f is my CAP\n",moduleList.calculate());
+                System.out.printf("%.2f is my CAP\n", moduleList.calculate());
                 break;
 
             case "delete":
@@ -64,7 +64,7 @@ public class Duke {
                 System.out.print("Enter your desired grade:\n");
                 String newGrade = scan.nextLine();
 
-                index = moduleList.edit(moduleToEdit,newGrade);
+                index = moduleList.edit(moduleToEdit, newGrade);
 
                 System.out.print("Edited. New data:\n" + moduleList.get(index) + "\n");
 
