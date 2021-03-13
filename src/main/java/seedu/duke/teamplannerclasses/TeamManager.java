@@ -34,6 +34,10 @@ public class TeamManager {
         return team.get(index);
     }
 
+    public int getIndexOfTeamMember(String teamMemberName){
+        return team.indexOf(teamMemberName);
+    }
+
     public void clearTeam() {
         team.clear();
     }
