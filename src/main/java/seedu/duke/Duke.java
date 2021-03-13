@@ -1,5 +1,4 @@
 package seedu.duke;
-import ModulePlanner.*;
 import java.util.Scanner;
 
 

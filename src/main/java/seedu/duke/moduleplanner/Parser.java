@@ -1,4 +1,4 @@
-package ModulePlanner;
+package seedu.duke.moduleplanner;
 
 public class Parser {
     /***
@@ -10,7 +10,7 @@ public class Parser {
         return Integer.parseInt(input);
     }
 
-    protected static boolean parserToBoolean(String input){
+    protected static boolean parserToBoolean(String input) {
         return Boolean.parseBoolean(input);
     }
 }

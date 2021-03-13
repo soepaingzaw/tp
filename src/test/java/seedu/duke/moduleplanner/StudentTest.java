@@ -1,4 +1,4 @@
-package ModulePlanner;
+package seedu.duke.moduleplanner;
 
 import org.junit.jupiter.api.Test;
 
