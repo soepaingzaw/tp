@@ -19,11 +19,7 @@ public class Duke {
         Scanner in = new Scanner(System.in);
         System.out.println("Hello " + in.nextLine());
 
-        String line;
-        Scanner in = new Scanner(System.in);
-        line = in.nextLine();
-        if (line.equals("Module Planner")){
 
-        }
+
     }
 }

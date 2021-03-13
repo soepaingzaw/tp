@@ -1,6 +1,6 @@
 package ModulePlanner;
 
-public class Student {
+public class Student implements Comparable<Student>{
     protected String Name;
     protected boolean graduationRequirement;
     protected int Year;
@@ -31,11 +31,19 @@ public class Student {
     }
 
     public int getGraduationRequirementScore(){
-        return (isGraduationRequirement() ? 0 : 3);
+        return (isGraduationRequirement() ? 3 : 0);
     }
 
     public int getScore(){
         return Score;
+    }
+
+    @Override
+    public String toString() {
+        return Name + ", " + getScore();
+    }
+    public int compareTo(Student student){
+        return this.Score - student.Score;
     }
 
 }
