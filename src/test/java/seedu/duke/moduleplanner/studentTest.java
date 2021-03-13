@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StudentTest {
+class studentTest {
     private final Student Alice = new Student("Alice", 1, true, 1);
     private final Student Bob = new Student("Bob", 2, false, 2);
 
