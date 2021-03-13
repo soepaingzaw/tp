@@ -1,7 +1,7 @@
 package seedu.duke;
 
-import seedu.duke.TeamPlannerClasses.TeamManager;
-import seedu.duke.TeamPlannerClasses.TeamMember;
+import seedu.duke.TeamPlannerClasses.teammanager;
+import seedu.duke.TeamPlannerClasses.teammember;
 
 import java.util.Scanner;
 
@@ -9,22 +9,23 @@ public class TeamPlanner {
     private static final String welcomeMessage = "Welcome to All-In-One-NUS team manager";
     private static final String requestTeamLeaderName = "Please enter the name of the Team lead";
     private static final String requestTeamSize = "Please enter the size of your team";
-    private static final String requestTeamMembersName = "Please enter the names of your team members, one on each line";
+    private static final String requestTeamMembersName = "Please enter the names of your team members, one per line";
     private static final String requestTeamLeaderPassword = "[Team Lead] Please enter a password";
     private static final String requestTeamLeaderPasswordConfirmation = "[Team Lead] Please re-enter the password";
     private static final String passwordConfirmation = "The password has been set";
     private static final String passwordDoNotMatch = "The passwords do not match";
-    private static final String displayCommandsAvailable = "Here are the list of commands available : \n" +
-            "1. add [member] - adds a member (requires password)\n" + "2. delete [member index] - deletes a member (requires password)\n"
-            + "3. show - shows current members\n" + "4. clear - clears the current team and resets the password (requires password)\n"
+    private static final String displayCommandsAvailable = "Here are the list of commands available : \n"
+            + "1. add [member] - adds a member (requires password)\n"
+            + "2. delete [member index] - deletes a member (requires password)\n"
+            + "3. show - shows current members\n"
+            + "4. clear - clears the current team and resets the password (requires password)\n"
             + "5. help - lists the commands available\n" + "6. quit - quits the program\n";
     private static final String requestPassword = "Please enter the password";
 
-    private static TeamManager team = new TeamManager();
+    private static teammanager team = new teammanager();
 
     public static void main(String[] args) {
         boolean passwordEntered = false;
-        boolean programOn = true;
         boolean passwordCorrect = false;
         String password = "";
         System.out.println(welcomeMessage);
@@ -41,6 +42,7 @@ public class TeamPlanner {
                 System.out.println(passwordDoNotMatch);
             }
         }
+        boolean programOn = true;
         System.out.println(displayCommandsAvailable);
         while (programOn) {
             Scanner in = new Scanner(System.in);
@@ -63,7 +65,7 @@ public class TeamPlanner {
                         teamMemberName += word;
                     }
                 }
-                TeamMember teamMember = new TeamMember(teamMemberName, false);
+                teammember teamMember = new teammember(teamMemberName, false);
                 team.addMember(teamMember);
                 System.out.println(team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
                 passwordCorrect = false;
@@ -127,7 +129,7 @@ public class TeamPlanner {
         Scanner in = new Scanner(System.in);
         String teamLeaderInputed = in.nextLine();
         //Add leader to the teamManager class
-        TeamMember teamLeader = new TeamMember(teamLeaderInputed, true);
+        teammember teamLeader = new teammember(teamLeaderInputed, true);
         team.addMember(teamLeader);
         System.out.println(requestTeamSize);
         int size = 0;
@@ -144,7 +146,7 @@ public class TeamPlanner {
         for (int i = 0; i < size; i++) {
             String teamMemberInputed = in.nextLine();
             //Add each member to the teamManager class
-            TeamMember teamMember = new TeamMember(teamMemberInputed, false);
+            teammember teamMember = new teammember(teamMemberInputed, false);
             team.addMember(teamMember);
         }
         System.out.println("The team details are as follows:");
