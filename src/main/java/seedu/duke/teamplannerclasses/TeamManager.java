@@ -1,17 +1,17 @@
-package seedu.duke.TeamPlannerClasses;
+package seedu.duke.teamplannerclasses;
 
 import java.util.ArrayList;
 
 
-public class teammanager {
-    private ArrayList<teammember> team;
+public class TeamManager {
+    private ArrayList<TeamMember> team;
     private int memberCount = 0;
 
-    public teammanager() {
-        this.team = new ArrayList<teammember>();
+    public TeamManager() {
+        this.team = new ArrayList<TeamMember>();
     }
 
-    public void addMember(teammember teamMember) {
+    public void addMember(TeamMember teamMember) {
         team.add(teamMember);
         memberCount++;
     }
@@ -30,7 +30,7 @@ public class teammanager {
         return memberCount;
     }
 
-    public teammember getTeamMember(int index) {
+    public TeamMember getTeamMember(int index) {
         return team.get(index);
     }
 

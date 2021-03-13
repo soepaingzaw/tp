@@ -1,7 +1,7 @@
 package seedu.duke;
 
-import seedu.duke.TeamPlannerClasses.teammanager;
-import seedu.duke.TeamPlannerClasses.teammember;
+import seedu.duke.teamplannerclasses.TeamManager;
+import seedu.duke.teamplannerclasses.TeamMember;
 
 import java.util.Scanner;
 
@@ -22,7 +22,7 @@ public class TeamPlanner {
             + "5. help - lists the commands available\n" + "6. quit - quits the program\n";
     private static final String requestPassword = "Please enter the password";
 
-    private static teammanager team = new teammanager();
+    private static TeamManager team = new TeamManager();
 
     public static void main(String[] args) {
         boolean passwordEntered = false;
@@ -65,7 +65,7 @@ public class TeamPlanner {
                         teamMemberName += word;
                     }
                 }
-                teammember teamMember = new teammember(teamMemberName, false);
+                TeamMember teamMember = new TeamMember(teamMemberName, false);
                 team.addMember(teamMember);
                 System.out.println(team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
                 passwordCorrect = false;
@@ -129,7 +129,7 @@ public class TeamPlanner {
         Scanner in = new Scanner(System.in);
         String teamLeaderInputed = in.nextLine();
         //Add leader to the teamManager class
-        teammember teamLeader = new teammember(teamLeaderInputed, true);
+        TeamMember teamLeader = new TeamMember(teamLeaderInputed, true);
         team.addMember(teamLeader);
         System.out.println(requestTeamSize);
         int size = 0;
@@ -146,7 +146,7 @@ public class TeamPlanner {
         for (int i = 0; i < size; i++) {
             String teamMemberInputed = in.nextLine();
             //Add each member to the teamManager class
-            teammember teamMember = new teammember(teamMemberInputed, false);
+            TeamMember teamMember = new TeamMember(teamMemberInputed, false);
             team.addMember(teamMember);
         }
         System.out.println("The team details are as follows:");
