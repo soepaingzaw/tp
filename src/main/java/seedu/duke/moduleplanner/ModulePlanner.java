@@ -35,9 +35,9 @@ public class ModulePlanner {
         students.add(student);
     }
 
-    public static void findStudent(ArrayList<Student> Students, String line) {
-        for (int i = 0; i < Students.size(); i++) {
-            if (Students.get(i).getName().equals(line)) {
+    public static void findStudent(ArrayList<Student> students, String line) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getName().equals(line)) {
                 System.out.println("The number of students have higher priority than " + line + ": " + i + "\n");
             }
         }
