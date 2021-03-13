@@ -1,7 +1,6 @@
 package seedu.duke.CapCalculatorClasses;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.CapCalculatorClasses.ModuleList;
 
 import static org.junit.jupiter.api.Assertions.*;
 

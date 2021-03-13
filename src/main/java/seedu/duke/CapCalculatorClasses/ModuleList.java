@@ -110,5 +110,10 @@ public class ModuleList {
         return Points;
     }
 
+    public String toString() {
+
+        return moduleList.toString();
+    }
+
 
 }

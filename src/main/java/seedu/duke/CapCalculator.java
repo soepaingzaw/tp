@@ -2,12 +2,20 @@ package seedu.duke;
 
 import seedu.duke.CapCalculatorClasses.ModuleList;
 import seedu.duke.CapCalculatorClasses.ModuleData;
+import seedu.duke.CapCalculatorClasses.ModuleStorage;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
 
 public class CapCalculator {
+
+    private static final String filepath = "ModuleStorage.txt";
+    private static ModuleStorage storage = new ModuleStorage(filepath);
+
+
 
     public static void requestForModule() {
         System.out.print("Welcome to CAP Calculator!\n");
@@ -32,8 +40,9 @@ public class CapCalculator {
 
             switch (command) {
             case "list":
+                System.out.print("[MODULES] [GRADEs] [MCs]\n");
                 for (int i = 0; i < moduleList.size(); i++) {
-                    System.out.print(moduleList.get(i).toString());
+                    System.out.printf("[%-7s]   [%-2s]    [%1d]%n",moduleList.get(i).moduleCode,moduleList.get(i).grade,moduleList.get(i).MCs);
                 }
                 break;
 
@@ -69,6 +78,16 @@ public class CapCalculator {
                 moduleList.add(modules);
 
                 System.out.print("Added " + modules.moduleCode + "\n");
+
+                try {
+
+                    storage.writeToFile(filepath, moduleList);
+
+                } catch (FileNotFoundException e) {
+                    storage.fileDoesntExist();
+                } catch (IOException e) {
+                    System.out.print("File Error\n");
+                }
 
             }
 

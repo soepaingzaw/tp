@@ -4,9 +4,8 @@ public class ModuleData {
 
 
     public String moduleCode;
-   // protected String moduleCode;
-    protected String grade;
-    protected int MCs;
+    public String grade;
+    public int MCs;
 
     public ModuleData(String moduleCode, String grade, int MCs) {
         this.moduleCode = moduleCode;
