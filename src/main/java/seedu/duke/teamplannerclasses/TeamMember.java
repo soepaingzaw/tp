@@ -19,24 +19,24 @@ public class TeamMember {
         return isTeamLeader;
     }
 
-    public void addTask(Task task){
+    public void addTask(Task task) {
 
         tasks.addTask(task);
     }
 
-    public void deleteTask(int taskNum){
+    public void deleteTask(int taskNum) {
         tasks.deleteTask(taskNum);
     }
 
-    public void markTaskAsDone(int taskNum){
+    public void markTaskAsDone(int taskNum) {
         (tasks.getTask(taskNum)).markAsDone();
     }
 
-    public int getTaskCount(){
+    public int getTaskCount() {
         return tasks.getTaskCount();
     }
 
-    public Task getTask(int taskNum){
+    public Task getTask(int taskNum) {
         return tasks.getTask(taskNum);
     }
 
