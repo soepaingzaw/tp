@@ -34,7 +34,7 @@ public class TeamManager {
         return team.get(index);
     }
 
-    public int getIndexOfTeamMember(String teamMemberName){
+    public int getIndexOfTeamMember(String teamMemberName) {
         return team.indexOf(teamMemberName);
     }
 
