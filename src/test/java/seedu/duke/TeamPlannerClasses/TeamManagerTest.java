@@ -8,9 +8,9 @@ class TeamManagerTest {
 
     @Test
     void getTeamMember_oneTeamMember_expectIndexOfTeamMember() {
-        TeamManager team = new TeamManager();
+        teammanager team = new teammanager();
         String inputString = "inputName";
-        TeamMember teamMember = new TeamMember(inputString,false);
+        teammember teamMember = new teammember(inputString,false);
         team.addMember(teamMember);
         String outputString = (team.getTeamMember(0)).getName();
         assertEquals(outputString,"inputName");

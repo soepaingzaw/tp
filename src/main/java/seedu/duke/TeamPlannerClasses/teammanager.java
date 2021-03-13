@@ -3,15 +3,15 @@ package seedu.duke.TeamPlannerClasses;
 import java.util.ArrayList;
 
 
-public class TeamManager {
-    private ArrayList<TeamMember> team;
+public class teammanager {
+    private ArrayList<teammember> team;
     private int memberCount = 0;
 
-    public TeamManager() {
-        this.team = new ArrayList<TeamMember>();
+    public teammanager() {
+        this.team = new ArrayList<teammember>();
     }
 
-    public void addMember(TeamMember teamMember) {
+    public void addMember(teammember teamMember) {
         team.add(teamMember);
         memberCount++;
     }
@@ -30,7 +30,7 @@ public class TeamManager {
         return memberCount;
     }
 
-    public TeamMember getTeamMember(int index) {
+    public teammember getTeamMember(int index) {
         return team.get(index);
     }
 

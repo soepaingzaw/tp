@@ -1,10 +1,10 @@
 package seedu.duke.TeamPlannerClasses;
 
-public class TeamMember {
+public class teammember {
     protected String name;
     protected boolean isTeamLeader;
 
-    public TeamMember(String name, boolean isTeamLeader) {
+    public teammember(String name, boolean isTeamLeader) {
         this.name = name;
         this.isTeamLeader = isTeamLeader;
     }
