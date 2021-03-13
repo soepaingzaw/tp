@@ -24,5 +24,9 @@ public class ModuleData {
                 + "[" + MCs + "]\n";
     }
 
+    public String fileFormat() {
+        return moduleCode + "|" + grade + "|" + MCs + "\n";
+    }
+
 
 }

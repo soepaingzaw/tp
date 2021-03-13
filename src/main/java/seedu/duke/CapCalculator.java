@@ -14,7 +14,7 @@ public class CapCalculator {
 
     private static final String filepath = "ModuleStorage.txt";
     private static ModuleStorage storage = new ModuleStorage(filepath);
-
+    ModuleList moduleList;
 
 
     public static void requestForModule() {
@@ -26,8 +26,8 @@ public class CapCalculator {
     }
 
 
-    public static void readModuleInputs() {
-        ModuleList moduleList = new ModuleList();
+    public void readModuleInputs() {
+        //ModuleList moduleList = new ModuleList();
 
         while (true) {
             Scanner scan = new Scanner(System.in);
@@ -71,6 +71,7 @@ public class CapCalculator {
 
                 break;
 
+
             default:
                 String[] data = command.split(" ");
                 ModuleData modules = new ModuleData(data[0], data[1], Integer.parseInt(data[2]));
@@ -79,25 +80,44 @@ public class CapCalculator {
 
                 System.out.print("Added " + modules.moduleCode + "\n");
 
-                try {
 
-                    storage.writeToFile(filepath, moduleList);
 
-                } catch (FileNotFoundException e) {
-                    storage.fileDoesntExist();
-                } catch (IOException e) {
-                    System.out.print("File Error\n");
-                }
+            }
 
+            try {
+
+                storage.writeToFile(filepath, moduleList);
+
+            } catch (FileNotFoundException e) {
+                storage.fileDoesntExist();
+            } catch (IOException e) {
+                System.out.print("File Error\n");
             }
 
         }
         System.out.print("Bye See ya!\n");
     }
 
-    public static void main(String[] args) {
+    public CapCalculator(){
         requestForModule();
+        storage = new ModuleStorage(filepath);
+        try {
+            moduleList = new ModuleList(storage.load());
+        } catch (FileNotFoundException e) {
+            System.out.print("Creating new storage for you\n");
+            moduleList = new ModuleList();
+        }
+
+    }
+
+    public void run() {
         readModuleInputs();
+
+    }
+
+    public static void main(String[] args) {
+
+        new CapCalculator().run();
     }
 
 }

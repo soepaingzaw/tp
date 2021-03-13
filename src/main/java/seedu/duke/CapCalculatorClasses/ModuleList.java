@@ -9,7 +9,12 @@ public class ModuleList {
 
     }
 
+    public ModuleList (ArrayList<ModuleData> moduleList) {
+        this.moduleList = moduleList;
+    }
+
     public void add(ModuleData moduleData) {
+
         moduleList.add(moduleData);
     }
 
@@ -110,9 +115,13 @@ public class ModuleList {
         return Points;
     }
 
-    public String toString() {
+    public String printString() {
+        StringBuilder list = new StringBuilder();
 
-        return moduleList.toString();
+        for (ModuleData moduleData : moduleList) {
+            list.append(moduleData.fileFormat());
+        }
+        return list.toString();
     }
 
 
