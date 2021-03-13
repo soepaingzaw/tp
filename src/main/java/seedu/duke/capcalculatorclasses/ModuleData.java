@@ -1,17 +1,16 @@
-package seedu.duke.CapCalculatorClasses;
+package seedu.duke.capcalculatorclasses;
 
 public class ModuleData {
 
 
     public String moduleCode;
-   // protected String moduleCode;
-    protected String grade;
-    protected int MCs;
+    public String grade;
+    public int mcs;
 
-    public ModuleData(String moduleCode, String grade, int MCs) {
+    public ModuleData(String moduleCode, String grade, int mcs) {
         this.moduleCode = moduleCode;
         this.grade = grade;
-        this.MCs = MCs;
+        this.mcs = mcs;
 
     }
 
@@ -22,7 +21,11 @@ public class ModuleData {
 
     public String toString() {
         return "[" + moduleCode + "] " + "[" + grade + "] "
-                + "[" + MCs + "]\n";
+                + "[" + mcs + "]\n";
+    }
+
+    public String fileFormat() {
+        return moduleCode + "|" + grade + "|" + mcs + "\n";
     }
 
 

@@ -1,13 +1,20 @@
 package seedu.duke;
 
-import seedu.duke.CapCalculatorClasses.ModuleList;
-import seedu.duke.CapCalculatorClasses.ModuleData;
+import seedu.duke.capcalculatorclasses.ModuleList;
+import seedu.duke.capcalculatorclasses.ModuleData;
+import seedu.duke.capcalculatorclasses.ModuleStorage;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
-
 public class CapCalculator {
+
+    private static final String filepath = "ModuleStorage.txt";
+    private static ModuleStorage storage = new ModuleStorage(filepath);
+    ModuleList moduleList;
+
 
     public static void requestForModule() {
         System.out.print("Welcome to CAP Calculator!\n");
@@ -18,8 +25,7 @@ public class CapCalculator {
     }
 
 
-    public static void readModuleInputs() {
-        ModuleList moduleList = new ModuleList();
+    public void readModuleInputs() {
 
         while (true) {
             Scanner scan = new Scanner(System.in);
@@ -32,8 +38,10 @@ public class CapCalculator {
 
             switch (command) {
             case "list":
+                System.out.print("[MODULES] [GRADEs] [MCs]\n");
                 for (int i = 0; i < moduleList.size(); i++) {
-                    System.out.print(moduleList.get(i).toString());
+                    System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
+                            moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
                 }
                 break;
 
@@ -62,6 +70,7 @@ public class CapCalculator {
 
                 break;
 
+
             default:
                 String[] data = command.split(" ");
                 ModuleData modules = new ModuleData(data[0], data[1], Integer.parseInt(data[2]));
@@ -70,15 +79,43 @@ public class CapCalculator {
 
                 System.out.print("Added " + modules.moduleCode + "\n");
 
+
+            }
+
+            try {
+
+                storage.writeToFile(filepath, moduleList);
+
+            } catch (FileNotFoundException e) {
+                storage.fileDoesntExist();
+            } catch (IOException e) {
+                System.out.print("File Error\n");
             }
 
         }
         System.out.print("Bye See ya!\n");
     }
 
-    public static void main(String[] args) {
+    public CapCalculator() {
         requestForModule();
+        storage = new ModuleStorage(filepath);
+        try {
+            moduleList = new ModuleList(storage.load());
+        } catch (FileNotFoundException e) {
+            System.out.print("Creating new storage for you\n");
+            moduleList = new ModuleList();
+        }
+
+    }
+
+    public void run() {
         readModuleInputs();
+
+    }
+
+    public static void main(String[] args) {
+
+        new CapCalculator().run();
     }
 
 }
