@@ -1,6 +1,6 @@
 package seedu.duke.moduleplanner;
 
-public enum priority {
+public enum Priority {
     LOW,
     MEDIUM,
     HIGH
