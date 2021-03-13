@@ -1,4 +1,4 @@
-package seedu.duke.CapCalculatorClasses;
+package seedu.duke.capcalculatorclasses;
 
 import java.io.File;
 
@@ -12,8 +12,6 @@ public class ModuleStorage {
 
     public String storageFilePath;
 
-  //  public ModuleData modules;
-
     public ModuleStorage(String storageFilePath) {
 
         this.storageFilePath = storageFilePath;
@@ -22,7 +20,6 @@ public class ModuleStorage {
 
     public ArrayList<ModuleData> load() throws FileNotFoundException {
 
-        //ModuleList moduleList = new ModuleList();
         ArrayList<ModuleData> moduleList = new ArrayList<>();
         ModuleData modules;
         File f = new File(storageFilePath);
@@ -31,10 +28,8 @@ public class ModuleStorage {
         while (scan.hasNext()) {
             String textString = scan.nextLine();
             String[] textData = textString.split("\\|");
-            modules = new ModuleData(textData[0],  textData[1], Integer.parseInt( textData[2]));
-
+            modules = new ModuleData(textData[0], textData[1], Integer.parseInt(textData[2]));
             moduleList.add(modules);
-
 
         }
 
@@ -42,7 +37,7 @@ public class ModuleStorage {
     }
 
 
-    public void writeToFile(String storageFilePath,ModuleList moduleList) throws IOException {
+    public void writeToFile(String storageFilePath, ModuleList moduleList) throws IOException {
         FileWriter fw = new FileWriter(storageFilePath);
         fw.write(moduleList.printString());
         fw.close();

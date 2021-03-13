@@ -1,13 +1,12 @@
 package seedu.duke;
 
-import seedu.duke.CapCalculatorClasses.ModuleList;
-import seedu.duke.CapCalculatorClasses.ModuleData;
-import seedu.duke.CapCalculatorClasses.ModuleStorage;
+import seedu.duke.capcalculatorclasses.ModuleList;
+import seedu.duke.capcalculatorclasses.ModuleData;
+import seedu.duke.capcalculatorclasses.ModuleStorage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-
 
 
 public class CapCalculator {
@@ -27,7 +26,6 @@ public class CapCalculator {
 
 
     public void readModuleInputs() {
-        //ModuleList moduleList = new ModuleList();
 
         while (true) {
             Scanner scan = new Scanner(System.in);
@@ -42,7 +40,8 @@ public class CapCalculator {
             case "list":
                 System.out.print("[MODULES] [GRADEs] [MCs]\n");
                 for (int i = 0; i < moduleList.size(); i++) {
-                    System.out.printf("[%-7s]   [%-2s]    [%1d]%n",moduleList.get(i).moduleCode,moduleList.get(i).grade,moduleList.get(i).MCs);
+                    System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
+                            moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
                 }
                 break;
 
@@ -81,7 +80,6 @@ public class CapCalculator {
                 System.out.print("Added " + modules.moduleCode + "\n");
 
 
-
             }
 
             try {
@@ -98,7 +96,7 @@ public class CapCalculator {
         System.out.print("Bye See ya!\n");
     }
 
-    public CapCalculator(){
+    public CapCalculator() {
         requestForModule();
         storage = new ModuleStorage(filepath);
         try {

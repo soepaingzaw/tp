@@ -1,4 +1,4 @@
-package seedu.duke.CapCalculatorClasses;
+package seedu.duke.capcalculatorclasses;
 
 import org.junit.jupiter.api.Test;
 

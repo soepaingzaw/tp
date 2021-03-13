@@ -1,4 +1,4 @@
-package seedu.duke.CapCalculatorClasses;
+package seedu.duke.capcalculatorclasses;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class ModuleList {
 
     }
 
-    public ModuleList (ArrayList<ModuleData> moduleList) {
+    public ModuleList(ArrayList<ModuleData> moduleList) {
         this.moduleList = moduleList;
     }
 
@@ -51,7 +51,7 @@ public class ModuleList {
     }
 
     public double calculate() {
-        double CAP;
+        double cap;
         int summationOfMCs = 0;
         double summationOfGradeTimesMCs = 0.0;
         boolean isNotSUmod;
@@ -60,59 +60,59 @@ public class ModuleList {
 
         for (ModuleData capCalculator : moduleList) {
             score = capCalculator.grade;
-            summationOfGradeTimesMCs += gradesToPoints(score) * capCalculator.MCs;
+            summationOfGradeTimesMCs += gradesToPoints(score) * capCalculator.mcs;
 
             isNotSUmod = !score.equals("S") && !score.equals("U");
             isNotPassFailMod = !score.equals("CS") && !score.equals("CU");
 
             if (isNotPassFailMod && isNotSUmod) {
-                summationOfMCs += capCalculator.MCs;
+                summationOfMCs += capCalculator.mcs;
             }
         }
 
-        CAP = summationOfGradeTimesMCs / summationOfMCs;
+        cap = summationOfGradeTimesMCs / summationOfMCs;
 
-        return CAP;
+        return cap;
     }
 
     public double gradesToPoints(String letterGrade) {
-        double Points;
+        double points;
 
         switch (letterGrade) {
         case "A+":
         case "A":
-            Points = 5.0;
+            points = 5.0;
             break;
         case "A-":
-            Points = 4.5;
+            points = 4.5;
             break;
         case "B+":
-            Points = 4.0;
+            points = 4.0;
             break;
         case "B":
-            Points = 3.5;
+            points = 3.5;
             break;
         case "B-":
-            Points = 3.0;
+            points = 3.0;
             break;
         case "C+":
-            Points = 2.5;
+            points = 2.5;
             break;
         case "C":
-            Points = 2.0;
+            points = 2.0;
             break;
         case "D+":
-            Points = 1.5;
+            points = 1.5;
             break;
         case "D":
-            Points = 1.0;
+            points = 1.0;
             break;
         default:
-            Points = 0.0;
+            points = 0.0;
             break;
         }
 
-        return Points;
+        return points;
     }
 
     public String printString() {
