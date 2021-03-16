@@ -15,8 +15,7 @@ public class FoodStoreParser {
         boolean validInput = hasDescription && hasStoreName;
         if (!validInput) {
             throw new FoodExceptions(INVALID_ADD_MESSAGE);
-        }
-        else {
+        } else {
             String[] inputArguments = input.split("/d ");
             return new FoodStore(inputArguments[0], inputArguments[1]);
         }
