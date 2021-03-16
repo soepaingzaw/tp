@@ -13,14 +13,14 @@ public class FoodRecommendation {
 
     private static final String FIND_ERROR_MESSAGE =
             "Sorry, We are unable to find any food stores that fit the description";
-    private static final String WELCOME_MESSAGE = "Welcome to Food Recommendation Bot!\n"
-            + "Enter help to find out all available commands";
+    private static final String WELCOME_MESSAGE = "Welcome to Food Recommendation Bot!\n";
     private static final String AVAILABLE_COMMANDS = "Here are the list of commands: \n"
-            + "1. add [store name] [store description] - Adds a new food store\n"
-            + "2. list - Prints out all the food stores\n"
-            + "3. delete [store index] - Deletes the store with that index\n"
-            + "4. recommend - Recommends a random food store\n"
-            + "5. clear - Clears all the food stores in the list";
+            + "1. help - Displays the list of commands available\n"
+            + "2. add [store name] [store description] - Adds a new food store\n"
+            + "3. list - Prints out all the food stores\n"
+            + "4. delete [store index] - Deletes the store with that index\n"
+            + "5. recommend - Recommends a random food store\n"
+            + "6. clear - Clears all the food stores in the list";
     private static final String EXIT_MESSAGE = "Goodbye, hope to see you again!";
     private static final String OUT_OF_BOUNDS_MESSAGE = "Sorry, the number you inputted is out of bounds.";
 
@@ -48,6 +48,7 @@ public class FoodRecommendation {
     }
 
     public void delete(int index) {
+        assert index > 0 : "index should be greater than 0";
         if (index <= foodStoreList.size()-1) {
             foodStoreList.remove(index);
         }
@@ -141,8 +142,5 @@ public class FoodRecommendation {
         }
     }
 
-    public static void main(String[] args) {
-        new FoodRecommendation().run();
-    }
 
 }

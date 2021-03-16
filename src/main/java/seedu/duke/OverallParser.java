@@ -14,6 +14,7 @@ public class OverallParser {
     }
 
     public static void main(String[] args) {
+        assert false : "hi";
         new OverallParser().run();
     }
 
@@ -46,6 +47,7 @@ public class OverallParser {
             case "3":
                 break;
             case "4":
+                new FoodRecommendation().run();
                 break;
             default:
                 System.out.print("Invalid Try again!\n");//replace this line with exception in the future
