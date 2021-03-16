@@ -14,7 +14,6 @@ public class OverallParser {
     }
 
     public static void main(String[] args) {
-        assert false : "hi";
         new OverallParser().run();
     }
 

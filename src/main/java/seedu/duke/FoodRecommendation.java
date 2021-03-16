@@ -40,7 +40,7 @@ public class FoodRecommendation {
     }
 
     public void printList() {
-        for (int i=0; i<foodStoreList.size(); i++) {
+        for (int i = 0; i < foodStoreList.size(); i++) {
             FoodStore foodStore = foodStoreList.get(i);
             Integer index = i + 1;
             System.out.println(index + ". " + foodStore.toString());
@@ -48,11 +48,9 @@ public class FoodRecommendation {
     }
 
     public void delete(int index) {
-        assert index > 0 : "index should be greater than 0";
-        if (index <= foodStoreList.size()-1) {
+        if (index <= foodStoreList.size() - 1) {
             foodStoreList.remove(index);
-        }
-        else {
+        } else {
             System.out.println(OUT_OF_BOUNDS_MESSAGE);
         }
     }
@@ -123,18 +121,14 @@ public class FoodRecommendation {
                 } catch (FoodExceptions e) {
                     System.out.println(e.getMessage());
                 }
-            }
-            else if (isDelete) {
+            } else if (isDelete) {
                 int index = Integer.parseInt(inputArguments[1]) - 1;
                 delete(index);
-            }
-            else if (isList) {
+            } else if (isList) {
                 printList();
-            }
-            else if (isRecommend) {
+            } else if (isRecommend) {
                 recommend();
-            }
-            else if (isClear) {
+            } else if (isClear) {
                 clearList();
             }
             userInput = in.nextLine();
