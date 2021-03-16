@@ -3,12 +3,12 @@ package seedu.duke;
 import java.util.Scanner;
 
 public class OverallParser {
-/*
-    boolean teamPlanner;
-    boolean modulePlanner;
-    boolean capCalculator;
-    boolean foodRecommendation;
-*/
+    /*
+        boolean teamPlanner;
+        boolean modulePlanner;
+        boolean capCalculator;
+        boolean foodRecommendation;
+    */
     public OverallParser() {
 
     }
@@ -21,6 +21,11 @@ public class OverallParser {
 
         greetUserAndDisplayFeatures();
         requestForFeatureMode();
+        displayExitMessage();
+    }
+
+    public void displayExitMessage() {
+        System.out.println("Thank you for using All-in-oneNUS, we hope to see you again!");
     }
 
     void greetUserAndDisplayFeatures() {
@@ -38,6 +43,8 @@ public class OverallParser {
             Scanner choice = new Scanner(System.in);
             String chosen = choice.nextLine();
             switch (chosen) {
+            case "bye":
+                return;
             case "1":
                 new TeamPlanner().run();
                 break;
