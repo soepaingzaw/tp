@@ -40,6 +40,7 @@ public class TeamManager {
 
     public void clearTeam() {
         team.clear();
+        memberCount = 0;
     }
 
 }
