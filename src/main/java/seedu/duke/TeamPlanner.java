@@ -57,7 +57,7 @@ public class TeamPlanner {
             String[] commandArguments = command.split(" ");
             try {
                 if (commandArguments[0].equals("add") && commandArguments[1].equals("member")) {
-                    if(commandArguments.length==2){
+                    if (commandArguments.length == 2) {
                         System.out.println("Missing parameter in the input. Please specify a member to add");
                         continue;
                     }
@@ -81,7 +81,7 @@ public class TeamPlanner {
                     team.addMember(teamMember);
                     System.out.println(team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
                 } else if (commandArguments[0].equals("delete") && commandArguments[1].equals("member")) {
-                    if(commandArguments.length==2){
+                    if (commandArguments.length == 2) {
                         System.out.println("Missing parameter in the input. Please specify a member to delete");
                         continue;
                     }
@@ -157,15 +157,15 @@ public class TeamPlanner {
 //                            System.out.println("  " + j + ". " + (team.getTeamMember(i)).getTask(j));
 //                        }
 //                    }
-            //    }
-            else if (commandArguments[0].equals("help")) {
+                //    }
+                else if (commandArguments[0].equals("help")) {
                     System.out.println(displayCommandsAvailable);
                 } else if (commandArguments[0].equals("quit")) {
                     programOn = false;
                 } else {
                     throw new TeamPlannerException("invalid_input");
                 }
-            }catch (TeamPlannerException e){
+            } catch (TeamPlannerException e) {
                 System.out.println("Invalid input");
                 System.out.println(displayCommandsAvailable);
             }
