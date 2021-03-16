@@ -1,5 +1,7 @@
 package seedu.duke.moduleplanner;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -39,11 +41,22 @@ public class ModulePlanner {
         for (int i = 0; i < students.size(); i++) {
             if (students.get(i).getName().equals(line)) {
                 System.out.println("The number of students have higher priority than " + line + ": " + i + "\n");
+                System.out.println("Chances for " + line + ": " + getChances(i + 1, getTotalSlots()) + "\n");
             }
         }
     }
 
-    public static void main(String[] args) {
+    public static Priority getChances(int position, int slots) {
+        if (position < slots / 2) {
+            return Priority.HIGH;
+        } else if (position < slots && slots / 2 < position) {
+            return Priority.MEDIUM;
+        } else {
+            return Priority.LOW;
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
         String line;
         Scanner in = new Scanner(System.in);
         line = in.nextLine();
@@ -54,7 +67,9 @@ public class ModulePlanner {
                     String[] parts = line.split("/");
                     ModulePlanner t = new ModulePlanner(parts[0].trim(), Parser.parserToInteger(parts[1].trim()));
                     System.out.println(getModuleCode() + " " + getTotalSlots());
-                } catch (java.lang.StringIndexOutOfBoundsException e) {
+                    Storage.createFile();
+                    Storage.readFile(students);
+                } catch (StringIndexOutOfBoundsException | FileNotFoundException e) {
                     Ui.showEmptyDescriptionException(line);
                 }
             } else if (line.startsWith("student")) {
@@ -66,7 +81,7 @@ public class ModulePlanner {
                             Parser.parserToBoolean(parts[2].trim()),
                             Parser.parserToInteger(parts[3].trim()));
                     addStudent(a);
-                    System.out.println(a.getName() + "," + a.getScore());
+                    System.out.println(a.getName() + "has been added.");
                 } catch (java.lang.StringIndexOutOfBoundsException e) {
                     Ui.showEmptyDescriptionException(line);
                 }
@@ -79,5 +94,6 @@ public class ModulePlanner {
             }
             line = in.nextLine();
         }
+        Storage.writeFile(students);
     }
 }

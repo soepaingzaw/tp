@@ -7,7 +7,6 @@ public class Student implements Comparable<Student> {
     protected int score;
     protected int rank;
 
-
     public Student(String name, int year, boolean graduationRequirement, int rank) {
         this.name = name;
         this.graduationRequirement = graduationRequirement;
@@ -35,6 +34,15 @@ public class Student implements Comparable<Student> {
     public int getScore() {
         return score;
     }
+
+    public boolean getGraduationRequirement() {
+        return graduationRequirement;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
 
     @Override
     public String toString() {
