@@ -39,6 +39,7 @@ public class OverallParser {
             String chosen = choice.nextLine();
             switch (chosen) {
             case "1":
+                new TeamPlanner().run();
                 break;
             case "2":
                 new CapCalculator().run();

@@ -18,12 +18,12 @@ public class TeamPlanner {
     private static final String passwordDoNotMatch = "The passwords do not match";
     private static final String displayCommandsAvailable = "Here are the list of commands available : \n"
             + "1. add member [member] - adds a member (requires password)\n"
-            + "2. delete member[member index] - deletes a member (requires password)\n"
+            + "2. delete member [member index] - deletes a member (requires password)\n"
             + "3. show members - shows current members\n"
             + "4. clear members - clears the current team and resets the password (requires password)\n"
             + "5. show commands - lists the commands available\n"
             + "6. quit - quits the program\n";
-//            + "5. add task [member] [task] [priority level(HIGH/MED/LOW)]\n"
+    //            + "5. add task [member] [task] [priority level(HIGH/MED/LOW)]\n"
 //            + "6. delete task [member index] [task index]\n"
 //            + "7. mark done [member index] [task]\n"
 //            + "8. show tasks\n"
@@ -31,7 +31,7 @@ public class TeamPlanner {
 
     private static TeamManager team = new TeamManager();
 
-    public static void main(String[] args) {
+    public static void teamPlanner() {
         boolean passwordEntered = false;
         String password = "";
         System.out.println(welcomeMessage);
@@ -79,7 +79,7 @@ public class TeamPlanner {
                     }
                     TeamMember teamMember = new TeamMember(teamMemberName, false);
                     team.addMember(teamMember);
-                    System.out.println(team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
+                    System.out.println("[M]" + team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
                 } else if (commandArguments[0].equals("delete") && commandArguments[1].equals("member")) {
                     if (commandArguments.length == 2) {
                         System.out.println("Missing parameter in the input. Please specify a member to delete");
@@ -163,7 +163,6 @@ public class TeamPlanner {
 //                            System.out.println("  " + j + ". " + (team.getTeamMember(i)).getTask(j));
 //                        }
 //                    }
-//                    }
             } catch (TeamPlannerException e) {
                 System.out.println("Invalid input");
                 System.out.println(displayCommandsAvailable);
@@ -210,5 +209,10 @@ public class TeamPlanner {
             }
         }
     }
+
+    public void run() {
+        teamPlanner();
+    }
+
 
 }
