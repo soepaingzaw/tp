@@ -47,16 +47,19 @@ public class ModulePlanner {
     }
 
     public static Priority getChances(int position, int slots) {
-        if (position < slots / 2) {
+        if (position <= slots/2) {
             return Priority.HIGH;
-        } else if (position < slots && slots / 2 < position) {
-            return Priority.MEDIUM;
-        } else {
+        } else if (position > slots){
             return Priority.LOW;
         }
+        else {
+            return Priority.MEDIUM;
+        }
+
     }
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Please enter the module and the slots. example: module CS2113T,50\n");
         String line;
         Scanner in = new Scanner(System.in);
         line = in.nextLine();
@@ -64,9 +67,10 @@ public class ModulePlanner {
             if (line.startsWith("module")) {
                 try {
                     line = line.replace("module", "");
-                    String[] parts = line.split("/");
+                    String[] parts = line.split(",");
                     ModulePlanner t = new ModulePlanner(parts[0].trim(), Parser.parserToInteger(parts[1].trim()));
-                    System.out.println(getModuleCode() + " " + getTotalSlots());
+                    System.out.println("Module " + getModuleCode() + " has been added.");
+                    System.out.println("Please add the student name, seniority, requirement for graduation, rank. example: student Alice,1,true,2");
                     Storage.createFile();
                     Storage.readFile(students);
                 } catch (StringIndexOutOfBoundsException | FileNotFoundException e) {
@@ -75,7 +79,7 @@ public class ModulePlanner {
             } else if (line.startsWith("student")) {
                 try {
                     line = line.replace("student", "");
-                    String[] parts = line.split("/");
+                    String[] parts = line.split(",");
                     Student a = new Student(parts[0].trim(),
                             Parser.parserToInteger(parts[1].trim()),
                             Parser.parserToBoolean(parts[2].trim()),
