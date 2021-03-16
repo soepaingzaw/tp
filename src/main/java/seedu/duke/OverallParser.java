@@ -49,7 +49,7 @@ public class OverallParser {
                 new CapCalculator().run();
                 break;
             case "3":
-//                new ModulePlanner().run();
+               new ModulePlanner().run();
                 break;
             case "4":
                 new FoodRecommendation().run();

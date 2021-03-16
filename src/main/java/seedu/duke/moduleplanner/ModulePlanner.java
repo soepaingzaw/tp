@@ -57,7 +57,7 @@ public class ModulePlanner {
     }
 
     public static Priority getChances(int position, int slots) {
-        if (position <= slots/2) {
+        if (position <= slots / 2) {
             return Priority.HIGH;
         } else if (position > slots) {
             return Priority.LOW;
@@ -67,7 +67,7 @@ public class ModulePlanner {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void readInput() throws IOException {
         System.out.println("Please enter the module and the slots. example: module CS2113T,50\n");
         String line;
         Scanner in = new Scanner(System.in);
@@ -79,6 +79,7 @@ public class ModulePlanner {
                     String[] parts = line.split(",");
                     ModulePlanner t = new ModulePlanner();
                     setModuleCode(parts[0].trim());
+                    setTotalSlots(Parser.parserToInteger(parts[1].trim()));
                     System.out.println("Module " + getModuleCode() + " has been added.");
                     System.out.println("Please add the student name, seniority, requirement for graduation, " +
                             "rank. example: student Alice,1,true,2");
@@ -112,7 +113,11 @@ public class ModulePlanner {
         Storage.writeFile(students);
     }
 
-//    public void run() throws IOException {
-//        readInput();
-//    }
+    public void run()  {
+        try {
+            readInput();
+        } catch (IOException e) {
+            Ui.showException();
+        };
+    }
 }
