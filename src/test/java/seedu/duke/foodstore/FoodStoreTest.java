@@ -8,8 +8,8 @@ class FoodStoreTest {
 
     @Test
     void toString_expectOneString() {
-        FoodStore foodStore = new FoodStore("Chicken Rice", "Sells White and Roasted Chicken", true);
-        String correctOutput = "[H] Chicken Rice: Sells White and Roasted Chicken";
+        FoodStore foodStore = new FoodStore("Chicken Rice", "Sells White and Roasted Chicken");
+        String correctOutput = "[X] Chicken Rice: Sells White and Roasted Chicken";
         assertEquals(correctOutput, foodStore.toString());
     }
 

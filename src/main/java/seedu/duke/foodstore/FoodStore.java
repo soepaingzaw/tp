@@ -6,10 +6,9 @@ public class FoodStore {
     public final String storeDescription;
     public boolean isHalal;
 
-    public FoodStore(String storeName, String storeDescription, boolean isHalal) {
+    public FoodStore(String storeName, String storeDescription) {
         this.storeName = storeName.trim();
         this.storeDescription = storeDescription.trim();
-        this.isHalal = isHalal;
     }
 
     public String getStoreName() {
@@ -22,6 +21,14 @@ public class FoodStore {
 
     public boolean isHalal() {
         return isHalal;
+    }
+
+    public void setHalal() {
+        isHalal = true;
+    }
+
+    public void clearHalal() {
+        isHalal = false;
     }
 
     public String toString() {
