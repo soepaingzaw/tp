@@ -12,12 +12,22 @@ public class ModulePlanner {
     protected static int totalSlots;
 
 
-    public ModulePlanner(String moduleCode, int totalSlots) {
+    public static void setModuleCode(String moduleCode) {
+        ModulePlanner.moduleCode = moduleCode;
+    }
+
+
+    public static void setTotalSlots(int totalSlots) {
+        ModulePlanner.totalSlots = totalSlots;
+    }
+
+    public ModulePlanner() {
         ModulePlanner.moduleCode = moduleCode;
         ModulePlanner.totalSlots = totalSlots;
         students = new ArrayList<>();
 
     }
+
 
     public static String getModuleCode() {
         return moduleCode;
@@ -47,18 +57,17 @@ public class ModulePlanner {
     }
 
     public static Priority getChances(int position, int slots) {
-        if (position <= slots/2) {
+        if (position <= slots / 2) {
             return Priority.HIGH;
-        } else if (position > slots){
+        } else if (position > slots) {
             return Priority.LOW;
-        }
-        else {
+        } else {
             return Priority.MEDIUM;
         }
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void readInput() throws IOException {
         System.out.println("Please enter the module and the slots. example: module CS2113T,50\n");
         String line;
         Scanner in = new Scanner(System.in);
@@ -68,9 +77,12 @@ public class ModulePlanner {
                 try {
                     line = line.replace("module", "");
                     String[] parts = line.split(",");
-                    ModulePlanner t = new ModulePlanner(parts[0].trim(), Parser.parserToInteger(parts[1].trim()));
+                    ModulePlanner t = new ModulePlanner();
+                    setModuleCode(parts[0].trim());
+                    setTotalSlots(Parser.parserToInteger(parts[1].trim()));
                     System.out.println("Module " + getModuleCode() + " has been added.");
-                    System.out.println("Please add the student name, seniority, requirement for graduation, rank. example: student Alice,1,true,2");
+                    System.out.println("Please add the student name, seniority, requirement for graduation, " +
+                            "rank. example: student Alice,1,true,2");
                     Storage.createFile();
                     Storage.readFile(students);
                 } catch (StringIndexOutOfBoundsException | FileNotFoundException e) {
@@ -99,5 +111,13 @@ public class ModulePlanner {
             line = in.nextLine();
         }
         Storage.writeFile(students);
+    }
+
+    public void run()  {
+        try {
+            readInput();
+        } catch (IOException e) {
+            Ui.showException();
+        };
     }
 }

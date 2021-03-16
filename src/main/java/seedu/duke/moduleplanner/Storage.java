@@ -14,7 +14,8 @@ public class Storage {
         File file = new File("ModulePlanner.txt");
         FileWriter writer = new FileWriter(file);
         for (Student t : students) {
-            writer.write(t.getName() + " | " + t.getYear() + " | " + t.getGraduationRequirement() + " | " + t.getRank());
+            writer.write(t.getName() + " | " + t.getYear() + " | "
+                    + t.getGraduationRequirement() + " | " + t.getRank());
             writer.write("\r\n");
         }
         writer.close();
