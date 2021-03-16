@@ -23,6 +23,11 @@ public class FoodRecommendation {
             + "6. clear - Clears all the food stores in the list";
     private static final String EXIT_MESSAGE = "Goodbye, hope to see you again!";
     private static final String OUT_OF_BOUNDS_MESSAGE = "Sorry, the number you inputted is out of bounds.";
+    private static final String RECOMMEND_MESSAGE = "The bot recommends this store for you to try!";
+    private static final String CLEAR_MESSAGE = "All food stores have been cleared from the list.";
+    private static final String STORE_REMOVE_MESSAGE = "This store has been removed:";
+    private static final String LIST_MESSAGE = "Here is the list of food stores:";
+    private static final String ADD_MESSAGE = "This food store has been added to the list:";
 
 
     private final List<FoodStore> foodStoreList = new ArrayList<>();
@@ -32,6 +37,8 @@ public class FoodRecommendation {
     }
 
     public void add(FoodStore toAdd) {
+        print(ADD_MESSAGE);
+        printStore(toAdd);
         foodStoreList.add(toAdd);
     }
 
@@ -40,30 +47,37 @@ public class FoodRecommendation {
     }
 
     public void printList() {
-        for (int i=0; i<foodStoreList.size(); i++) {
+        print(LIST_MESSAGE);
+        for (int i = 0; i < foodStoreList.size(); i++) {
             FoodStore foodStore = foodStoreList.get(i);
             Integer index = i + 1;
-            System.out.println(index + ". " + foodStore.toString());
+            print(index + ". " + foodStore.toString());
         }
     }
 
     public void delete(int index) {
-        assert index > 0 : "index should be greater than 0";
-        if (index <= foodStoreList.size()-1) {
+        if (index <= foodStoreList.size() - 1) {
+            print(STORE_REMOVE_MESSAGE);
+            printStore(foodStoreList.get(index));
             foodStoreList.remove(index);
-        }
-        else {
-            System.out.println(OUT_OF_BOUNDS_MESSAGE);
+        } else {
+            print(OUT_OF_BOUNDS_MESSAGE);
         }
     }
 
     public void clearList() {
+        print(CLEAR_MESSAGE);
         foodStoreList.clear();
+    }
+
+    public void print(String message) {
+        System.out.println(message);
     }
 
     public void recommend() {
         Random random = new Random();
         FoodStore foodStore = foodStoreList.get(random.nextInt(foodStoreList.size()));
+        print(RECOMMEND_MESSAGE);
         printStore(foodStore);
     }
 
@@ -71,7 +85,7 @@ public class FoodRecommendation {
         if (foodStoreList.contains(toFind)) {
             printStore(toFind);
         } else {
-            System.out.println(FIND_ERROR_MESSAGE);
+            print(FIND_ERROR_MESSAGE);
         }
     }
 
@@ -123,18 +137,14 @@ public class FoodRecommendation {
                 } catch (FoodExceptions e) {
                     System.out.println(e.getMessage());
                 }
-            }
-            else if (isDelete) {
+            } else if (isDelete) {
                 int index = Integer.parseInt(inputArguments[1]) - 1;
                 delete(index);
-            }
-            else if (isList) {
+            } else if (isList) {
                 printList();
-            }
-            else if (isRecommend) {
+            } else if (isRecommend) {
                 recommend();
-            }
-            else if (isClear) {
+            } else if (isClear) {
                 clearList();
             }
             userInput = in.nextLine();
