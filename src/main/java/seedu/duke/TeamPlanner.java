@@ -21,12 +21,12 @@ public class TeamPlanner {
             + "2. delete member[member index] - deletes a member (requires password)\n"
             + "3. show members - shows current members\n"
             + "4. clear members - clears the current team and resets the password (requires password)\n"
+            + "5. show commands - lists the commands available\n"
+            + "6. quit - quits the program\n";
 //            + "5. add task [member] [task] [priority level(HIGH/MED/LOW)]\n"
 //            + "6. delete task [member index] [task index]\n"
 //            + "7. mark done [member index] [task]\n"
 //            + "8. show tasks\n"
-            + "5. show commands - lists the commands available\n"
-            + "6. quit - quits the program\n";
     private static final String requestPassword = "Please enter the password";
 
     private static TeamManager team = new TeamManager();
@@ -132,6 +132,12 @@ public class TeamPlanner {
                             System.out.println(passwordDoNotMatch);
                         }
                     }
+                } else if (commandArguments[0].equals("help")) {
+                    System.out.println(displayCommandsAvailable);
+                } else if (commandArguments[0].equals("quit")) {
+                    programOn = false;
+                } else {
+                    throw new TeamPlannerException("invalid_input");
                 }
 //                } else if (commandArguments[0].equals("add") && commandArguments[1].equals("task")) {
 //                    int priorityLevel = 0;
@@ -157,14 +163,7 @@ public class TeamPlanner {
 //                            System.out.println("  " + j + ". " + (team.getTeamMember(i)).getTask(j));
 //                        }
 //                    }
-                //    }
-                else if (commandArguments[0].equals("help")) {
-                    System.out.println(displayCommandsAvailable);
-                } else if (commandArguments[0].equals("quit")) {
-                    programOn = false;
-                } else {
-                    throw new TeamPlannerException("invalid_input");
-                }
+//                    }
             } catch (TeamPlannerException e) {
                 System.out.println("Invalid input");
                 System.out.println(displayCommandsAvailable);
