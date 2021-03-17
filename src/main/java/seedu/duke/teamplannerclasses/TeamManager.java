@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class TeamManager {
     private ArrayList<TeamMember> team;
     private int memberCount = 0;
+    private String password = "";
 
     public TeamManager() {
         this.team = new ArrayList<TeamMember>();
@@ -41,6 +42,17 @@ public class TeamManager {
     public void clearTeam() {
         team.clear();
         memberCount = 0;
+    }
+
+    public void increaseMemberCount(){
+        memberCount++;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
+    public String getPassword(){
+        return password;
     }
 
 }
