@@ -3,9 +3,11 @@ package seedu.duke;
 import seedu.duke.foodstore.FoodStore;
 import seedu.duke.foodstore.FoodExceptions;
 import seedu.duke.foodstore.FoodStoreParser;
+import seedu.duke.foodstore.FoodStoreStorage;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,21 +24,21 @@ public class FoodRecommendation {
             + "5. recommend - Recommends a random food store\n"
             + "6. clear - Clears all the food stores in the list";
     private static final String EXIT_MESSAGE = "Goodbye, hope to see you again!";
-    private static final String OUT_OF_BOUNDS_MESSAGE = "Sorry, the number you inputted is out of bounds.";
     private static final String RECOMMEND_MESSAGE = "The bot recommends this store for you to try!";
     private static final String CLEAR_MESSAGE = "All food stores have been cleared from the list.";
     private static final String STORE_REMOVE_MESSAGE = "This store has been removed:";
     private static final String LIST_MESSAGE = "Here is the list of food stores:";
     private static final String ADD_MESSAGE = "This food store has been added to the list:";
+    private static final String FILE_NOT_FOUND_MESSAGE = "File not found. Creating a new file...";
 
 
-    private final List<FoodStore> foodStoreList = new ArrayList<>();
+    private final ArrayList<FoodStore> foodStoreList = new ArrayList<>();
 
     public FoodRecommendation() {
 
     }
 
-    public void add(FoodStore toAdd) {
+    public void addStore(FoodStore toAdd) {
         print(ADD_MESSAGE);
         printStore(toAdd);
         foodStoreList.add(toAdd);
@@ -55,14 +57,10 @@ public class FoodRecommendation {
         }
     }
 
-    public void delete(int index) {
-        if (index <= foodStoreList.size() - 1) {
+    public void deleteStore(int index) {
             print(STORE_REMOVE_MESSAGE);
             printStore(foodStoreList.get(index));
             foodStoreList.remove(index);
-        } else {
-            print(OUT_OF_BOUNDS_MESSAGE);
-        }
     }
 
     public void clearList() {
@@ -113,8 +111,18 @@ public class FoodRecommendation {
 
     public void run() {
         printWelcomeMessage();
+        try {
+            FoodStoreStorage.loadFile(foodStoreList);
+        } catch (FileNotFoundException e) {
+            print(FILE_NOT_FOUND_MESSAGE);
+        }
         printAvailableCommands();
         runUntilExit();
+        try {
+            FoodStoreStorage.saveFile(foodStoreList);
+        } catch (IOException e) {
+            print("Something went wrong: " + e.getMessage());
+        }
         printExitMessage();
     }
 
@@ -133,13 +141,18 @@ public class FoodRecommendation {
             if (isAdd) {
                 try {
                     FoodStore foodStore = FoodStoreParser.parseAddCommand(userInput);
-                    add(foodStore);
+                    addStore(foodStore);
                 } catch (FoodExceptions e) {
-                    System.out.println(e.getMessage());
+                    print(e.getMessage());
                 }
             } else if (isDelete) {
-                int index = Integer.parseInt(inputArguments[1]) - 1;
-                delete(index);
+                try {
+                    int index = FoodStoreParser.parseDeleteCommand(userInput, foodStoreList.size());
+                    deleteStore(index);
+                } catch (FoodExceptions e) {
+                    print(e.getMessage());
+                }
+
             } else if (isList) {
                 printList();
             } else if (isRecommend) {

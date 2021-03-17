@@ -23,8 +23,6 @@ public class OverallParser {
     }
 
     public void run() throws IOException {
-
-        greetUserAndDisplayFeatures();
         requestForFeatureMode();
         displayExitMessage();
     }
@@ -44,7 +42,7 @@ public class OverallParser {
 
     void requestForFeatureMode() throws IOException {
         while (true) {
-
+            greetUserAndDisplayFeatures();
             Scanner choice = new Scanner(System.in);
             String chosen = choice.nextLine();
             switch (chosen) {
