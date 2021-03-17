@@ -3,12 +3,12 @@ package seedu.duke;
 import java.util.Scanner;
 
 public class OverallParser {
-/*
-    boolean teamPlanner;
-    boolean modulePlanner;
-    boolean capCalculator;
-    boolean foodRecommendation;
-*/
+    /*
+        boolean teamPlanner;
+        boolean modulePlanner;
+        boolean capCalculator;
+        boolean foodRecommendation;
+    */
     public OverallParser() {
 
     }

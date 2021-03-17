@@ -42,6 +42,10 @@ public class TeamMember {
 
     @Override
     public String toString() {
-        return name;
+        if (isTeamLeader) {
+            return "[L]" + name;
+        } else {
+            return "[M]" + name;
+        }
     }
 }

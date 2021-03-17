@@ -4,7 +4,11 @@ import seedu.duke.teamplannerclasses.TeamManager;
 import seedu.duke.teamplannerclasses.TeamMember;
 import seedu.duke.teamplannerclasses.Task;
 import seedu.duke.teamplannerclasses.TeamPlannerException;
+import seedu.duke.teamplannerclasses.TeamPlannerStorage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TeamPlanner {
@@ -35,18 +39,28 @@ public class TeamPlanner {
         boolean passwordEntered = false;
         String password = "";
         System.out.println(welcomeMessage);
-        keyInMembersDetails();
-        while (!passwordEntered) {
-            System.out.println(requestTeamLeaderPassword);
-            Scanner in = new Scanner(System.in);
-            password = in.nextLine();
-            System.out.println(requestTeamLeaderPasswordConfirmation);
-            if (password.equals(in.nextLine())) {
-                passwordEntered = true;
-                System.out.println(passwordConfirmation);
-            } else {
-                System.out.println(passwordDoNotMatch);
+        boolean fileNotFoundFlag = true;
+        try {
+            TeamPlannerStorage.loadFile(team);
+            fileNotFoundFlag = false;
+        } catch (FileNotFoundException e) {
+            System.out.println("No saved file found");
+        }
+        if (fileNotFoundFlag) {
+            keyInMembersDetails();
+            while (!passwordEntered) {
+                System.out.println(requestTeamLeaderPassword);
+                Scanner in = new Scanner(System.in);
+                password = in.nextLine();
+                System.out.println(requestTeamLeaderPasswordConfirmation);
+                if (password.equals(in.nextLine())) {
+                    passwordEntered = true;
+                    System.out.println(passwordConfirmation);
+                } else {
+                    System.out.println(passwordDoNotMatch);
+                }
             }
+            team.setPassword(password);
         }
         boolean programOn = true;
         System.out.println(displayCommandsAvailable);
@@ -80,6 +94,11 @@ public class TeamPlanner {
                     TeamMember teamMember = new TeamMember(teamMemberName, false);
                     team.addMember(teamMember);
                     System.out.println("[M]" + team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
+                    try {
+                        TeamPlannerStorage.saveFile(team);
+                    } catch (IOException e) {
+                        System.out.println("Unable to save the current members as a text file");
+                    }
                 } else if (commandArguments[0].equals("delete") && commandArguments[1].equals("member")) {
                     if (commandArguments.length == 2) {
                         System.out.println("Missing parameter in the input. Please specify a member to delete");
@@ -104,6 +123,11 @@ public class TeamPlanner {
                     } catch (NumberFormatException e) {
                         System.out.println("Invalid input for member index");
                     }
+                    try {
+                        TeamPlannerStorage.saveFile(team);
+                    } catch (IOException e) {
+                        System.out.println("Unable to save the current members as a text file");
+                    }
                 } else if (commandArguments[0].equals("show") && commandArguments[1].equals("members")) {
                     System.out.println("The team details are as follows:");
                     showTeamMembers();
@@ -117,7 +141,13 @@ public class TeamPlanner {
                         }
                     }
                     team.clearTeam();
+                    try {
+                        TeamPlannerStorage.saveFile(team);
+                    } catch (IOException e) {
+                        System.out.println("Unable to save the current members as a text file");
+                    }
                     password = "";
+                    team.setPassword(password);
                     System.out.println(welcomeMessage);
                     keyInMembersDetails();
                     while (!passwordEntered) {
@@ -132,6 +162,7 @@ public class TeamPlanner {
                             System.out.println(passwordDoNotMatch);
                         }
                     }
+                    team.setPassword(password);
                 } else if (commandArguments[0].equals("help")) {
                     System.out.println(displayCommandsAvailable);
                 } else if (commandArguments[0].equals("quit")) {
@@ -198,14 +229,19 @@ public class TeamPlanner {
         }
         System.out.println("The team details are as follows:");
         showTeamMembers();
+        try {
+            TeamPlannerStorage.saveFile(team);
+        } catch (IOException e) {
+            System.out.println("Unable to save the current members as a text file");
+        }
     }
 
     public static void showTeamMembers() {
         for (int i = 0; i < team.getMemberCount(); i++) {
             if ((team.getTeamMember(i)).isTeamLeader()) {
-                System.out.println((i + 1) + ". [Team Leader] " + (team.getTeamMember(i)).getName());
+                System.out.println((i + 1) + ". [L] " + (team.getTeamMember(i)).getName());
             } else {
-                System.out.println((i + 1) + ". " + (team.getTeamMember(i)).getName());
+                System.out.println((i + 1) + ". [M]" + (team.getTeamMember(i)).getName());
             }
         }
     }
