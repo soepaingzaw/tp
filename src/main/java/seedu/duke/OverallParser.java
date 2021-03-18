@@ -17,7 +17,7 @@ public class OverallParser {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException 3OverallParser{
         assert false : "hi";
         new OverallParser().run();
     }
