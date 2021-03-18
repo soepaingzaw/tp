@@ -93,6 +93,7 @@ public class CapCalculator {
     }
 
     public CapCalculator() {
+        assert false : "Cap Calculator assertion" ;
         requestForModule();
         storage = new ModuleStorage(filepath);
         try {

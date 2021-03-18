@@ -25,10 +25,10 @@ public class OverallParser {
     void greetUserAndDisplayFeatures() {
         System.out.print("Welcome to All-in-OneNUS app!\n");
         System.out.print(
-                "Press 1 to access Team Planner\n" +
-                        "Press 2 to access Cap Calculator\n" +
-                        "Press 3 to access Module Planner\n" +
-                        "Press 4 to access Food Recommendation app\n");
+                "Press 1 to access Team Planner\n"
+                        + "Press 2 to access Cap Calculator\n"
+                        + "Press 3 to access Module Planner\n"
+                        + "Press 4 to access Food Recommendation app\n");
     }
 
     void requestForFeatureMode() {
@@ -46,7 +46,7 @@ public class OverallParser {
                 new CapCalculator().run();
                 break;
             case "3":
-               new ModulePlanner().run();
+                new ModulePlanner().run();
                 break;
             case "4":
                 new FoodRecommendation().run();

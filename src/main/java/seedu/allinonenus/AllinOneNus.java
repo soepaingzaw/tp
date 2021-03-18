@@ -4,7 +4,7 @@ public class AllinOneNus {
 
     public static void main(String[] args) {
 
-        assert false : "assertion successful";
+        assert false : "assertion set to fail";
         new OverallParser().run();
     }
 
