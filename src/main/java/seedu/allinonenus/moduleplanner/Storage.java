@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Storage {
 
+
+
     static void writeFile(ArrayList<Student> students) throws IOException {
         File file = new File("ModulePlanner.txt");
         FileWriter writer = new FileWriter(file);
@@ -22,10 +24,12 @@ public class Storage {
     }
 
     static void createFile() {
+
         try {
             File file = new File("ModulePlanner.txt");
             if (file.createNewFile()) {
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

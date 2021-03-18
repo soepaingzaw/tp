@@ -1,9 +1,5 @@
 package seedu.allinonenus.foodstore;
 
-import seedu.allinonenus.foodstore.FoodStore;
-import seedu.allinonenus.foodstore.FoodExceptions;
-import seedu.allinonenus.foodstore.FoodStoreParser;
-import seedu.allinonenus.foodstore.FoodStoreStorage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -45,6 +41,7 @@ public class FoodRecommendation {
     }
 
     public void printStore(FoodStore toPrint) {
+
         System.out.println(toPrint.toString());
     }
 
@@ -58,9 +55,9 @@ public class FoodRecommendation {
     }
 
     public void deleteStore(int index) {
-            print(STORE_REMOVE_MESSAGE);
-            printStore(foodStoreList.get(index));
-            foodStoreList.remove(index);
+        print(STORE_REMOVE_MESSAGE);
+        printStore(foodStoreList.get(index));
+        foodStoreList.remove(index);
     }
 
     public void clearList() {
@@ -69,6 +66,7 @@ public class FoodRecommendation {
     }
 
     public void print(String message) {
+
         System.out.println(message);
     }
 
@@ -98,14 +96,17 @@ public class FoodRecommendation {
     }
 
     public void printWelcomeMessage() {
+
         System.out.println(WELCOME_MESSAGE);
     }
 
     public void printAvailableCommands() {
+
         System.out.println(AVAILABLE_COMMANDS);
     }
 
     public void printExitMessage() {
+
         System.out.println(EXIT_MESSAGE);
     }
 

@@ -81,8 +81,8 @@ public class ModulePlanner {
                     setModuleCode(parts[0].trim());
                     setTotalSlots(Parser.parserToInteger(parts[1].trim()));
                     System.out.println("Module " + getModuleCode() + " has been added.");
-                    System.out.println("Please add the student name, seniority, requirement for graduation, " +
-                            "rank. example: student Alice,1,true,2");
+                    System.out.println("Please add the student name, seniority, requirement for graduation, "
+                            + "rank. example: student Alice,1,true,2");
                     Storage.createFile();
                     Storage.readFile(students);
                 } catch (StringIndexOutOfBoundsException | FileNotFoundException e) {
@@ -113,11 +113,12 @@ public class ModulePlanner {
         Storage.writeFile(students);
     }
 
-    public void run()  {
+    public void run() {
         try {
             readInput();
         } catch (IOException e) {
             Ui.showException();
-        };
+        }
+
     }
 }
