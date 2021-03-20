@@ -29,6 +29,7 @@ public class TeamPlanner {
 //            + "6. delete task [member index] [task index]\n"
 //            + "7. mark done [member index] [task]\n"
 //            + "8. show tasks\n"
+
     private static final String requestPassword = "Please enter the password";
 
     private static TeamManager team = new TeamManager();
@@ -91,7 +92,8 @@ public class TeamPlanner {
                     }
                     TeamMember teamMember = new TeamMember(teamMemberName, false);
                     team.addMember(teamMember);
-                    System.out.println("[M]" + team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
+                    System.out.println("[M]" + team.getTeamMember(team.getMemberCount() - 1)
+                            + " has been added to the team");
                     try {
                         TeamPlannerStorage.saveFile(team);
                     } catch (IOException e) {
@@ -168,6 +170,7 @@ public class TeamPlanner {
                 } else {
                     throw new TeamPlannerException("invalid_input");
                 }
+
 //                } else if (commandArguments[0].equals("add") && commandArguments[1].equals("task")) {
 //                    int priorityLevel = 0;
 //                    if (commandArguments[4].equals("HIGH")) {
@@ -192,6 +195,7 @@ public class TeamPlanner {
 //                            System.out.println("  " + j + ". " + (team.getTeamMember(i)).getTask(j));
 //                        }
 //                    }
+                
             } catch (TeamPlannerException e) {
                 System.out.println("Invalid input");
                 System.out.println(displayCommandsAvailable);
