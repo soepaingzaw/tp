@@ -97,7 +97,7 @@ public class ModulePlanner {
                             Parser.parserToBoolean(parts[2].trim()),
                             Parser.parserToInteger(parts[3].trim()));
                     addStudent(a);
-                    System.out.println(a.getName() + "has been added.");
+                    System.out.println(a.getName() + " has been added.");
                 } catch (java.lang.StringIndexOutOfBoundsException e) {
                     Ui.showEmptyDescriptionException(line);
                 }
