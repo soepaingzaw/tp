@@ -11,12 +11,6 @@ public class OverallParser {
 
     public OverallParser() {
 
-<<<<<<< HEAD:src/main/java/seedu/duke/OverallParser.java
-    public static void main(String[] args) throws IOException 3OverallParser{
-        assert false : "hi";
-        new OverallParser().run();
-=======
->>>>>>> 1dede2f143c88de7a7171294483e5be0adec3aab:src/main/java/seedu/allinonenus/OverallParser.java
     }
 
     public void run() {
@@ -43,23 +37,23 @@ public class OverallParser {
             Scanner choice = new Scanner(System.in);
             String chosen = choice.nextLine();
             switch (chosen) {
-            case "bye":
-                return;
-            case "1":
-                new TeamPlanner().run();
-                break;
-            case "2":
-                new CapCalculator().run();
-                break;
-            case "3":
-                new ModulePlanner().run();
-                break;
-            case "4":
-                new FoodRecommendation().run();
-                break;
-            default:
-                System.out.print("Invalid Try again!\n");//replace this line with exception in the future
-                break;
+                case "bye":
+                    return;
+                case "1":
+                    new TeamPlanner().run();
+                    break;
+                case "2":
+                    new CapCalculator().run();
+                    break;
+                case "3":
+                    new ModulePlanner().run();
+                    break;
+                case "4":
+                    new FoodRecommendation().run();
+                    break;
+                default:
+                    System.out.print("Invalid Try again!\n");//replace this line with exception in the future
+                    break;
             }
         }
     }
