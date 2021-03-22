@@ -8,11 +8,11 @@ optimized for use via a Command Line Interface (CLI).
 * Table of Contents
   * [Quick Start](#Quick-Start)
   * [Features](#Features)
-  * [Main Menu](#Main-Menu)
-  * [Team Planner](#Team-Planner)
-  * [Cap Calculator](#Cap-Calculator)
-  * [Module Planner](#Module-Planner)
-  * [Food Recommendation app](#Food-Recommendation-app)
+    * [Main Menu](#Main-Menu)
+    * [Team Planner](#Team-Planner)
+    * [Cap Calculator](#Cap-Calculator)
+    * [Module Planner](#Module-Planner)
+    * [Food Recommendation app](#Food-Recommendation-app)
 
 
 ## Quick Start
