@@ -44,14 +44,15 @@ public class TeamManager {
         memberCount = 0;
     }
 
-    public void increaseMemberCount(){
+    public void increaseMemberCount() {
         memberCount++;
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password;
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return password;
     }
 
