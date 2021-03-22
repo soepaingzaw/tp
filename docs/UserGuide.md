@@ -6,7 +6,14 @@ All-in-oneNUS is a **desktop application for making university life easier in NU
 optimized for use via a Command Line Interface (CLI).
 
 * Table of Contents
-  {:toc}
+  * [Quick Start](#Quick-Start)
+  * [Features](#Features)
+  * [Main Menu](#Main-Menu)
+  * [Team Planner](#Team-Planner)
+  * [Cap Calculator](#Cap-Calculator)
+  * [Module Planner](#Module-Planner)
+  * [Food Recommendation app](#Food-Recommendation-app)
+
 
 ## Quick Start
 
@@ -87,21 +94,21 @@ edit
 ###Module Planner
 ####module
 Enter the module code followed by the number of slots available.
-Format: module [module code],[slots]
+Format: `module [module code],[slots]`
 
 ####student
 Enter the student information and the rank they want to put for bidding the module. Enter [true]/[false] for [graduation requirement] to indicate whether the module is required for graduation.
-Format: student [name],[year],[graduation requirement],[rank]
+Format: `student [name],[year],[graduation requirement],[rank]`
 
 ####list
 Lists down the students and their priority who want to get the module. It is sorted in descending order by their priority score.
-Format: list
+Format: `list`
 ####recommendation
 Shows the number of students who have higher priority and predicts the chances of getting that module (High, medium or low)
-Format: recommendation [name]
+Format: `recommendation [name]`
 
 
-### Food Recommendation app
+###Food Recommendation app
 
 ####
 Adds a new item to the list of todo items.
