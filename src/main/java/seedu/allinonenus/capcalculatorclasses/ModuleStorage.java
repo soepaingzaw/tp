@@ -28,7 +28,7 @@ public class ModuleStorage {
         while (scan.hasNext()) {
             String textString = scan.nextLine();
             String[] textData = textString.split("\\|");
-            modules = new ModuleData(textData[0], textData[1], Integer.parseInt(textData[2]));
+            modules = new ModuleData(textData[0], textData[1], Integer.parseInt(textData[2]),Integer.parseInt(textData[3]));
             moduleList.add(modules);
 
         }
