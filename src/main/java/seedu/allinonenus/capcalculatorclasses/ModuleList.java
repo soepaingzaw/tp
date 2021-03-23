@@ -127,6 +127,14 @@ public class ModuleList {
 
     }
 
+    public String printYearAndSem(int sem) {
+        int year = (sem + 1) / 2;
+        int semester = 2 - sem % 2;
+
+        return "Year " + year + " Semester " + semester;
+
+    }
+
     public String printString() {
         StringBuilder list = new StringBuilder();
 

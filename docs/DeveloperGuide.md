@@ -1,26 +1,58 @@
 # Developer Guide
 
-## Design & implementation
+## Design
 
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 
 
-## Product scope
-### Target user profile
+## Implementation
+***
+### Team Planner 
+ *
+***
+### CAP Calculator
 
-{Describe the target user profile}
+![capcalculatorUMLdiagram](https://user-images.githubusercontent.com/77471508/112191169-b35dda00-8c40-11eb-9365-b158aaca6f6a.jpg)
+
+   [Proposed] Add 
+
+***
+### Module Planner
+
+*
+***
+
+### Food Recommendation App
+
+***
+
+## Product scope
+### Target user profile:
+
+ * Prefers using CLI apps
+
+ * Is a student of NUS
+
+ * Needs to manage a team
+ 
+ * Requires more insights on the modules they are taking
+
+ * Tend to be food savvy 
+
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+* Have all the relevant student obligations and desires managed at a single location
 
 ## User Stories
 
-|Version| As a ... | I want to ... | So that I can ...|
-|--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
-
+| As a ... | I want to ... | So that I can ...|
+|----------|---------------|------------------|
+|student|enter the relevant information about my modules|calculate my predicted CAP|
+|food savvy individual|view my food options|make better choices when selecting places to eat|
+|team leader|view the team members at one glance|manage my team better|
+|student|gather more insights about modules offered|know if I stand a chance in getting that module|
+{More to be added}
 ## Non-Functional Requirements
 
 {Give non-functional requirements}
