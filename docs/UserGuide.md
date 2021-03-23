@@ -35,7 +35,7 @@ Format: `[NUMBER]`
 * Entering `3` directs you to the Cap Calculator
 * Entering `4` directs you to the Food Recommendation app
 
-###Team Planner
+### Team Planner
 
 #### Add team member
 Adds a team member to the team
@@ -61,7 +61,7 @@ Quits the Team Planner interface
 Format: Quit
 
 
-###Cap Calculator
+### Cap Calculator
 ####add
 Enter the module code followed by your grade and then the MCs
 Format: [Module Code] [Grade] [MCs]
@@ -91,7 +91,7 @@ edit
 
 
 
-###Module Planner
+### Module Planner
 ####module
 Enter the module code followed by the number of slots available.
 Format: `module [module code],[slots]`
@@ -108,7 +108,7 @@ Shows the number of students who have higher priority and predicts the chances o
 Format: `recommendation [name]`
 
 
-###Food Recommendation app
+### Food Recommendation app
 
 ####
 Adds a new item to the list of todo items.
