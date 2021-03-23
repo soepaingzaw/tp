@@ -6,7 +6,30 @@ All-in-oneNUS is a **desktop application for making university life easier in NU
 optimized for use via a Command Line Interface (CLI).
 
 * Table of Contents
-  {:toc}
+  * [Quick Start](#Quick-Start)
+  * [Features](#Features)
+    * [Main Menu](#Main-Menu)
+    * [Team Planner](#Team-Planner)
+      * [Add team member](#Add-team-member)
+      * [Delete team member](#Delete-team-member)
+      * [Clear team](#Clear-team)
+      * [Show team](#Show-team)
+      * [Show commands](#Show-commands)
+      * [Quit](#Quit)
+    * [Cap Calculator](#Cap-Calculator)
+      * [add](#add)
+      * [delete](#delete)
+      * [list](#list)
+      * [edit](#edit)
+      * [calculate](#calculate)
+    * [Module Planner](#Module-Planner)
+      * [module](#module)
+      * [student](#student)
+      * [list down](#list-down)
+      * [recommendation](#recommendation)
+    * [Food Recommendation app](#Food-Recommendation-app)
+  * [FAQ](#FAQ)
+  * [Command Summary](#Command-Summary)
 
 ## Quick Start
 
@@ -28,7 +51,7 @@ Format: `[NUMBER]`
 * Entering `3` directs you to the Cap Calculator
 * Entering `4` directs you to the Food Recommendation app
 
-###Team Planner
+### Team Planner
 
 #### Add team member
 Adds a team member to the team
@@ -54,51 +77,51 @@ Quits the Team Planner interface
 Format: Quit
 
 
-###Cap Calculator
-####add
+### Cap Calculator
+#### add
 Enter the module code followed by your grade and then the MCs
 Format: [Module Code] [Grade] [MCs]
 
 Expected:
 
-####delete
+#### delete
 Enter delete first. The program will then prompt which module you want to delete. Enter the module
 Format:
 delete
 [MODULE CODE]
 
-####list
+#### list
 Lists out all modules you have for the semester
 Format:
 
 List
 
-####edit
+#### edit
 Enter edit then enter the Module which you want the grade to be changed
 Format:
 edit
 [Module Code]
 [new grade]
 
-####calculate
+#### calculate
 
 
 
-###Module Planner
-####module
+### Module Planner
+#### module
 Enter the module code followed by the number of slots available.
-Format: module [module code],[slots]
+Format: `module [module code],[slots]`
 
-####student
+#### student
 Enter the student information and the rank they want to put for bidding the module. Enter [true]/[false] for [graduation requirement] to indicate whether the module is required for graduation.
-Format: student [name],[year],[graduation requirement],[rank]
+Format: `student [name],[year],[graduation requirement],[rank]`
 
-####list
+#### list down
 Lists down the students and their priority who want to get the module. It is sorted in descending order by their priority score.
-Format: list
-####recommendation
+Format: `list`
+#### recommendation
 Shows the number of students who have higher priority and predicts the chances of getting that module (High, medium or low)
-Format: recommendation [name]
+Format: `recommendation [name]`
 
 
 ### Food Recommendation app
