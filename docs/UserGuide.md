@@ -2,8 +2,12 @@
 
 ## Introduction
 
-All-in-oneNUS is a **desktop application for making university life easier in NUS.** It has 4 different tools, and is
-optimized for use via a Command Line Interface (CLI).
+All-in-oneNUS is a **desktop application for making university life easier in NUS.** 
+It has 4 different tools, and is optimized for use via a Command Line Interface (CLI). 
+The TeamPlanner feature allows for quick and easy management of team members and the tasks assigned to each team member. 
+The ModulePlanner feature is a module management tool to allow students gain more insights into the modules that they are interested in. 
+The CapCalculator feature is a calculation tool that has the ability to assign a module to be non-graded during the calculation. 
+The FoodRecommendation feature allows users to review food choices at a single glance and recommends the user a food store accordingly.
 
 * Table of Contents
   * [Quick Start](#Quick-Start)
@@ -60,53 +64,54 @@ Format: `[NUMBER]`
 
 #### Add team member
 Adds a team member to the team
-Format: Add member [member name]
+
+Format: `add member [member name]`
 
 #### Delete team member
 Deletes a team member from the team
-Format: delete member [member index]
+
+Format: `delete member [member index]`
 
 #### Clear team
 Clears the members in the team
-Format: clear members
+
+Format: `clear members`
 
 #### Show team
 Shows the current members in the team
-Format: show members
+
+Format: `show members`
+
 #### Show commands
 Lists the commands available
-Format: show commands
+
+Format: `show commands`
 
 #### Quit
 Quits the Team Planner interface
-Format: Quit
+Format: `quit`
 
 
 ### Cap Calculator
 #### add
 Enter the module code followed by your grade and then the MCs
-Format: [Module Code] [Grade] [MCs]
 
-Expected:
+Format: `[Module Code] [Grade] [MCs]`
 
 #### delete
 Enter delete first. The program will then prompt which module you want to delete. Enter the module
-Format:
-delete
-[MODULE CODE]
+
+Format: `delete [MODULE CODE]`
 
 #### list
 Lists out all modules you have for the semester
-Format:
 
-List
+Format: `list`
 
 #### edit
 Enter edit then enter the Module which you want the grade to be changed
-Format:
-edit
-[Module Code]
-[new grade]
+
+Format: `edit [Module Code] [new grade]`
 
 #### calculate
 
@@ -115,17 +120,26 @@ edit
 ### Module Planner
 #### module
 Enter the module code followed by the number of slots available.
+
 Format: `module [module code],[slots]`
 
 #### student
-Enter the student information and the rank they want to put for bidding the module. Enter [true]/[false] for [graduation requirement] to indicate whether the module is required for graduation.
+Enter the student information and the rank they want to put for bidding the module. 
+
+Enter [true]/[false] for [graduation requirement] to indicate whether the module is required for graduation.
+
 Format: `student [name],[year],[graduation requirement],[rank]`
 
 #### list down
-Lists down the students and their priority who want to get the module. It is sorted in descending order by their priority score.
+Lists down the students and their priority who want to get the module. 
+
+It is sorted in descending order by their priority score.
+
 Format: `list`
+
 #### recommendation
 Shows the number of students who have higher priority and predicts the chances of getting that module (High, medium or low)
+
 Format: `recommendation [name]`
 
 
@@ -133,23 +147,28 @@ Format: `recommendation [name]`
 
 ### Add Food Store
 Adds a food store with the desired description
+
 Format: `add [Name], [Description]`
 
 
 ### Delete Food Store
 Deletes a food store with the indicated index
+
 Format: `delete [store index]`
 
 ### List Food Stores
 Prints the list of food stores that are stored in the app
+
 Format: `list`
 
 ### Clear Food Stores
 Clears the entire list of food stores
+
 Format: `clear`
 
 ### Recommend Food Store
 Prints a random food store from the list to recommend to the user
+
 Format: `recommend`
 
 
