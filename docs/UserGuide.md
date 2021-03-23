@@ -10,35 +10,35 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 - The FoodRecommendation feature allows users to review food choices at a single glance and recommends the user a food store accordingly.
 
 * Table of Contents
-  * [Quick Start](UserGuide.md#Quick-Start)
-  * [Features](UserGuide.md#Features)
-    * [Main Menu](UserGuide.md#Main-Menu)
-    * [Team Planner](UserGuide.md#Team-Planner)
-      * [Add team member](UserGuide.md#Add-team-member)
-      * [Delete team member](UserGuide.md#Delete-team-member)
-      * [Clear team](UserGuide.md#Clear-team)
-      * [Show team](UserGuide.md#Show-team)
-      * [Show commands](UserGuide.md#Show-commands)
-      * [Quit](UserGuide.md#Quit)
-    * [Cap Calculator](UserGuide.md#Cap-Calculator)
-      * [add](UserGuide.md#add)
-      * [delete](UserGuide.md#delete)
-      * [list](UserGuide.md#list)
-      * [edit](UserGuide.md#edit)
-      * [calculate](UserGuide.md#calculate)
-    * [Module Planner](UserGuide.md#Module-Planner)
-      * [module](UserGuide.md#module)
-      * [student](UserGuide.md#student)
-      * [list down](UserGuide.md#list-down)
-      * [recommendation](UserGuide.md#recommendation)
-    * [Food Recommendation app](UserGuide.md#Food-Recommendation-app)
-      * [add](UserGuide.md#add-food-store)
-      * [delete](UserGuide.md#delete-food-store)
-      * [list](UserGuide.md#list-food-stores)
-      * [clear](UserGuide.md#clear-food-stores)
-      * [recommend](UserGuide.md#recommend-food-store)
-  * [FAQ](UserGuide.md#FAQ)
-  * [Command Summary](UserGuide.md#Command-Summary)
+  * [Quick Start](#Quick-Start)
+  * [Features](#Features)
+    * [Main Menu](#Main-Menu)
+    * [Team Planner](#Team-Planner)
+      * [Add team member](#add-team-member-requires-password)
+      * [Delete team member](#delete-team-member-requires-password)
+      * [Clear team](#clear-team-requires-password)
+      * [Show team](#Show-team)
+      * [Show commands](#Show-commands)
+      * [Quit](#Quit)
+    * [Cap Calculator](#Cap-Calculator)
+      * [add](#add)
+      * [delete](#delete)
+      * [list](#list)
+      * [edit](#edit)
+      * [calculate](#calculate)
+    * [Module Planner](#Module-Planner)
+      * [module](#module)
+      * [student](#student)
+      * [list down](#list-down)
+      * [recommendation](#recommendation)
+    * [Food Recommendation app](#Food-Recommendation-app)
+      * [add](#add-food-store)
+      * [delete](#delete-food-store)
+      * [list](#list-food-stores)
+      * [clear](#clear-food-stores)
+      * [recommend](#recommend-food-store)
+  * [FAQ](#FAQ)
+  * [Command Summary](#Command-Summary)
 
 ## Quick Start
 
@@ -184,7 +184,8 @@ Format: `recommend`
 
 **Q**: How do I transfer my data to another computer?
 
-**A**: {your answer here}
+**A**: Copy the `.jar` file along with the `team.txt`, `Food Recommendation.txt`, `ModulePlanner.txt` and
+`ModuleStorage.txt` to the destination folder.
 
 ## Command Summary
 
