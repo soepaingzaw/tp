@@ -54,7 +54,6 @@ Accesses the respective tool
 
 Format: `[NUMBER]`
 
-
 * Entering `1` directs you to the Team Planner
 * Entering `2` directs you to the Module Planner
 * Entering `3` directs you to the Cap Calculator
@@ -62,18 +61,28 @@ Format: `[NUMBER]`
 
 ### Team Planner
 
-#### Add team member
+When the TeamPlanner feature is selected, the program will prompt and display to the user the following:
+- input the name of the team leader
+- input the size of the team excluding the leader
+- input a password and re-input the password to confirm the password
+- Shows the user the list of commands available
+
+The following are the commands that are available in the TeamPlanner feature
+
+#### Add team member (Requires Password)
 Adds a team member to the team
 
 Format: `add member [member name]`
 
-#### Delete team member
+#### Delete team member (Requires Password)
 Deletes a team member from the team
 
 Format: `delete member [member index]`
 
-#### Clear team
-Clears the members in the team
+#### Clear team (Requires Password)
+Clears the members in the team.
+This will prompt the user to re-enter all information fields, such as
+the team leader, size of the team, team members, as well as the password.
 
 Format: `clear members`
 
