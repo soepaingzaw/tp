@@ -9,7 +9,7 @@ public class CapCalculator {
 
     private static final String filepath = "ModuleStorage.txt";
     private static ModuleStorage storage = new ModuleStorage(filepath);
-    static int currentSem;
+    static int currentSem, totalSem;
     ModuleList moduleList;
 
 
@@ -35,15 +35,41 @@ public class CapCalculator {
 
             switch (command) {
             case "list":
+                System.out.print("Modules for " + moduleList.printYearAndSem(currentSem) +"\n");
                 System.out.print("[MODULES] [GRADEs] [MCs]\n");
                 for (int i = 0; i < moduleList.size(); i++) {
-                    System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
-                            moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
+
+                    if(moduleList.get(i).sem == currentSem) {
+
+                        System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
+                                moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
+                    }
+                }
+                break;
+
+            case "show all":
+                int currentSemIndex=1;
+                while(currentSemIndex<=totalSem) {
+
+                    System.out.print("Modules for " + moduleList.printYearAndSem(currentSemIndex) + ":\n");
+                    System.out.print("[MODULES] [GRADEs] [MCs]\n");
+                    for (int i = 0; i < moduleList.size(); i++) {
+
+                        if (moduleList.get(i).sem == currentSemIndex) {
+
+                            System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
+                                    moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
+                        }
+
+                    }
+                    System.out.print("\n");
+
+                    currentSemIndex++;
                 }
                 break;
 
             case "calculate":
-                System.out.printf("%.2f is my CAP\n", moduleList.calculate());
+                System.out.printf("My CAP is %.2f\n", moduleList.calculate());
                 break;
 
             case "delete":
@@ -70,6 +96,10 @@ public class CapCalculator {
                 System.out.print("What is the current semester you want to view?\n");
                 String newSem = scan.nextLine();
                 currentSem = moduleList.computeSem(newSem);
+                if (currentSem>totalSem) {
+                    totalSem = currentSem;
+                }
+
                 break;
 
 
@@ -114,6 +144,7 @@ public class CapCalculator {
 
             moduleList = new ModuleList();
             currentSem = moduleList.computeSem(scan.nextLine());
+            totalSem = currentSem;
         }
 
     }
