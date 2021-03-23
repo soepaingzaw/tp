@@ -9,6 +9,7 @@ public class CapCalculator {
 
     private static final String filepath = "ModuleStorage.txt";
     private static ModuleStorage storage = new ModuleStorage(filepath);
+    static int currentSem;
     ModuleList moduleList;
 
 
@@ -65,11 +66,16 @@ public class CapCalculator {
                 System.out.print("Edited. New data:\n" + moduleList.get(index) + "\n");
 
                 break;
+            case "change":
+                System.out.print("What is the current semester you want to view?\n");
+                String newSem = scan.nextLine();
+                currentSem = moduleList.computeSem(newSem);
+                break;
 
 
             default:
                 String[] data = command.split(" ");
-                ModuleData modules = new ModuleData(data[0], data[1], Integer.parseInt(data[2]));
+                ModuleData modules = new ModuleData(data[0], data[1], Integer.parseInt(data[2]),currentSem);
 
                 moduleList.add(modules);
 
@@ -93,14 +99,21 @@ public class CapCalculator {
     }
 
     public CapCalculator() {
-        assert false : "Cap Calculator assertion";
+        //assert false : "Cap Calculator assertion";
         requestForModule();
         storage = new ModuleStorage(filepath);
         try {
             moduleList = new ModuleList(storage.load());
         } catch (FileNotFoundException e) {
             System.out.print("Creating new storage for you\n");
+            System.out.print("Please enter your year and semester\n"
+                + "(E.g. if you are in your second year and it is currently your"
+                   + "first semester type: Y2S1\n" );
+
+            Scanner scan = new Scanner(System.in);
+
             moduleList = new ModuleList();
+            currentSem = moduleList.computeSem(scan.nextLine());
         }
 
     }
