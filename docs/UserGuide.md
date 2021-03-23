@@ -28,6 +28,11 @@ optimized for use via a Command Line Interface (CLI).
       * [list down](#list-down)
       * [recommendation](#recommendation)
     * [Food Recommendation app](#Food-Recommendation-app)
+      * [add](#add-food-store)
+      * [delete](#delete-food-store)
+      * [list](#list-food-stores)
+      * [clear](#clear-food-stores)
+      * [recommend](#recommend-food-store)
   * [FAQ](#FAQ)
   * [Command Summary](#Command-Summary)
 
@@ -126,19 +131,27 @@ Format: `recommendation [name]`
 
 ### Food Recommendation app
 
-####
-Adds a new item to the list of todo items.
+### Add Food Store
+Adds a food store with the desired description
+Format: `add [Name], [Description]`
 
-Format: `todo n/TODO_NAME d/DEADLINE`
 
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.
+### Delete Food Store
+Deletes a food store with the indicated index
+Format: `delete [store index]`
 
-Example of usage:
+### List Food Stores
+Prints the list of food stores that are stored in the app
+Format: `list`
 
-`todo n/Write the rest of the User Guide d/next week`
+### Clear Food Stores
+Clears the entire list of food stores
+Format: `clear`
 
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+### Recommend Food Store
+Prints a random food store from the list to recommend to the user
+Format: `recommend`
+
 
 ## FAQ
 
