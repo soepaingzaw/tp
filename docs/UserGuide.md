@@ -62,9 +62,9 @@ Format: `[NUMBER]`
 ### Team Planner
 
 When the TeamPlanner feature is selected, the program will prompt and display to the user the following:
-- input the name of the team leader
-- input the size of the team excluding the leader
-- input a password and re-input the password to confirm the password
+- Input the name of the team leader
+- Input the size of the team excluding the leader
+- Input a password and re-input the password to confirm the password
 - Shows the user the list of commands available
 
 The following are the commands that are available in the TeamPlanner feature
