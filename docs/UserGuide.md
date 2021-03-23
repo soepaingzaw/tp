@@ -2,11 +2,11 @@
 
 ## Introduction
 
-All-in-oneNUS is a **desktop application for making university life easier in NUS.** It has 4 different tools, and is 
+All-in-oneNUS is a **desktop application for making university life easier in NUS.** It has 4 different tools, and is
 optimized for use via a Command Line Interface (CLI).
 
 * Table of Contents
-{:toc}
+  {:toc}
 
 ## Quick Start
 
@@ -15,7 +15,7 @@ optimized for use via a Command Line Interface (CLI).
 1. Ensure that you have Java 11 or above installed.
 2. Download the latest version of `Duke` from [here](https://github.com/AY2021S2-CS2113T-T09-3/tp/releases).
 
-## Features 
+## Features
 
 ### Main Menu
 Accesses the respective tool
@@ -29,20 +29,30 @@ Format: `[NUMBER]`
 * Entering `4` directs you to the Food Recommendation app
 
 ###Team Planner
-#### Set team leader
-   Set the team member as the team leader
-   Format:
 
 #### Add team member
-   Adds a team member to the team
+Adds a team member to the team
+Format: Add member [member name]
+
 #### Delete team member
-   Deletes a team member from the team
+Deletes a team member from the team
+Format: delete member [member index]
+
 #### Clear team
-   Clears the members in the team
+Clears the members in the team
+Format: clear members
+
 #### Show team
-   Shows the current members in the team
+Shows the current members in the team
+Format: show members
+#### Show commands
+Lists the commands available
+Format: show commands
+
 #### Quit
-   Quits the Team Planner interface
+Quits the Team Planner interface
+Format: Quit
+
 
 ###Cap Calculator
 ####add
@@ -76,7 +86,7 @@ edit
 
 ###Module Planner
 ####module
-Enter the module code follow by the number of slots available.
+Enter the module code followed by the number of slots available.
 Format: module [module code],[slots]
 
 ####student
@@ -84,23 +94,24 @@ Enter the student information and the rank they want to put for bidding the modu
 Format: student [name],[year],[graduation requirement],[rank]
 
 ####list
+Lists down the students and their priority who want to get the module. It is sorted in descending order by their priority score.
 Format: list
-
 ####recommendation
+Shows the number of students who have higher priority and predicts the chances of getting that module (High, medium or low)
 Format: recommendation [name]
 
 
 ### Food Recommendation app
 
-#### 
+####
 Adds a new item to the list of todo items.
 
 Format: `todo n/TODO_NAME d/DEADLINE`
 
 * The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
+* The `TODO_NAME` cannot contain punctuation.
 
-Example of usage: 
+Example of usage:
 
 `todo n/Write the rest of the User Guide d/next week`
 
@@ -108,7 +119,7 @@ Example of usage:
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer? 
+**Q**: How do I transfer my data to another computer?
 
 **A**: {your answer here}
 

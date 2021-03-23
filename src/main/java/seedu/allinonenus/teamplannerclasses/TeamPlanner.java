@@ -25,10 +25,6 @@ public class TeamPlanner {
             + "4. clear members - clears the current team and resets the password (requires password)\n"
             + "5. show commands - lists the commands available\n"
             + "6. quit - quits the program\n";
-    //            + "5. add task [member] [task] [priority level(HIGH/MED/LOW)]\n"
-//            + "6. delete task [member index] [task index]\n"
-//            + "7. mark done [member index] [task]\n"
-//            + "8. show tasks\n"
     private static final String requestPassword = "Please enter the password";
 
     private static TeamManager team = new TeamManager();
@@ -91,7 +87,8 @@ public class TeamPlanner {
                     }
                     TeamMember teamMember = new TeamMember(teamMemberName, false);
                     team.addMember(teamMember);
-                    System.out.println("[M]" + team.getTeamMember(team.getMemberCount() - 1) + " has been added to the team");
+                    System.out.println("[M]" + team.getTeamMember(team.getMemberCount() - 1)
+                            + " has been added to the team");
                     try {
                         TeamPlannerStorage.saveFile(team);
                     } catch (IOException e) {
@@ -168,30 +165,6 @@ public class TeamPlanner {
                 } else {
                     throw new TeamPlannerException("invalid_input");
                 }
-//                } else if (commandArguments[0].equals("add") && commandArguments[1].equals("task")) {
-//                    int priorityLevel = 0;
-//                    if (commandArguments[4].equals("HIGH")) {
-//                        priorityLevel = 1;
-//                    } else if (commandArguments[4].equals("MED")) {
-//                        priorityLevel = 2;
-//                    } else if (commandArguments[4].equals("LOW")) {
-//                        priorityLevel = 3;
-//                    }
-//                    Task task = new Task(commandArguments[3], priorityLevel, false);
-//                    (team.getTeamMember(team.getIndexOfTeamMember(commandArguments[2]))).addTask(task);
-//                } else if (commandArguments[0].equals("delete") && commandArguments[1].equals("task")) {
-//                    TeamMember teamMember = (team.getTeamMember(team.getIndexOfTeamMember(commandArguments[2])));
-//                    teamMember.deleteTask(Integer.parseInt(commandArguments[2]));
-//                } else if (commandArguments[0].equals("mark") && commandArguments[1].equals("done")) {
-//                    TeamMember teamMember = (team.getTeamMember(team.getIndexOfTeamMember(commandArguments[2])));
-//                    teamMember.markTaskAsDone(Integer.parseInt(commandArguments[2]));
-//                } else if (commandArguments[0].equals("show") && commandArguments[1].equals("tasks")) {
-//                    for (int i = 0; i < team.getMemberCount(); i++) {
-//                        System.out.println("Member Name: " + team.getTeamMember(i));
-//                        for (int j = 0; j < (team.getTeamMember(i)).getTaskCount(); j++) {
-//                            System.out.println("  " + j + ". " + (team.getTeamMember(i)).getTask(j));
-//                        }
-//                    }
             } catch (TeamPlannerException e) {
                 System.out.println("Invalid input");
                 System.out.println(displayCommandsAvailable);
