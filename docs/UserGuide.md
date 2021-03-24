@@ -39,12 +39,12 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
       * [recommend](#recommend-food-store)
   * [FAQ](#FAQ)
   * [Command Summary](#Command-Summary)
-
+***
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
 2. Download the latest version of `Duke` from [here](https://github.com/AY2021S2-CS2113T-T09-3/tp/releases).
-
+***
 ## Features
 
 ### Main Menu
@@ -56,7 +56,7 @@ Format: `[NUMBER]`
 * Entering `2` directs you to the Module Planner
 * Entering `3` directs you to the Cap Calculator
 * Entering `4` directs you to the Food Recommendation app
-
+***
 ### Team Planner
 
 When the TeamPlanner feature is selected, the program will prompt and display to the user the following:
@@ -98,7 +98,7 @@ Format: `show commands`
 Quits the Team Planner interface
 Format: `quit`
 
-
+***
 ### Cap Calculator
 
 #### Add
@@ -122,7 +122,11 @@ Enter edit then enter the Module which you want the grade to be changed
 Format: `edit [Module Code] [new grade]`
 
 #### Calculate
+Calculates your CAP for the semester
 
+Format: `calculate`
+
+***
 
 ### Module Planner
 
@@ -150,7 +154,7 @@ Shows the number of students who have higher priority and predicts the chances o
 
 Format: `recommendation [name]`
 
-
+***
 ### Food Recommendation app
 
 #### Add Food Store
@@ -179,7 +183,7 @@ Prints a random food store from the list to recommend to the user
 
 Format: `recommend`
 
-
+***
 ## FAQ
 
 **Q**: How do I transfer my data to another computer?
@@ -190,5 +194,6 @@ Format: `recommend`
 ## Command Summary
 
 {Give a 'cheat sheet' of commands here}
+{To be updated}
 
 * Add todo `todo n/TODO_NAME d/DEADLINE`
