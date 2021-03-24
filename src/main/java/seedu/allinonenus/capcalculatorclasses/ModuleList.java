@@ -115,6 +115,26 @@ public class ModuleList {
         return points;
     }
 
+    public int computeSem(String yearAndSem) {
+
+        int year;
+        int sem;
+
+        year = Character.getNumericValue(yearAndSem.charAt(1));
+        sem = Character.getNumericValue(yearAndSem.charAt(3));
+
+        return year * 2 - (2 - sem);
+
+    }
+
+    public String printYearAndSem(int sem) {
+        int year = (sem + 1) / 2;
+        int semester = 2 - sem % 2;
+
+        return "Year " + year + " Semester " + semester;
+
+    }
+
     public String printString() {
         StringBuilder list = new StringBuilder();
 
