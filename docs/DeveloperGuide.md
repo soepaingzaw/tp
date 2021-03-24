@@ -21,7 +21,7 @@
 ***
 ### Module Planner
 
-*
+![moduleplannerUMLdiagram](https://github.com/fangxinjia0203/tp/blob/982ec3b4ee84e9f3f3ecf5bbe3cb8f5690627a70/src/main/java/seedu/allinonenus/moduleplanner/ModulePlanner.png)
 ***
 
 ### Food Recommendation App
