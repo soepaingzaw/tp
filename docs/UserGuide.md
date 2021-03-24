@@ -110,14 +110,17 @@ edit
 ### Module Planner
 #### module
 Enter the module code followed by the number of slots available.
+
 Format: `module [module code],[slots]`
 
 #### student
 Enter the student information and the rank they want to put for bidding the module. Enter [true]/[false] for [graduation requirement] to indicate whether the module is required for graduation.
+
 Format: `student [name],[year],[graduation requirement],[rank]`
 
 #### list down
 Lists down the students and their priority who want to get the module. It is sorted in descending order by their priority score.
+
 Format: `list`
 #### recommendation
 Shows the number of students who have higher priority and predicts the chances of getting that module (High, medium or low)
