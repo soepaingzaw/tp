@@ -24,6 +24,8 @@
 
 ### Food Recommendation App
 
+![foodrecommendationUMLdiagram](https://user-images.githubusercontent.com/57632786/112334326-4c9af800-8cf6-11eb-892f-5599f927b551.png)
+
 ***
 
 ## Product scope
