@@ -55,6 +55,12 @@
 |student|enter the relevant information about my modules|calculate my predicted CAP|
 |food savvy individual|view my food options|make better choices when selecting places to eat|
 |team leader|view the team members at one glance|manage my team better|
+|team leader|track the tasks that have been completed|ensure deliverables are completed on time|
+|team leader|exclusively be able to add and delete members|ensure that the members list is updated and accurate|
+|team leader|delegate tasks to my team members|distribute the work evenly|
+|team member|track team members progress|ensure that I do not do a task that has already been completed|
+|team member|mark a task as completed|inform my team members that the task has been completed|
+|team member|view at one glance which tasks are more important|prioritise my tasks efficiently|
 |student|gather more insights about modules offered|know if I stand a chance in getting that module|
 {More to be added}
 ## Non-Functional Requirements
