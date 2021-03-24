@@ -8,7 +8,8 @@
 ## Implementation
 ***
 ### Team Planner 
- *
+![TeamPlannerUMLDiagram](https://user-images.githubusercontent.com/77476414/112348803-216ad580-8d03-11eb-81c8-aca30baa17e6.jpg)
+
 ***
 ### CAP Calculator
 
