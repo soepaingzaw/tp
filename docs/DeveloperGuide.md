@@ -14,9 +14,7 @@
 ***
 ### CAP Calculator
 
-![capcalculatorUMLdiagram](https://user-images.githubusercontent.com/77471508/112191169-b35dda00-8c40-11eb-9365-b158aaca6f6a.jpg)
-
-   [Proposed] Add 
+![capcalculatorUMLdiagram](https://user-images.githubusercontent.com/77471508/112415562-fa41f180-8d5e-11eb-8f0e-70b4fd142345.png)
 
 ***
 ### Module Planner
