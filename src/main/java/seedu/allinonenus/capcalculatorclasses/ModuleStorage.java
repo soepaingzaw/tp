@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class ModuleStorage {
 
     public String storageFilePath;
+    public int currentSem;
 
     public ModuleStorage(String storageFilePath) {
 
@@ -24,6 +25,7 @@ public class ModuleStorage {
         ModuleData modules;
         File f = new File(storageFilePath);
         Scanner scan = new Scanner(f);
+        currentSem = Integer.parseInt(scan.nextLine());
 
         while (scan.hasNext()) {
             String textString = scan.nextLine();
@@ -36,9 +38,14 @@ public class ModuleStorage {
         return moduleList;
     }
 
+    public int getSem() {
+        return currentSem;
+    }
 
-    public void writeToFile(String storageFilePath, ModuleList moduleList) throws IOException {
+
+    public void writeToFile(String storageFilePath, ModuleList moduleList,int sem) throws IOException {
         FileWriter fw = new FileWriter(storageFilePath);
+        fw.write(sem + "\n");
         fw.write(moduleList.printString());
         fw.close();
     }
