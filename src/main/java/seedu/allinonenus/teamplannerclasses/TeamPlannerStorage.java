@@ -16,23 +16,21 @@ public class TeamPlannerStorage {
         if (filePath.length() != 0) {
             while (s.hasNext()) {
                 String currentLine = s.nextLine();
-                String[] words = currentLine.split("");
+                String[] words = currentLine.split(" ");
                 if (words[1].equals("[M]")) {
                     String teamMemberName = "";
-                    for (int i = 1; i < words.length; i++) {
-                        teamMemberName += words[i];
+                    for (int i = 2; i < words.length; i++) {
+                        teamMemberName += words[i] + " ";
                     }
                     TeamMember teamMember = new TeamMember(teamMemberName, false);
                     team.addMember(teamMember);
-                    team.increaseMemberCount();
                 } else if (words[1].equals("[L]")) {
                     String teamMemberName = "";
                     for (int i = 2; i < words.length; i++) {
-                        teamMemberName += words[i];
+                        teamMemberName += words[i] + " ";
                     }
                     TeamMember teamMember = new TeamMember(teamMemberName, true);
                     team.addMember(teamMember);
-                    team.increaseMemberCount();
                 } else if (words[0].equals("[P]")) {
                     String password = "";
                     for (int i = 1; i < words.length; i++) {
@@ -53,10 +51,11 @@ public class TeamPlannerStorage {
         }
         FileWriter fileWriter = new FileWriter(filePath);
         for (int i = 0; i < team.getMemberCount(); i++) {
-            String teamMember = team.getTeamMember(i).toString() + "\n";
+            String teamMember = (i+1) + ". " + team.getTeamMember(i).toString() + "\n";
             fileWriter.write(teamMember);
         }
-        String password = "[P]" + team.getPassword();
+        String password = "[P] " + team.getPassword();
         fileWriter.write(password);
+        fileWriter.close();
     }
 }

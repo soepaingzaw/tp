@@ -25,6 +25,10 @@ public class Task {
 
     @Override
     public String toString() {
-        return task;
+        if (isDone) {
+            return " [X] " + task;
+        } else {
+            return " [ ] " + task;
+        }
     }
 }
