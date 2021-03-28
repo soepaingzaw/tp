@@ -12,6 +12,7 @@ public class ModuleStorage {
 
     public String storageFilePath;
     public int currentSem;
+    public int totalSem;
 
     public ModuleStorage(String storageFilePath) {
 
@@ -26,6 +27,7 @@ public class ModuleStorage {
         File f = new File(storageFilePath);
         Scanner scan = new Scanner(f);
         currentSem = Integer.parseInt(scan.nextLine());
+        totalSem = Integer.parseInt(scan.nextLine());
 
         while (scan.hasNext()) {
             String textString = scan.nextLine();
@@ -42,10 +44,14 @@ public class ModuleStorage {
         return currentSem;
     }
 
+    public int getTotalSem() {
+        return totalSem;
+    }
 
-    public void writeToFile(String storageFilePath, ModuleList moduleList,int sem) throws IOException {
+
+    public void writeToFile(String storageFilePath, ModuleList moduleList,int sem,int total) throws IOException {
         FileWriter fw = new FileWriter(storageFilePath);
-        fw.write(sem + "\n");
+        fw.write(sem + "\n" + total + "\n");
         fw.write(moduleList.printString());
         fw.close();
     }

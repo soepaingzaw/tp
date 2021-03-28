@@ -50,6 +50,8 @@ public class ModuleList {
 
     }
 
+    /*
+    //original for overall
     public double calculate() {
         double cap;
         int summationOfMCs = 0;
@@ -74,6 +76,34 @@ public class ModuleList {
 
         return cap;
     }
+    */
+    public double calculate(int currentSem) {
+        double cap;
+        int summationOfMCs = 0;
+        double summationOfGradeTimesMCs = 0.0;
+        boolean isNotSUmod;
+        boolean isNotPassFailMod;
+        String score;
+
+        for (ModuleData capCalculator : moduleList) {
+            if(currentSem==capCalculator.sem) {
+                score = capCalculator.grade;
+                summationOfGradeTimesMCs += gradesToPoints(score) * capCalculator.mcs;
+
+                isNotSUmod = !score.equals("S") && !score.equals("U");
+                isNotPassFailMod = !score.equals("CS") && !score.equals("CU");
+
+                if (isNotPassFailMod && isNotSUmod) {
+                    summationOfMCs += capCalculator.mcs;
+                }
+            }
+        }
+
+        cap = summationOfGradeTimesMCs / summationOfMCs;
+
+        return cap;
+    }
+
 
     public double gradesToPoints(String letterGrade) {
         double points;
