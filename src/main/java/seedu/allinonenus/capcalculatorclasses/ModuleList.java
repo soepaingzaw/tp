@@ -50,59 +50,55 @@ public class ModuleList {
 
     }
 
-    /*
-    //original for overall
-    public double calculate() {
-        double cap;
-        int summationOfMCs = 0;
-        double summationOfGradeTimesMCs = 0.0;
+
+    public int totalMcs(int startSem, int endSem) {
         boolean isNotSUmod;
         boolean isNotPassFailMod;
         String score;
-
-        for (ModuleData capCalculator : moduleList) {
-            score = capCalculator.grade;
-            summationOfGradeTimesMCs += gradesToPoints(score) * capCalculator.mcs;
-
-            isNotSUmod = !score.equals("S") && !score.equals("U");
-            isNotPassFailMod = !score.equals("CS") && !score.equals("CU");
-
-            if (isNotPassFailMod && isNotSUmod) {
-                summationOfMCs += capCalculator.mcs;
-            }
-        }
-
-        cap = summationOfGradeTimesMCs / summationOfMCs;
-
-        return cap;
-    }
-    */
-    public double calculate(int currentSem) {
-        double cap;
         int summationOfMCs = 0;
-        double summationOfGradeTimesMCs = 0.0;
-        boolean isNotSUmod;
-        boolean isNotPassFailMod;
-        String score;
+        for (int i = 0; i < moduleList.size(); i++) {
+            if (moduleList.get(i).sem >= startSem && moduleList.get(i).sem <= endSem) {
 
-        for (ModuleData capCalculator : moduleList) {
-            if(currentSem==capCalculator.sem) {
-                score = capCalculator.grade;
-                summationOfGradeTimesMCs += gradesToPoints(score) * capCalculator.mcs;
+                score = moduleList.get(i).grade;
 
                 isNotSUmod = !score.equals("S") && !score.equals("U");
                 isNotPassFailMod = !score.equals("CS") && !score.equals("CU");
 
                 if (isNotPassFailMod && isNotSUmod) {
-                    summationOfMCs += capCalculator.mcs;
+                    summationOfMCs += moduleList.get(i).mcs;
                 }
             }
+
         }
-
-        cap = summationOfGradeTimesMCs / summationOfMCs;
-
-        return cap;
+        return summationOfMCs;
     }
+
+    public double totalMcsTimesGrade(int beginSem, int finalSem) {
+        double summationOfMCsTimesGrade = 0.0;
+        String score;
+        for (int j = 0; j < moduleList.size(); j++) {
+            if (moduleList.get(j).sem >= beginSem && moduleList.get(j).sem <= finalSem) {
+                score = moduleList.get(j).grade;
+                summationOfMCsTimesGrade += gradesToPoints(score) * moduleList.get(j).mcs;
+            }
+        }
+        return summationOfMCsTimesGrade;
+    }
+
+    public double calculate(int start,int end) {
+        return totalMcsTimesGrade(start,end)/totalMcs(start,end);
+
+    }
+
+
+
+
+    public double suggest(int currentSem, double desiredGrade) {
+
+        return (desiredGrade * (totalMcs(1,currentSem))-totalMcsTimesGrade(1,currentSem-1))
+                /totalMcs(currentSem,currentSem);
+    }
+
 
 
     public double gradesToPoints(String letterGrade) {

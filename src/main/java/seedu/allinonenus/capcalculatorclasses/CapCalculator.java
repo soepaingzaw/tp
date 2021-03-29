@@ -100,12 +100,12 @@ public class CapCalculator {
                 printModuleList();
                 break;
 
-            case "suggest":
-                System.out.print("What is your overall desired CAP?\n");
+            case "goal":
+                double goalCAP = Double.parseDouble(commands[1]);
+                double suggestedGrade = moduleList.suggest(currentSem, goalCAP);
 
-
-                System.out.print("You should aim to get a CAP of ... for this semester" +
-                        "in order ot get an overall CAP of...\n");
+                System.out.printf("You should aim to get a CAP of %.2f for your graded modules this semester\n"
+                        + "in order to get an overall CAP of %.2f\n", suggestedGrade, goalCAP);
                 break;
 
             case "help":
@@ -179,7 +179,8 @@ public class CapCalculator {
                 }
             }
             seperationLine();
-            System.out.printf("My CAP for this semester is %.2f\n", moduleList.calculate(currentSem));
+            System.out.printf("CAP for this semester is %.2f\n", moduleList.calculate(currentSem, currentSem));
+            System.out.printf("Overall CAP is: %.2f\n",moduleList.calculate(1,currentSem));
         } else {
             System.out.print("There are no modules added yet\n");
         }
