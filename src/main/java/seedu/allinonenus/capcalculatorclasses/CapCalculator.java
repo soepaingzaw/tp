@@ -29,10 +29,9 @@ public class CapCalculator {
 
             switch (commands[0]) {
             case "list":
-                //  System.out.print("Modules for " + moduleList.printYearAndSem(currentSem) + "\n");
-                System.out.print("These are your modules for the semester\n");
+
                 printModuleList();
-                System.out.printf("My CAP for this semester is %.2f\n", moduleList.calculate(currentSem));
+
                 break;
 
             case "show":
@@ -97,13 +96,12 @@ public class CapCalculator {
                 moduleList.add(modules);
 
                 System.out.print("Added " + modules.moduleCode + "\n"
-                + "This is you new list:\n");
+                        + "This is you new list:\n");
                 printModuleList();
                 break;
 
             case "suggest":
                 System.out.print("What is your overall desired CAP?\n");
-                
 
 
                 System.out.print("You should aim to get a CAP of ... for this semester" +
@@ -112,6 +110,15 @@ public class CapCalculator {
 
             case "help":
                 listManual();
+                break;
+
+            case "update":
+                currentSem = moduleList.computeSem(commands[1]);
+                if (totalSem < currentSem) {
+                    totalSem = currentSem;
+                }
+
+                System.out.print("You are now viewing " + moduleList.printYearAndSem(currentSem) + "\n");
                 break;
 
             default:
@@ -150,17 +157,32 @@ public class CapCalculator {
     }
 
     public void printModuleList() {
+        boolean modulesExist = false;
+        System.out.print("These are your modules for the semester\n");
         seperationLine();
-        System.out.print("[MODULES] [GRADEs] [MCs]\n");
+
         for (int i = 0; i < moduleList.size(); i++) {
-
             if (moduleList.get(i).sem == currentSem) {
-
-                System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
-                        moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
+                modulesExist = true;
             }
         }
-        seperationLine();
+
+        if (modulesExist) {
+
+            System.out.print("[MODULES] [GRADEs] [MCs]\n");
+            for (int i = 0; i < moduleList.size(); i++) {
+
+                if (moduleList.get(i).sem == currentSem) {
+
+                    System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
+                            moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
+                }
+            }
+            seperationLine();
+            System.out.printf("My CAP for this semester is %.2f\n", moduleList.calculate(currentSem));
+        } else {
+            System.out.print("There are no modules added yet\n");
+        }
     }
 
     public void prepareStorageforNewUser() {
