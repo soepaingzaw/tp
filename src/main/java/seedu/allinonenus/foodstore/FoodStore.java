@@ -2,9 +2,9 @@ package seedu.allinonenus.foodstore;
 
 public class FoodStore {
 
-    public final String storeName;
-    public final String storeDescription;
-    public boolean isHalal;
+    protected String storeName;
+    protected String storeDescription;
+    protected boolean isHalal;
 
     public FoodStore(String storeName, String storeDescription) {
         this.storeName = storeName.trim();
