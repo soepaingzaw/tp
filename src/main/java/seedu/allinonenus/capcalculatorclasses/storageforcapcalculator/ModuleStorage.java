@@ -1,4 +1,7 @@
-package seedu.allinonenus.capcalculatorclasses;
+package seedu.allinonenus.capcalculatorclasses.storageforcapcalculator;
+
+import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
+import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 
 import java.io.File;
 
@@ -10,13 +13,19 @@ import java.util.Scanner;
 
 public class ModuleStorage {
 
-    public String storageFilePath;
+    public String storageFilePath = "ModuleStorage.txt";
     public int currentSem;
     public int totalSem;
 
-    public ModuleStorage(String storageFilePath) {
+    public ModuleStorage() {
+
+    }
+
+    public ModuleStorage(String storageFilePath,int currentSem,int totalSem) {
 
         this.storageFilePath = storageFilePath;
+        this.currentSem = currentSem;
+        this.totalSem = totalSem;
 
     }
 
@@ -44,12 +53,8 @@ public class ModuleStorage {
         return currentSem;
     }
 
-    public int getTotalSem() {
-        return totalSem;
-    }
 
-
-    public void writeToFile(String storageFilePath, ModuleList moduleList,int sem,int total) throws IOException {
+    public void writeToFile(ModuleList moduleList, int sem, int total) throws IOException {
         FileWriter fw = new FileWriter(storageFilePath);
         fw.write(sem + "\n" + total + "\n");
         fw.write(moduleList.printString());

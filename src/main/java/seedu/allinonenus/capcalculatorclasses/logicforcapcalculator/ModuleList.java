@@ -1,4 +1,6 @@
-package seedu.allinonenus.capcalculatorclasses;
+package seedu.allinonenus.capcalculatorclasses.logicforcapcalculator;
+
+import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
 
 import java.util.ArrayList;
 
