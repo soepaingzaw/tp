@@ -1,7 +1,5 @@
 package seedu.allinonenus.capcalculatorclasses.uiforcapcalculator;
 
-import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
-
 import java.util.Scanner;
 
 public class UiText {
@@ -65,30 +63,37 @@ public class UiText {
         System.out.print("Exiting CAP Calculator\n\n");
         separationLine();
     }
+
     public void printModuleDataHeading() {
         System.out.print("[MODULES] [GRADEs] [MCs]\n");
     }
+
     public void warnUserOfEmptySemester() {
         System.out.print("There are no modules added in this semester yet\n");
     }
-    public void printModuleData(String moduleCode,String grade,int mcs) {
-        System.out.printf("[%-7s]   [%-2s]    [%1d]%n",moduleCode, grade, mcs);
+
+    public void printModuleData(String moduleCode, String grade, int mcs) {
+        System.out.printf("[%-7s]   [%-2s]    [%1d]%n", moduleCode, grade, mcs);
     }
+
     public void printCurrentSemCap(double currCap) {
-        System.out.printf("CAP for this semester is %.2f\n",currCap);
+        System.out.printf("CAP for this semester is %.2f\n", currCap);
     }
+
     public void printOverallCap(double overallCap) {
-        System.out.printf("Overall CAP is: %.2f\n",overallCap);
+        System.out.printf("Overall CAP is: %.2f\n", overallCap);
     }
+
     public void confirmModuleUpdate(String moduleCode) {
         System.out.print("Added " + moduleCode + "\n");
     }
+
     public void printStudentProfile(String semInfo) {
         System.out.print("Profile: " + semInfo + " student\n");
     }
 
-
-
-
+    public void promptForCommand() {
+        System.out.print("Please enter command:\n");
+    }
 
 }

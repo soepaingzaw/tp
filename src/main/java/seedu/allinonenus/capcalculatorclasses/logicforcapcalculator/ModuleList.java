@@ -40,15 +40,15 @@ public class ModuleList {
     }
 
     public int edit(String moduleName, String newGrade) {
-        int i;
-        for (i = 0; i < moduleList.size(); i++) {
-            String moduleToEdit = moduleList.get(i).moduleCode;
+        int index;
+        for (index = 0; index < moduleList.size(); index++) {
+            String moduleToEdit = moduleList.get(index).moduleCode;
             if (moduleToEdit.equals(moduleName)) {
-                moduleList.get(i).gradeChange(newGrade);
+                moduleList.get(index).gradeChange(newGrade);
                 break;
             }
         }
-        return i;
+        return index;
 
     }
 

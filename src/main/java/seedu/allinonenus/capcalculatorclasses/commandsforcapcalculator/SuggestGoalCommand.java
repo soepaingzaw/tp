@@ -11,7 +11,13 @@ public class SuggestGoalCommand extends CommandsForCapCalculator{
     }
 
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
-        //moduleList.add()
+        String[] moduleInfo = fullCommand.split(" ");
+        int currentSem = storage.currentSem;
+        double goalCAP = Double.parseDouble(moduleInfo[1]);
+        double suggestedGrade = moduleList.suggest(currentSem, goalCAP);
+
+        System.out.printf("You should aim to get a CAP of %.2f for your graded modules this semester\n"
+                + "in order to get an overall CAP of %.2f\n", suggestedGrade, goalCAP);
     }
 
     public boolean isExit(){

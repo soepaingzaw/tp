@@ -16,12 +16,6 @@ public abstract class CommandsForCapCalculator {
     public abstract void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand);
 
     public abstract boolean isExit();
-  /*
-    public abstract void saveToStorage(ModuleStorage storage){
-        String filepath = storage.getFilePath();
-        int currentSem = storage.getSem()
-        storage.writeToFile(filepath, moduleList, currentSem, totalSem);
-    }
-*/
+
 
 }

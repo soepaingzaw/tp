@@ -26,10 +26,11 @@ public class PrintModuleListCommand extends CommandsForCapCalculator {
 
             uiText.printCurrentSemCap(moduleList.calculate(currentSem, currentSem));
             uiText.printOverallCap(moduleList.calculate(1,currentSem));
-
+            uiText.separationLine();
 
         } else {
             uiText.warnUserOfEmptySemester();
+            uiText.separationLine();
         }
     }
 

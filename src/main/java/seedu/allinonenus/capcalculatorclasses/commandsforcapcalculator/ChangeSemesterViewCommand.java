@@ -23,7 +23,7 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator{
         String newSem = uiText.readCommand();
         storage.currentSem = moduleList.computeSem(newSem);
         if (storage.currentSem > storage.totalSem) {
-            storage.totalSem = storage.currentSem;
+            System.out.print("Please update your student status before proceeding\n");
         }
 
         System.out.print("You are currently viewing in " + newSem + "\n");
@@ -31,7 +31,6 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator{
     }
 
     public void saveToStorage(ModuleStorage storage, ModuleList moduleList) {
-       // String filepath = storage.storageFilePath;
         int currentSem = storage.currentSem;
         int totalSem = storage.totalSem;
         try {

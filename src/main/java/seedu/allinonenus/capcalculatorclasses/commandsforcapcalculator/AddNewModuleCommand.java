@@ -20,11 +20,10 @@ public class AddNewModuleCommand extends CommandsForCapCalculator {
         moduleList.add(modules);
         uiText.confirmModuleUpdate(modules.moduleCode);
         saveToStorage(storage,moduleList);
-
+        uiText.separationLine();
     }
 
     public void saveToStorage(ModuleStorage storage, ModuleList moduleList) {
-       // String filepath = storage.storageFilePath;
         int currentSem = storage.currentSem;
         int totalSem = storage.totalSem;
         try {
