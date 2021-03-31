@@ -2,14 +2,14 @@ package seedu.allinonenus.foodstore;
 
 public class FoodStoreParser {
 
-    private static final String INVALID_ADD_MESSAGE = "Please enter the command in the correct format: " +
-            "add [Store name] d/[Store description]";
-    private static final String OUT_OF_BOUNDS_MESSAGE = "Sorry, the number you inputted is out of bounds." +
-            "Please use the list command to check the store index.";
-    private static final String INVALID_HALAL_MESSAGE = "Please enter the command in the correct format: " +
-            "halal [Store index]";
-    private static final String INVALID_FIND_MESSAGE = "Please enter the command in the correct format: " +
-            "find [keyword]";
+    private static final String INVALID_ADD_MESSAGE = "Please enter the command in the correct format: "
+            + "add [Store name] d/[Store description]";
+    private static final String OUT_OF_BOUNDS_MESSAGE = "Sorry, the number you inputted is out of bounds."
+            + "Please use the list command to check the store index.";
+    private static final String INVALID_HALAL_MESSAGE = "Please enter the command in the correct format: "
+            + "halal [Store index]";
+    private static final String INVALID_FIND_MESSAGE = "Please enter the command in the correct format: "
+            + "find [keyword]";
 
     public FoodStore parseAddCommand(String input, int locationIndex) throws FoodExceptions {
         input = input.replace("add ", "");
@@ -63,8 +63,7 @@ public class FoodStoreParser {
             boolean validIndex = index < listSize;
             if (!validIndex) {
                 throw new FoodExceptions(OUT_OF_BOUNDS_MESSAGE);
-            }
-            else {
+            } else {
                 return index;
             }
         }
