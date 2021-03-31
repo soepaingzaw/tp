@@ -1,8 +1,14 @@
 # Developer Guide
 
+## Introduction
+
+All-in-OneNUS is a Command Line Interface(CLI) application that aims to help students with their university lives. All-in-OneNUS has 4 components, Team Planner, CAP Calculator, Module Planner and Food Recommendation App. 
+
+
 ## Design
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
+The AllinOneNus class contains the main method of the program, which will call the run() method from the OverallParser class. From there, the user can then access the 4 components of the application, whereby inputting a number from 1-4 will call the respective classes.
+![Architecture Diagram](https://user-images.githubusercontent.com/57632786/113196712-64462380-9296-11eb-8de3-9f02e0da93e9.png)
 
 
 ## Implementation
