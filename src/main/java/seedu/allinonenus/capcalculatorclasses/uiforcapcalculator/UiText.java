@@ -39,6 +39,8 @@ public class UiText {
                 + "4. [edit] - make edits to your module data\n"
                 + "   Format: 1. edit [Module code]\n"
                 + "           2. [new grade]\n"
+                + "   e.g. edit CS1231\n"
+                + "        A+\n"
                 + "_______________________________________________\n"
                 + "5. [calculate] - calculates your current semester's CAP\n"
                 + "   Format: calculate\n"
@@ -55,8 +57,8 @@ public class UiText {
     public void explainStepsForNewUser() {
 
         System.out.print("Please enter your year and semester\n"
-                + "E.g. if you are in your second year and it is currently your "
-                + "first semester type: Y2S1\n");
+                + "For instance, if you are a year 2 semester 1 student, "
+                + "type: Y2S1\n");
     }
 
     public void printExitMessage() {
@@ -93,7 +95,11 @@ public class UiText {
     }
 
     public void promptForCommand() {
-        System.out.print("Please enter command:\n");
+        System.out.print("Please enter command: ");
+    }
+
+    public void currentSemView(String sem) {
+        System.out.print("You are viewing " + sem + "\n");
     }
 
 }

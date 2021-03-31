@@ -11,11 +11,11 @@ public class PrintModuleListCommand extends CommandsForCapCalculator {
     }
 
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
-        int currentSem = storage.getSem();
+        int currentSem = storage.currentSem;
         uiText.separationLine();
         String semINFO = moduleList.printYearAndSem(currentSem);
 
-        uiText.printStudentProfile(semINFO);
+        uiText.currentSemView(semINFO);
         if (modulesExist(moduleList,currentSem)) {
 
             uiText.printModuleDataHeading();
@@ -26,7 +26,6 @@ public class PrintModuleListCommand extends CommandsForCapCalculator {
 
             uiText.printCurrentSemCap(moduleList.calculate(currentSem, currentSem));
             uiText.printOverallCap(moduleList.calculate(1,currentSem));
-            uiText.separationLine();
 
         } else {
             uiText.warnUserOfEmptySemester();

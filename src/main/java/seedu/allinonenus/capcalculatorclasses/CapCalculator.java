@@ -28,10 +28,12 @@ public class CapCalculator {
 
         } catch (NoSuchElementException | FileNotFoundException e) {
             uiText.explainStepsForNewUser();
+            uiText.promptForCommand();
             moduleList = new ModuleList();
             String studentYearAndSem = uiText.readCommand();
             storage.currentSem = moduleList.computeSem(studentYearAndSem);
             storage.totalSem = storage.currentSem;
+            uiText.separationLine();
             uiText.listManual();
 
         }

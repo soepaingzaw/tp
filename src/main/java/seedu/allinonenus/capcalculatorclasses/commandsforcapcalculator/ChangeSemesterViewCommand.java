@@ -16,14 +16,16 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator{
 
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
         uiText.separationLine();
-        //String semINFO = moduleList.printYearAndSem(currentSem);
 
         System.out.print("What is the semester you want to view?\n"
                 + "Enter in the following format: YxSy\n");
         String newSem = uiText.readCommand();
-        storage.currentSem = moduleList.computeSem(newSem);
-        if (storage.currentSem > storage.totalSem) {
+        //storage.currentSem;
+        int newSemNum = moduleList.computeSem(newSem);
+        if (newSemNum > storage.totalSem) {
             System.out.print("Please update your student status before proceeding\n");
+        } else {
+            storage.currentSem = newSemNum;
         }
 
         System.out.print("You are currently viewing in " + newSem + "\n");
