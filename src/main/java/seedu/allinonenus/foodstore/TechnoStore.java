@@ -1,6 +1,6 @@
 package seedu.allinonenus.foodstore;
 
-public class TechnoStore extends FoodStore{
+public class TechnoStore extends FoodStore {
 
     public TechnoStore(String storeName, String storeDescription) {
         super(storeName, storeDescription);

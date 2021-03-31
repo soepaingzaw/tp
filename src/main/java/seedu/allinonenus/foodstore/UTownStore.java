@@ -1,6 +1,6 @@
 package seedu.allinonenus.foodstore;
 
-public class UTownStore extends FoodStore{
+public class UTownStore extends FoodStore {
 
     public UTownStore(String storeName, String storeDescription) {
         super(storeName, storeDescription);
