@@ -1,6 +1,7 @@
 package seedu.allinonenus.capcalculatorclasses;
 
 import org.junit.jupiter.api.Test;
+import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

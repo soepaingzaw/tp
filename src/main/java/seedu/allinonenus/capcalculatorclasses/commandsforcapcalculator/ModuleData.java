@@ -1,4 +1,4 @@
-package seedu.allinonenus.capcalculatorclasses;
+package seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator;
 
 public class ModuleData {
 
