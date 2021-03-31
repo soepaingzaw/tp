@@ -32,9 +32,10 @@ public class FoodStoreParser {
                 return new UTownStore(storeName,storeDescription);
             case 4:
                 return new TechnoStore(storeName,storeDescription);
+            default:
+                throw new FoodExceptions(INVALID_ADD_MESSAGE);
             }
         }
-        return null;
     }
 
     public int parseDeleteCommand(String input, int listSize) throws FoodExceptions {

@@ -34,7 +34,6 @@ public class FoodRecommendation {
     }
 
     public void recommendStore() {
-        Random random = new Random();
         foodStoreUi.showRecommendAvailableLocations();
         Scanner in = new Scanner(System.in);
         String userLocationInput = in.nextLine();
@@ -63,8 +62,10 @@ public class FoodRecommendation {
                 break;
             case "help":
                 foodStoreUi.showRecommendAvailableLocations();
+                break;
             default:
                 foodStoreUi.printInvalidLocationInput();
+                break;
             }
         }
         ArrayList<FoodStore> foodStores = new ArrayList<>();
@@ -73,6 +74,7 @@ public class FoodRecommendation {
                 foodStores.add(foodStore);
             }
         }
+        Random random = new Random();
         FoodStore foodStore = foodStores.get(random.nextInt(foodStores.size()));
         foodStoreUi.recommendStore(foodStore);
     }
@@ -119,8 +121,10 @@ public class FoodRecommendation {
                 return 4;
             case "help":
                 foodStoreUi.showAvailableLocations();
+                break;
             default:
                 foodStoreUi.printInvalidLocationInput();
+                break;
             }
             userLocationInput = in.nextLine();
         }
