@@ -7,22 +7,33 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
 public class AddNewModuleCommand extends CommandsForCapCalculator {
 
     public AddNewModuleCommand() {
         super();
     }
 
+    /**
+     * @param moduleList
+     * @param storage
+     * @param uiText
+     * @param fullCommand
+     */
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
         String[] moduleInfo = fullCommand.split(" ");
         int currentSem = storage.getSem();
         ModuleData modules = new ModuleData(moduleInfo[1], moduleInfo[2], Integer.parseInt(moduleInfo[3]), currentSem);
         moduleList.add(modules);
         uiText.confirmModuleUpdate(modules.moduleCode);
-        saveToStorage(storage,moduleList);
+        saveToStorage(storage, moduleList);
         uiText.separationLine();
     }
 
+    /**
+     * @param storage
+     * @param moduleList
+     */
     public void saveToStorage(ModuleStorage storage, ModuleList moduleList) {
         int currentSem = storage.currentSem;
         int totalSem = storage.totalSem;
