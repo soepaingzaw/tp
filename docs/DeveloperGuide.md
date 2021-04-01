@@ -5,34 +5,54 @@
 All-in-OneNUS is a Command Line Interface(CLI) application that aims to help students with their university lives. All-in-OneNUS has 4 components, Team Planner, CAP Calculator, Module Planner and Food Recommendation App. 
 
 
-## Design
+## Overall Design
 
 The AllinOneNus class contains the main method of the program, which will call the run() method from the OverallParser class. From there, the user can then access the 4 components of the application, whereby inputting a number from 1-4 will call the respective classes.
 ![Architecture Diagram](https://user-images.githubusercontent.com/57632786/113196712-64462380-9296-11eb-8de3-9f02e0da93e9.png)
-
-
-## Implementation
 ***
-### Team Planner 
+***
+### Team Planner
+***
+#### Design
 ![TeamPlannerUMLDiagram](https://user-images.githubusercontent.com/77476414/112349123-6f7fd900-8d03-11eb-9b6b-5cebe73ed50e.jpg)
 
-
+***
+#### Implementation
+***
 ***
 ### CAP Calculator
+***
+#### Design
+![DesignDiagram](./capcalculatordiagrams/capcalculatorarchitecture.png)
+***
 
-![capcalculatorUMLdiagram](https://user-images.githubusercontent.com/77471508/112415562-fa41f180-8d5e-11eb-8f0e-70b4fd142345.png)
+#### Implementation
+![ImplementationDiagram](./capcalculatordiagrams/CommandsForCapCalculator.png)
 
+***
 ***
 ### Module Planner
+***
+#### Design
 
 ![moduleplannerUMLdiagram](https://github.com/fangxinjia0203/tp/blob/982ec3b4ee84e9f3f3ecf5bbe3cb8f5690627a70/src/main/java/seedu/allinonenus/moduleplanner/ModulePlanner.png)
-***
 
+***
+#### Implementation
+***
+***
 ### Food Recommendation App
+***
+#### Design
 
 ![foodrecommendationUMLdiagram](https://user-images.githubusercontent.com/57632786/112334326-4c9af800-8cf6-11eb-892f-5599f927b551.png)
 
 ***
+#### Implementation
+
+***
+***
+
 
 ## Product scope
 ### Target user profile:
