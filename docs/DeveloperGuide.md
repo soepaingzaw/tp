@@ -23,7 +23,18 @@ The AllinOneNus class contains the main method of the program, which will call t
 ### CAP Calculator
 ***
 #### Design
+Architecture
+
+
+
 ![DesignDiagram](./capcalculatordiagrams/capcalculatorarchitecture.png)
+
+The Architecture Diagram given above explains the high-level design of the CAP Calculator. Given below is a quick overview of each component.
+* UiText
+* ParserForCapCalculator
+* CommandsForCapCalculator
+* ModuleList
+* ModuleStorage
 ***
 
 #### Implementation
