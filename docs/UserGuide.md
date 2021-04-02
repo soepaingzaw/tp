@@ -31,7 +31,7 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
       * [student](#student)
       * [list down](#list-down)
       * [recommendation](#recommendation)
-      * [Delete](#Delete student)
+      * [Delete](#Delete-student)
     * [Food Recommendation app](#Food-Recommendation-app)
       * [add](#add-food-store)
       * [delete](#delete-food-store)
