@@ -31,6 +31,7 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
       * [student](#student)
       * [list down](#list-down)
       * [recommendation](#recommendation)
+      * [Delete](#Delete student)
     * [Food Recommendation app](#Food-Recommendation-app)
       * [add](#add-food-store)
       * [delete](#delete-food-store)
@@ -153,6 +154,11 @@ Format: `list`
 Shows the number of students who have higher priority and predicts the chances of getting that module (High, medium or low)
 
 Format: `recommendation [name]`
+
+#### Delete student
+Removes the student from the list.
+
+Format: `delete [index]`
 
 ***
 ### Food Recommendation app
