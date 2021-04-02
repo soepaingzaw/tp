@@ -45,15 +45,20 @@ public class CapCalculator {
         boolean Exit = false;
 
         while (!Exit) {
-            int sem = storage.currentSem;
+            int sem = storage.totalSem;
             String studentProfile = moduleList.printYearAndSem(sem);
             uiText.printStudentProfile(studentProfile);
             uiText.promptForCommand();
             fullCommand = uiText.readCommand();
             uiText.separationLine();
-            CommandsForCapCalculator command = parser.parse(fullCommand);
-            command.executeCommand(moduleList, storage, uiText, fullCommand);
-            Exit = command.isExit();
+            try {
+                CommandsForCapCalculator command = parser.parse(fullCommand);
+                command.executeCommand(moduleList, storage, uiText, fullCommand);
+                Exit = command.isExit();
+            } catch (NullPointerException e) {
+                System.out.print("Invalid!\n");
+            }
+
         }
 
     }
