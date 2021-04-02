@@ -1,4 +1,7 @@
-package seedu.allinonenus.capcalculatorclasses;
+package seedu.allinonenus.capcalculatorclasses.storageforcapcalculator;
+
+import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
+import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 
 import java.io.File;
 
@@ -10,11 +13,19 @@ import java.util.Scanner;
 
 public class ModuleStorage {
 
-    public String storageFilePath;
+    public String storageFilePath = "ModuleStorage.txt";
+    public int currentSem;
+    public int totalSem;
 
-    public ModuleStorage(String storageFilePath) {
+    public ModuleStorage() {
+
+    }
+
+    public ModuleStorage(String storageFilePath,int currentSem,int totalSem) {
 
         this.storageFilePath = storageFilePath;
+        this.currentSem = currentSem;
+        this.totalSem = totalSem;
 
     }
 
@@ -24,11 +35,13 @@ public class ModuleStorage {
         ModuleData modules;
         File f = new File(storageFilePath);
         Scanner scan = new Scanner(f);
+        currentSem = Integer.parseInt(scan.nextLine());
+        totalSem = Integer.parseInt(scan.nextLine());
 
         while (scan.hasNext()) {
             String textString = scan.nextLine();
             String[] textData = textString.split("\\|");
-            modules = new ModuleData(textData[0], textData[1], Integer.parseInt(textData[2]));
+            modules = new ModuleData(textData[0], textData[1], Integer.parseInt(textData[2]),Integer.parseInt(textData[3]));
             moduleList.add(modules);
 
         }
@@ -36,9 +49,14 @@ public class ModuleStorage {
         return moduleList;
     }
 
+    public int getSem() {
+        return currentSem;
+    }
 
-    public void writeToFile(String storageFilePath, ModuleList moduleList) throws IOException {
+
+    public void writeToFile(ModuleList moduleList, int sem, int total) throws IOException {
         FileWriter fw = new FileWriter(storageFilePath);
+        fw.write(sem + "\n" + total + "\n");
         fw.write(moduleList.printString());
         fw.close();
     }

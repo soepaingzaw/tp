@@ -1,4 +1,4 @@
-package seedu.allinonenus.capcalculatorclasses;
+package seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator;
 
 public class ModuleData {
 
@@ -6,11 +6,13 @@ public class ModuleData {
     public String moduleCode;
     public String grade;
     public int mcs;
+    public int sem;
 
-    public ModuleData(String moduleCode, String grade, int mcs) {
+    public ModuleData(String moduleCode, String grade, int mcs, int sem) {
         this.moduleCode = moduleCode;
         this.grade = grade;
         this.mcs = mcs;
+        this.sem = sem;
 
     }
 
@@ -25,7 +27,7 @@ public class ModuleData {
     }
 
     public String fileFormat() {
-        return moduleCode + "|" + grade + "|" + mcs + "\n";
+        return moduleCode + "|" + grade + "|" + mcs + "|" + sem + "\n";
     }
 
 

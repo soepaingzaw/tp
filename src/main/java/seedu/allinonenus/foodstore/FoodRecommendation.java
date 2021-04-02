@@ -9,122 +9,142 @@ import java.util.Scanner;
 
 public class FoodRecommendation {
 
-    private static final String FIND_ERROR_MESSAGE =
-            "Sorry, We are unable to find any food stores that fit the description";
-    private static final String WELCOME_MESSAGE = "Welcome to Food Recommendation Bot!\n";
-    private static final String AVAILABLE_COMMANDS = "Here are the list of commands: \n"
-            + "1. help - Displays the list of commands available\n"
-            + "2. add [store name] [store description] - Adds a new food store\n"
-            + "3. list - Prints out all the food stores\n"
-            + "4. delete [store index] - Deletes the store with that index\n"
-            + "5. recommend - Recommends a random food store\n"
-            + "6. clear - Clears all the food stores in the list";
-    private static final String EXIT_MESSAGE = "Goodbye, hope to see you again!";
-    private static final String RECOMMEND_MESSAGE = "The bot recommends this store for you to try!";
-    private static final String CLEAR_MESSAGE = "All food stores have been cleared from the list.";
-    private static final String STORE_REMOVE_MESSAGE = "This store has been removed:";
-    private static final String LIST_MESSAGE = "Here is the list of food stores:";
-    private static final String ADD_MESSAGE = "This food store has been added to the list:";
-    private static final String FILE_NOT_FOUND_MESSAGE = "File not found. Creating a new file...";
-
 
     private final ArrayList<FoodStore> foodStoreList = new ArrayList<>();
+    FoodStoreParser foodStoreParser = new FoodStoreParser();
+    FoodStoreUi foodStoreUi = new FoodStoreUi();
 
     public FoodRecommendation() {
 
     }
 
     public void addStore(FoodStore toAdd) {
-        print(ADD_MESSAGE);
-        printStore(toAdd);
+        foodStoreUi.addStore(toAdd);
         foodStoreList.add(toAdd);
     }
 
-    public void printStore(FoodStore toPrint) {
-
-        System.out.println(toPrint.toString());
-    }
-
-    public void printList() {
-        print(LIST_MESSAGE);
-        for (int i = 0; i < foodStoreList.size(); i++) {
-            FoodStore foodStore = foodStoreList.get(i);
-            Integer index = i + 1;
-            print(index + ". " + foodStore.toString());
-        }
-    }
-
     public void deleteStore(int index) {
-        print(STORE_REMOVE_MESSAGE);
-        printStore(foodStoreList.get(index));
+        foodStoreUi.deleteStore(foodStoreList.get(index));
         foodStoreList.remove(index);
     }
 
     public void clearList() {
-        print(CLEAR_MESSAGE);
+        foodStoreUi.clearList();
         foodStoreList.clear();
     }
 
-    public void print(String message) {
-
-        System.out.println(message);
-    }
-
-    public void recommend() {
+    public void recommendStore() {
+        foodStoreUi.showRecommendAvailableLocations();
+        Scanner in = new Scanner(System.in);
+        String userLocationInput = in.nextLine();
+        boolean activeSystem = true;
+        while (activeSystem) {
+            switch (userLocationInput) {
+            case "1":
+                userLocationInput = "Frontier";
+                activeSystem = false;
+                break;
+            case "2":
+                userLocationInput = "The Deck";
+                activeSystem = false;
+                break;
+            case "3":
+                userLocationInput = "UTown";
+                activeSystem = false;
+                break;
+            case "4":
+                userLocationInput = "Techno Edge";
+                activeSystem = false;
+                break;
+            case "5":
+                userLocationInput = "";
+                activeSystem = false;
+                break;
+            case "help":
+                foodStoreUi.showRecommendAvailableLocations();
+                break;
+            default:
+                foodStoreUi.printInvalidLocationInput();
+                break;
+            }
+        }
+        ArrayList<FoodStore> foodStores = new ArrayList<>();
+        for (FoodStore foodStore : foodStoreList) {
+            if (foodStore.toString().contains(userLocationInput)) {
+                foodStores.add(foodStore);
+            }
+        }
         Random random = new Random();
-        FoodStore foodStore = foodStoreList.get(random.nextInt(foodStoreList.size()));
-        print(RECOMMEND_MESSAGE);
-        printStore(foodStore);
+        FoodStore foodStore = foodStores.get(random.nextInt(foodStores.size()));
+        foodStoreUi.recommendStore(foodStore);
     }
 
-    public void find(FoodStore toFind) {
-        if (foodStoreList.contains(toFind)) {
-            printStore(toFind);
+    public void handleHalalCommand(Integer index) {
+        FoodStore foodStore = foodStoreList.get(index);
+        if (foodStore.isHalal) {
+            foodStore.clearHalal();
         } else {
-            print(FIND_ERROR_MESSAGE);
+            foodStore.setHalal();
+        }
+        foodStoreUi.printUpdatedStore(foodStore);
+    }
+
+    public void handleFindCommand(String keyword) {
+        foodStoreUi.showFindMessage();
+        int index = 1;
+        for (FoodStore foodStore : foodStoreList) {
+            String storeInformation = foodStore.toString();
+            boolean containsKeyword = storeInformation.contains(keyword);
+            if (containsKeyword) {
+                foodStoreUi.showToUser(index + ": " + storeInformation);
+                index++;
+            }
+        }
+        if (index == 1) {
+            foodStoreUi.printFindError();
         }
     }
 
-    public void setHalal(Integer index) {
-        FoodStore foodStore = foodStoreList.get(index);
-        foodStore.setHalal();
-    }
-
-    public void clearHalal(Integer index) {
-        FoodStore foodStore = foodStoreList.get(index);
-        foodStore.clearHalal();
-    }
-
-    public void printWelcomeMessage() {
-
-        System.out.println(WELCOME_MESSAGE);
-    }
-
-    public void printAvailableCommands() {
-
-        System.out.println(AVAILABLE_COMMANDS);
-    }
-
-    public void printExitMessage() {
-
-        System.out.println(EXIT_MESSAGE);
+    public int getLocationInput() {
+        foodStoreUi.showAvailableLocations();
+        Scanner in = new Scanner(System.in);
+        String userLocationInput = in.nextLine();
+        while (true) {
+            switch (userLocationInput) {
+            case "1":
+                return 1;
+            case "2":
+                return 2;
+            case "3":
+                return 3;
+            case "4":
+                return 4;
+            case "help":
+                foodStoreUi.showAvailableLocations();
+                break;
+            default:
+                foodStoreUi.printInvalidLocationInput();
+                break;
+            }
+            userLocationInput = in.nextLine();
+        }
     }
 
     public void run() {
-        printWelcomeMessage();
+        foodStoreUi.printWelcomeMessage();
         try {
             FoodStoreStorage.loadFile(foodStoreList);
         } catch (FileNotFoundException e) {
-            print(FILE_NOT_FOUND_MESSAGE);
+            foodStoreUi.printFileNotFound();
         }
-        printAvailableCommands();
+        foodStoreUi.printAvailableCommands();
         runUntilExit();
         try {
             FoodStoreStorage.saveFile(foodStoreList);
         } catch (IOException e) {
-            print("Something went wrong: " + e.getMessage());
+            foodStoreUi.showToUser("Something went wrong: " + e.getMessage());
         }
-        printExitMessage();
+        foodStoreUi.printExitMessage();
     }
 
     public void runUntilExit() {
@@ -139,27 +159,46 @@ public class FoodRecommendation {
             boolean isList = keyword.equals("list");
             boolean isRecommend = keyword.equals("recommend");
             boolean isClear = keyword.equals("clear");
+            boolean isHelp = keyword.equals("help");
+            boolean isHalal = keyword.equals("halal");
+            boolean isFind = keyword.equals("find");
             if (isAdd) {
                 try {
-                    FoodStore foodStore = FoodStoreParser.parseAddCommand(userInput);
+                    int locationIndex = getLocationInput();
+                    FoodStore foodStore = foodStoreParser.parseAddCommand(userInput, locationIndex);
                     addStore(foodStore);
                 } catch (FoodExceptions e) {
-                    print(e.getMessage());
+                    foodStoreUi.showToUser(e.getMessage());
                 }
             } else if (isDelete) {
                 try {
-                    int index = FoodStoreParser.parseDeleteCommand(userInput, foodStoreList.size());
+                    int index = foodStoreParser.parseDeleteCommand(userInput, foodStoreList.size());
                     deleteStore(index);
                 } catch (FoodExceptions e) {
-                    print(e.getMessage());
+                    foodStoreUi.showToUser(e.getMessage());
                 }
-
             } else if (isList) {
-                printList();
+                foodStoreUi.printList(foodStoreList);
             } else if (isRecommend) {
-                recommend();
+                recommendStore();
             } else if (isClear) {
                 clearList();
+            } else if (isHelp) {
+                foodStoreUi.printAvailableCommands();
+            } else if (isHalal) {
+                try {
+                    int index = foodStoreParser.parseHalalCommand(userInput, foodStoreList.size());
+                    handleHalalCommand(index);
+                } catch (FoodExceptions e) {
+                    foodStoreUi.showToUser(e.getMessage());
+                }
+            } else if (isFind) {
+                try {
+                    String findCommandKeyword = foodStoreParser.parseFindCommand(userInput);
+                    handleFindCommand(findCommandKeyword);
+                } catch (FoodExceptions e) {
+                    foodStoreUi.showToUser(e.getMessage());
+                }
             }
             userInput = in.nextLine();
             isExit = userInput.equals("bye");
