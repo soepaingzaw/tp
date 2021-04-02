@@ -136,6 +136,7 @@ Enter the module code followed by the number of slots available.
 Format: `module [module code],[slots]`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #### student
 Enter the student information and the rank they want to put for bidding the module. Enter [true]/[false] for [graduation requirement] to indicate whether the module is required for graduation.
 
@@ -144,6 +145,9 @@ Format: `student [name],[year],[graduation requirement],[rank]`
 #### list down
 Lists down the students and their priority who want to get the module. It is sorted in descending order by their priority score.
 =======
+=======
+
+>>>>>>> 92b7120724974a950b8f0a9fb019cccd7ceead45
 #### Student
 Enter the student information and the rank they want to put for bidding the module. 
 
@@ -155,7 +159,10 @@ Format: `student [name],[year],[graduation requirement],[rank]`
 Lists down the students and their priority who want to get the module. 
 
 It is sorted in descending order by their priority score.
+<<<<<<< HEAD
 >>>>>>> 3dc60c54428d4dd712e2c4af2262444c9a8d7ca4
+=======
+>>>>>>> 92b7120724974a950b8f0a9fb019cccd7ceead45
 
 Format: `list`
 
