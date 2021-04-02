@@ -17,15 +17,7 @@ public class TeamParser {
                     return true;
                 }
                 ui.passwordValidation(team);
-                String teamMemberName = "";
-                for (String word : commandArguments) {
-                    if (word.equals("add") || word.equals("member")) {
-                        continue;
-                    } else {
-                        teamMemberName += word + " ";
-                    }
-                }
-                teamMemberName = teamMemberName.stripTrailing();
+                String teamMemberName = commandArguments[2].trim();
                 TeamMember teamMember = new TeamMember(teamMemberName, false);
                 team.addMember(teamMember);
                 System.out.println(team.getTeamMember(team.getMemberCount() - 1)
@@ -36,14 +28,13 @@ public class TeamParser {
                     System.out.println("Missing parameter in the input. Please specify a member to delete");
                     return true;
                 }
-                String teamMemberName = command.replace("delete member ", "");
-                teamMemberName = teamMemberName.trim();
+                ui.passwordValidation(team);
+                String teamMemberName = commandArguments[2].trim();
                 int memberIndex = team.getIndexOfTeamMember(teamMemberName);
                 if (memberIndex == -1) {
                     System.out.println("Please specify a valid team member to be deleted");
                     return true;
                 } else {
-                    System.out.println(team.getTeamMember(memberIndex) + " will be removed");
                     team.removeMember(memberIndex);
                 }
                 ui.saveFile(team);
@@ -59,41 +50,38 @@ public class TeamParser {
             } else if (commandArguments[0].equals("help")) {
                 System.out.println(constants.displayCommandsAvailable);
             } else if (commandArguments[0].equals("add") && commandArguments[1].equals("task")) {
-                if (commandArguments.length < 5) {
-                    System.out.println("Missing parameters in the input");
+                System.out.println("Member to add task to:");
+                String teamMemberName = in.nextLine();
+                teamMemberName = teamMemberName.trim();
+                int memberIndex = team.getIndexOfTeamMember(teamMemberName);
+                if (memberIndex == -1) {
+                    System.out.println("Please specify a valid team member to add a task to");
                     return true;
                 }
+                System.out.println("Task to be added:");
+                String taskDescription = in.nextLine();
+                taskDescription = taskDescription.trim();
+                System.out.println("Priority level of the task:");
+                String priorityLevelInput = in.nextLine();
                 int priorityLevel = 0;
-                if (commandArguments[commandArguments.length - 1].equals("HIGH")) {
+                if (priorityLevelInput.equals("HIGH")) {
                     priorityLevel = 1;
-                } else if (commandArguments[commandArguments.length - 1].equals("MED")) {
+                } else if (priorityLevelInput.equals("MED")) {
                     priorityLevel = 2;
-                } else if (commandArguments[commandArguments.length - 1].equals("LOW")) {
+                } else if (priorityLevelInput.equals("LOW")) {
                     priorityLevel = 3;
                 } else {
                     System.out.println("Unrecognized priority level input");
                     return true;
                 }
-                String taskDescription = "";
-                for (int i = 3; i < commandArguments.length - 1; i++) {
-                    taskDescription += commandArguments[i] + " ";
-                }
-                taskDescription = taskDescription.stripTrailing();
                 Task task = new Task(taskDescription, priorityLevel, false);
-                int memberIndex = team.getIndexOfTeamMember(commandArguments[2]);
-                if (memberIndex == -1) {
-                    System.out.println("Please specify a valid team member to add a task to");
-                    return true;
-                }
                 (team.getTeamMember(memberIndex)).addTask(task);
-                System.out.println(commandArguments[3] + " has been assigned to " + (team.getTeamMember(memberIndex))
-                        + " with a priority level of " + commandArguments[commandArguments.length - 1]);
+                System.out.println(taskDescription + " has been assigned to " + (team.getTeamMember(memberIndex))
+                        + " with a priority level of " + priorityLevel);
+                ui.saveFile(team);
             } else if (commandArguments[0].equals("delete") && commandArguments[1].equals("task")) {
-                if (commandArguments.length < 4) {
-                    System.out.println("Missing parameters in the input");
-                    return true;
-                }
-                String teamMemberName = command.replace("delete member ", "");
+                System.out.println("Member to delete task from:");
+                String teamMemberName = in.nextLine();
                 teamMemberName = teamMemberName.trim();
                 int memberIndex = team.getIndexOfTeamMember(teamMemberName);
                 if (memberIndex == -1) {
@@ -101,14 +89,49 @@ public class TeamParser {
                     return true;
                 }
                 TeamMember teamMember = team.getTeamMember(memberIndex);
-                ui.deleteTask(teamMember, commandArguments[2]);
-            } else if (commandArguments[0].equals("mark") && commandArguments[1].equals("done")) {
-                if (commandArguments.length < 4) {
-                    System.out.println("Missing parameters in the input");
+                System.out.println("Index of task to be deleted:");
+                int taskIndex = -1;
+                try {
+                    taskIndex = Integer.parseInt(in.nextLine()) - 1;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input for index of task");
+                }
+                if (taskIndex == -1) {
                     return true;
                 }
-                TeamMember teamMember = (team.getTeamMember(team.getIndexOfTeamMember(commandArguments[2])));
-                ui.markTaskAsDone(teamMember, commandArguments[2]);
+                try {
+                    ui.deleteTask(teamMember, taskIndex);
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Please enter a valid task index");
+                }
+                ui.saveFile(team);
+            } else if (commandArguments[0].equals("mark") && commandArguments[1].equals("done")) {
+                System.out.println("Member the task is assigned to:");
+                String teamMemberName = in.nextLine();
+                teamMemberName = teamMemberName.trim();
+                int memberIndex = team.getIndexOfTeamMember(teamMemberName);
+                if (memberIndex == -1) {
+                    System.out.println("Please specify a valid team member to add a task to");
+                    return true;
+                }
+                TeamMember teamMember = (team.getTeamMember(memberIndex));
+                System.out.println("Index of task to be marked as done:");
+                int taskIndex = -1;
+                try {
+                    taskIndex = Integer.parseInt(in.nextLine()) - 1;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input for index of task");
+                }
+                if (taskIndex == -1) {
+                    return true;
+                }
+                try {
+                    ui.markTaskAsDone(teamMember, taskIndex);
+                    System.out.println(teamMember.getTask(taskIndex) + " has been marked as done for " + teamMember);
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Invalid input for index of task");
+                }
+                ui.saveFile(team);
             } else if (commandArguments[0].equals("show") && commandArguments[1].equals("tasks")) {
                 ui.showTask(team);
             } else if (commandArguments[0].equals("quit")) {
