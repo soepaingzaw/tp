@@ -103,29 +103,78 @@ Format: `quit`
 ### Cap Calculator
 
 #### Add
-Enter the module code followed by your grade and then the MCs
+Adds your module data
 
-Format: `[Module Code] [Grade] [MCs]`
+Format: `add [Module Code] [Grade] [MCs]`
+
+Example: `add CS1231 A- 4`
 
 #### Delete
-Enter delete first. The program will then prompt which module you want to delete. Enter the module
+Delete specified module data
 
-Format: `delete [MODULE CODE]`
+Format: `delete [Module code]`
+
+Example: `delete CS1010`
 
 #### List
-Lists out all modules you have for the semester
+Lists your current semester's module data, CAP for your current semester
+and overall CAP for Sem 1 to your current semester
 
 Format: `list`
 
 #### Edit
-Enter edit then enter the Module which you want the grade to be changed
+Make edits to your grades for a module
 
-Format: `edit [Module Code] [new grade]`
+Format: 
+1. `edit [Module code]` 
 
-#### Calculate
-Calculates your CAP for the semester
+2. `new grade`
 
-Format: `calculate`
+Example: 
+1. `edit CS1231`
+
+2. `A-`
+#### View
+View module and CAP information for Year a Semester b
+
+Format: `view [YaSb]`
+
+Example: `view Y1S1`
+
+#### Show
+Show all modules from semester 1 to your current sem
+Format: `show`
+
+#### Goal
+Simulate the CAP you should get in order to attain your desired overall CAP
+
+IMPORTANT NOTE: Please fill your current semester with modules you are currently taking
+
+This includes arbitrary grades and the number of MCs of the modules
+
+Format: `goal [Desired Overall CAP]`
+
+Example: `goal 4.5`
+
+#### Update
+Update your current student status should you commence to the next semester
+
+Format: `update YaSb`
+
+If you are going to be a year 3 sem 1 student, you will have to type:
+
+Example: `update Y3S1`
+
+#### Exit
+Exit CAP Calculator
+
+Format: `exit`
+
+#### Help
+
+Lists out all options available
+
+Format: `help`
 
 ***
 
@@ -135,6 +184,7 @@ Format: `calculate`
 Enter the module code followed by the number of slots available.
 
 Format: `module [module code],[slots]`
+
 
 #### Student
 Enter the student information and the rank they want to put for bidding the module. 
