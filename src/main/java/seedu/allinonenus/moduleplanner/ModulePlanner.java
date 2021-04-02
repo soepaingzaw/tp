@@ -85,8 +85,8 @@ public class ModulePlanner {
                             + "rank. example: student Alice,1,true,2");
                     Storage.createFile();
                     Storage.readFile(students);
-                } catch (StringIndexOutOfBoundsException | FileNotFoundException e) {
-                    Ui.showEmptyDescriptionException(line);
+                } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+                    Ui.showFormatErrorException();
                 }
             } else if (line.startsWith("student")) {
                 try {
@@ -98,15 +98,29 @@ public class ModulePlanner {
                             Parser.parserToInteger(parts[3].trim()));
                     addStudent(a);
                     System.out.println(a.getName() + " has been added.");
-                } catch (java.lang.StringIndexOutOfBoundsException e) {
-                    Ui.showEmptyDescriptionException(line);
+                } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+                    Ui.showFormatErrorException();
                 }
             } else if (line.equals("list")) {
+                System.out.println("Here is the list:\n");
                 Collections.sort(students, Collections.reverseOrder());
                 getStudent();
             } else if (line.startsWith("recommendation")) {
-                line = line.replace("recommendation", "").trim();
-                findStudent(students, line);
+                try {
+                    line = line.replace("recommendation", "").trim();
+                    findStudent(students, line);
+                } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+                    Ui.showFormatErrorException();
+                }
+            } else if (line.startsWith("delete")){
+                try {
+                    line = line.replace("delete", "").trim();
+                    int i = Parser.parserToInteger(line);
+                    System.out.println(students.get(i).getName() + " has been removed.");
+                    students.remove(i - 1);
+                } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+                    Ui.showFormatErrorException();
+                }
             }
             line = in.nextLine();
         }
