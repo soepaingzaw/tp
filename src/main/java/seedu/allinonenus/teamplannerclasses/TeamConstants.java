@@ -16,9 +16,9 @@ public class TeamConstants {
             + "3. show members - shows current members\n"
             + "4. clear members - clears the current team and resets the password (requires password)\n"
             + "5. help - lists the commands available\n"
-            + "6. add task [member] [task] [priority level(HIGH/MED/LOW)]\n"
-            + "7. delete task [member] [task index]\n"
-            + "8. mark done [member] [task index]\n"
+            + "6. add task\n"
+            + "7. delete task\n"
+            + "8. mark done\n"
             + "9. show tasks\n"
             + "10. quit - quits the program\n";
     public static final String requestPassword = "Please enter the password";

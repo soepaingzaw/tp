@@ -117,17 +117,17 @@ public class TeamUi {
         }
     }
 
-    public static void deleteTask(TeamMember teamMember, String commandArgument) {
+    public static void deleteTask(TeamMember teamMember, int commandArgument) {
         try {
-            teamMember.deleteTask(Integer.parseInt(commandArgument));
+            teamMember.deleteTask(commandArgument);
         } catch (NumberFormatException e) {
             System.out.println("Please specify a valid index of the task to be deleted");
         }
     }
 
-    public static void markTaskAsDone(TeamMember teamMember, String commandArgument) {
+    public static void markTaskAsDone(TeamMember teamMember, int commandArgument) {
         try {
-            teamMember.markTaskAsDone(Integer.parseInt(commandArgument));
+            teamMember.markTaskAsDone(commandArgument);
         } catch (NumberFormatException e) {
             System.out.println("Please specify a valid index of the task to be marked as done");
         }
@@ -136,8 +136,21 @@ public class TeamUi {
     public static void showTask(TeamManager team) {
         for (int i = 0; i < team.getMemberCount(); i++) {
             System.out.println((i+1) + ". " + team.getTeamMember(i));
+            System.out.println("  Tasks assigned");
             for (int j = 0; j < (team.getTeamMember(i)).getTaskCount(); j++) {
-                System.out.println("  " + (j + 1) + "." + (team.getTeamMember(i)).getTask(j));
+                System.out.print("  " + (j + 1) + ".");
+                switch(team.getTeamMember(i).getTask(j).getPriority()){
+                case 1:
+                    System.out.print(" [HIGH]");
+                    break;
+                case 2:
+                    System.out.print(" [MED] ");
+                    break;
+                case 3:
+                    System.out.print(" [LOW] ");
+                    break;
+                }
+                System.out.print((team.getTeamMember(i)).getTask(j)+"\n");
             }
         }
     }
