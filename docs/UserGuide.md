@@ -44,7 +44,8 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-2. Download the latest version of `Duke` from [here](https://github.com/AY2021S2-CS2113T-T09-3/tp/releases).
+2. Download the latest version of `All-in-One-NUS` from [here](https://github.com/AY2021S2-CS2113T-T09-3/tp/releases).
+
 ***
 ## Features
 
