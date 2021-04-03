@@ -19,6 +19,10 @@ public class UiText {
 
     public void greetUser() {
         System.out.print("Welcome to All-In-One-NUS Cap Calculator\n");
+
+    }
+
+    public void getHelp() {
         System.out.print("Type \"help\" should you require assistance\n");
     }
 
@@ -50,6 +54,7 @@ public class UiText {
                 + "_______________________________________________\n"
                 + "6. [show] - Show all modules from semester 1 to your current sem\n"
                 + "   Format: show\n"
+                + "_______________________________________________\n"
                 + "7. [goal] - simulate the CAP you should get in order to attain your desired overall CAP\n"
                 + "   IMPORTANT NOTE: Please fill your current semester with modules you are currently taking\n"
                 + "   This includes arbitrary grades and the number of MCs of the modules\n"
@@ -63,6 +68,7 @@ public class UiText {
                 + "_______________________________________________\n"
                 + "9. [exit] - exit CAP Calculator\n"
                 + "   Format: exit\n"
+                + "_______________________________________________\n"
                 + "10.[help] - lists out all options available\n"
                 + "   Format: help\n"
                 + "_______________________________________________\n");
@@ -123,5 +129,11 @@ public class UiText {
 
     public void assistUser() {
         System.out.print("Invalid command! Please type 'help' for assistance!\n");
+    }
+
+    public void requestUsertoUpdatePriorSem() {
+        System.out.print("Overall CAP: This component cannot be view yet as you have not fill in your module data\n"
+                + "from sem 1 to your current semester. Use the \"view\" command to update in those semesters\n");
+
     }
 }

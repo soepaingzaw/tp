@@ -10,22 +10,25 @@ public class PrintModuleListCommand extends CommandsForCapCalculator {
         super();
     }
 
-    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
+    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
         int currentSem = storage.currentSem;
-        uiText.separationLine();
-        String semINFO = moduleList.printYearAndSem(currentSem);
+        //String semINFO = moduleList.printYearAndSem(currentSem);
 
-        uiText.currentSemView(semINFO);
-        if (modulesExist(moduleList,currentSem)) {
+        //uiText.currentSemView(semINFO);
+        if (modulesExist(moduleList, currentSem)) {
 
             uiText.printModuleDataHeading();
 
-            listModulesForSem(moduleList,currentSem,uiText);
+            listModulesForSem(moduleList, currentSem, uiText);
 
             uiText.separationLine();
 
             uiText.printCurrentSemCap(moduleList.calculate(currentSem, currentSem));
-            uiText.printOverallCap(moduleList.calculate(1,currentSem));
+            if (moduleList.checkOverallCap(currentSem)) {
+                uiText.printOverallCap(moduleList.calculate(1, currentSem));
+            } else {
+                uiText.requestUsertoUpdatePriorSem();
+            }
 
         } else {
             uiText.warnUserOfEmptySemester();
@@ -33,11 +36,11 @@ public class PrintModuleListCommand extends CommandsForCapCalculator {
         }
     }
 
-    public boolean isExit(){
+    public boolean isExit() {
         return exit;
     }
 
-    public boolean modulesExist(ModuleList moduleList,int currentSem) {
+    public boolean modulesExist(ModuleList moduleList, int currentSem) {
         boolean exists = false;
         for (int i = 0; i < moduleList.size(); i++) {
             if (moduleList.get(i).sem == currentSem) {
@@ -47,11 +50,11 @@ public class PrintModuleListCommand extends CommandsForCapCalculator {
         return exists;
     }
 
-    public void listModulesForSem(ModuleList moduleList,int currentSem,UiText uiText){
+    public void listModulesForSem(ModuleList moduleList, int currentSem, UiText uiText) {
         for (int i = 0; i < moduleList.size(); i++) {
 
             if (moduleList.get(i).sem == currentSem) {
-                uiText.printModuleData(moduleList.get(i).moduleCode,moduleList.get(i).grade,moduleList.get(i).mcs);
+                uiText.printModuleData(moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
             }
         }
     }

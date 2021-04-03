@@ -46,8 +46,11 @@ public class CapCalculator {
 
         while (!Exit) {
             int sem = storage.totalSem;
+            int currSem = storage.currentSem;
             String studentProfile = moduleList.printYearAndSem(sem);
+            String currentSemView = moduleList.printYearAndSem(currSem);
             uiText.printStudentProfile(studentProfile);
+            uiText.currentSemView(currentSemView);
             uiText.promptForCommand();
             fullCommand = uiText.readCommand();
             uiText.separationLine();
