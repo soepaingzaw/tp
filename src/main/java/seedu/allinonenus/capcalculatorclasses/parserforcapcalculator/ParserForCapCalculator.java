@@ -52,7 +52,6 @@ public class ParserForCapCalculator {
             break;
 
         default:
-            //System.out.print("Invalid command please type 'help' and try again\n");
 
         }
 

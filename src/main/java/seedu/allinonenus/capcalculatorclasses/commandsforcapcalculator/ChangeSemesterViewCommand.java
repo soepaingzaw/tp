@@ -17,7 +17,6 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator {
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
         String[] moduleData = fullCommand.split(" ");
         String newSem = moduleData[1];
-        uiText.separationLine();
 
         int newSemNum = moduleList.computeSem(newSem);
         if (newSemNum > storage.totalSem) {
@@ -26,7 +25,6 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator {
             storage.currentSem = newSemNum;
         }
 
-        System.out.print("You are currently viewing in " + newSem + "\n");
         saveToStorage(storage, moduleList);
     }
 

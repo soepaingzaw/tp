@@ -46,8 +46,11 @@ public class CapCalculator {
 
         while (!Exit) {
             int sem = storage.totalSem;
+            int currSem = storage.currentSem;
             String studentProfile = moduleList.printYearAndSem(sem);
+            String currentSemView = moduleList.printYearAndSem(currSem);
             uiText.printStudentProfile(studentProfile);
+            uiText.currentSemView(currentSemView);
             uiText.promptForCommand();
             fullCommand = uiText.readCommand();
             uiText.separationLine();
@@ -56,7 +59,7 @@ public class CapCalculator {
                 command.executeCommand(moduleList, storage, uiText, fullCommand);
                 Exit = command.isExit();
             } catch (NullPointerException e) {
-                System.out.print("Invalid!\n");
+                uiText.getHelp();
             }
 
         }

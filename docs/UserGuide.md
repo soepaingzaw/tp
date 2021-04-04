@@ -40,6 +40,7 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
       * [recommend](#recommend-food-store)
   * [FAQ](#FAQ)
   * [Command Summary](#Command-Summary)
+  
 ***
 ## Quick Start
 
@@ -58,6 +59,7 @@ Format: `[NUMBER]`
 * Entering `2` directs you to the Module Planner
 * Entering `3` directs you to the Cap Calculator
 * Entering `4` directs you to the Food Recommendation app
+
 ***
 
 ### Team Planner
@@ -159,7 +161,17 @@ Adds your module data
 
 Format: `add [Module Code] [Grade] [MCs]`
 
-Example: `add CS1231 A- 4`
+Example:
+
+Indicate your desired grade:
+1. `add CS1231 A- 4`
+   
+For pass/fail modules indicate a CS or CU
+2. `add GES1035 CS 4`
+   
+For modules you have SUed indicate an S or a U
+3. `add GET1028 S 4`
+
 
 #### Delete
 Delete specified module data
@@ -195,6 +207,7 @@ Example: `view Y1S1`
 
 #### Show
 Show all modules from semester 1 to your current sem
+
 Format: `show`
 
 #### Goal
