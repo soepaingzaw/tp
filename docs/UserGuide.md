@@ -57,13 +57,28 @@ Format: `[NUMBER]`
 * Entering `3` directs you to the Cap Calculator
 * Entering `4` directs you to the Food Recommendation app
 ***
+
 ### Team Planner
 
-When the TeamPlanner feature is selected, the program will prompt and display to the user the following:
+####Outline
+
+In the TeamPlanner interface, you will be able to add/delete team members as well as assign tasks to each
+team member. The exact specifics of each command can be found in this section. 
+
+Please take note that if you are a first time user that have not used the TeamPlanner inteface before, 
+you will be required to filled in the following fields before gaining full access to the TeamPlanner interface:
+
 - Input the name of the team leader
 - Input the size of the team excluding the leader
 - Input a password and re-input the password to confirm the password
 - Shows the user the list of commands available
+
+The TeamPlanner interface is a team management application that provides a team with the ability to track the
+team and individual progress by providing a macroscopic overview of the team and tasks. In general, the commands
+that handles the modification of the team members requires only a single line of input while the commands
+that handles the modification of tasks assigned to each team member will require multiple lines of input as
+you will be required to specify the team member as well as the relevant task index(As compared to keying in the
+exact task, the use of a task index is simpler).
 
 The following are the commands that are available in the TeamPlanner feature
 
@@ -77,6 +92,11 @@ Deletes a team member from the team
 
 Format: `delete member [member index]`
 
+#### Show team
+Shows the current members in the team
+
+Format: `show members`
+
 #### Clear team (Requires Password)
 Clears the members in the team.
 This will prompt the user to re-enter all information fields, such as
@@ -84,15 +104,46 @@ the team leader, size of the team, team members, as well as the password.
 
 Format: `clear members`
 
-#### Show team
-Shows the current members in the team
-
-Format: `show members`
-
 #### Show commands
 Lists the commands available
 
-Format: `show commands`
+Format: `help`
+
+#### Add a task to a team member
+Adds a task to a team member on the team.
+
+When the command is entered into the CLI, the following prompts will appear:
+1. Member to add task to: Key in a team member on the team to assign the task to.
+2. Task to be added: Key in the task to assign to the team member.
+3. Priority level of the task: Key in the priority level of the task(HIGH/MED/LOW). Take note that the input has to
+be capitalised.
+   
+Format: `add task`
+
+#### Delete a task from a team member
+Deletes a task from a team member on the team
+
+When the command is entered into the CLI, the following prompts will appear:
+1. Member to delete task from: Key in the member the relevant task has been assigned to.
+2. Index of task to be deleted: Key in the index of the task to be deleted. The task index can be retrieved by using 
+   the show tasks command.
+   
+Format: `delete task`
+
+#### Mark task as done
+Marks a task assigned to a team member as done
+
+When the command is entered into the CLI, the following prompts will appear:
+1. Member the task is assigned to: Key in the member the relevant task has been assigned to.
+2. Index of task to be marked as done: Key in the index of the task to be marked as done. 
+   The task index can be retrieved by using the show tasks command.
+
+Format: `mark done`
+
+#### Show tasks
+Displays the tasks assigned to each team member.
+
+Format: `show tasks`
 
 #### Quit
 Quits the Team Planner interface
