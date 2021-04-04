@@ -18,6 +18,7 @@ public class SuggestGoalCommand extends CommandsForCapCalculator{
 
         System.out.printf("You should aim to get a CAP of %.2f for your graded modules this semester\n"
                 + "in order to get an overall CAP of %.2f\n", suggestedGrade, goalCAP);
+        uiText.separationLine();
     }
 
     public boolean isExit(){

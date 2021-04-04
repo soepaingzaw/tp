@@ -59,7 +59,7 @@ public class CapCalculator {
                 command.executeCommand(moduleList, storage, uiText, fullCommand);
                 Exit = command.isExit();
             } catch (NullPointerException e) {
-                System.out.print("Invalid!\n");
+                uiText.getHelp();
             }
 
         }

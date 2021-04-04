@@ -23,7 +23,7 @@ public class UiText {
     }
 
     public void getHelp() {
-        System.out.print("Type \"help\" should you require assistance\n");
+        System.out.print("Invalid command: Please type \"help\" should you require assistance\n");
     }
 
     public void listManual() {
@@ -127,12 +127,8 @@ public class UiText {
         System.out.print("You are viewing " + sem + "\n");
     }
 
-    public void assistUser() {
-        System.out.print("Invalid command! Please type 'help' for assistance!\n");
-    }
-
     public void requestUsertoUpdatePriorSem() {
-        System.out.print("Overall CAP: This component cannot be view yet as you have not fill in your module data\n"
+        System.out.print("Overall CAP: This component cannot be viewed yet as you have not filled in your module data\n"
                 + "from sem 1 to your current semester. Use the \"view\" command to update in those semesters\n");
 
     }

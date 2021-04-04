@@ -170,15 +170,21 @@ public class ModuleList {
     }
 
     public boolean checkOverallCap(int currentSem) {
-        for (int i = 0; i < moduleList.size(); i++) {
-            for (int checkingSem = 1; checkingSem <= currentSem; checkingSem++) {
+
+        for (int checkingSem = 1; checkingSem <= currentSem; checkingSem++) {
+
+            boolean semExists = false;
+
+            for (int i = 0; i < moduleList.size(); i++) {
+
                 if (moduleList.get(i).sem == checkingSem) {
-                    continue;
-                } else {
-                    return false;
+                    semExists = true;
                 }
             }
 
+            if (!semExists) {
+                return false;
+            }
         }
         return true;
 

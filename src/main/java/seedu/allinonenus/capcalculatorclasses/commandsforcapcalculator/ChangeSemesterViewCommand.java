@@ -25,7 +25,6 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator {
             storage.currentSem = newSemNum;
         }
 
-        System.out.print("You are currently viewing in " + newSem + "\n");
         saveToStorage(storage, moduleList);
     }
 
