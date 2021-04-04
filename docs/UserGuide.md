@@ -62,7 +62,7 @@ Format: `[NUMBER]`
 
 ### Team Planner
 
-####Outline
+#### Outline
 
 In the TeamPlanner interface, you will be able to add/delete team members as well as assign tasks to each
 team member. The exact specifics of each command can be found in this section. 
