@@ -18,12 +18,15 @@ public class EditModuleCommand extends CommandsForCapCalculator {
         String moduleToEdit = moduleInfo[1];
         int index;
 
-        System.out.print("Enter your desired grade:\n");
+
+        uiText.requestForGrade();
         String newGrade = uiText.readCommand();
 
         index = moduleList.edit(moduleToEdit, newGrade);
 
-        System.out.print("Edited. New data:\n" + moduleList.get(index) + "\n");
+        uiText.showEditedData(moduleList.get(index));
+
+
         saveToStorage(storage, moduleList);
         uiText.separationLine();
     }

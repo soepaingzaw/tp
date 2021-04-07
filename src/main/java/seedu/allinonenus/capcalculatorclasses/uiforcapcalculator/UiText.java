@@ -1,5 +1,7 @@
 package seedu.allinonenus.capcalculatorclasses.uiforcapcalculator;
 
+import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
+
 import java.util.Scanner;
 
 public class UiText {
@@ -132,4 +134,12 @@ public class UiText {
                 + "from sem 1 to your current semester. Use the \"view\" command to update in those semesters\n");
 
     }
+    public void requestForGrade() {
+        System.out.print("Enter your desired grade:\n");
+    }
+    public void showEditedData(ModuleData newModule) {
+        System.out.print("Edited. New data:\n" + newModule);
+    }
+
+
 }
