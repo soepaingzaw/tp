@@ -1,5 +1,6 @@
 package seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator;
 
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.EmptyLineException;
 import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 import seedu.allinonenus.capcalculatorclasses.storageforcapcalculator.ModuleStorage;
 import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
@@ -13,7 +14,8 @@ public class EditModuleCommand extends CommandsForCapCalculator {
         super();
     }
 
-    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
+    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand)
+    throws EmptyLineException {
         String[] moduleInfo = fullCommand.split(" ");
         String moduleToEdit = moduleInfo[1];
         int index;

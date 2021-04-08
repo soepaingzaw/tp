@@ -1,6 +1,8 @@
 package seedu.allinonenus.capcalculatorclasses.uiforcapcalculator;
 
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.EmptyLineException;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
 
 import java.util.Scanner;
 
@@ -15,8 +17,13 @@ public class UiText {
 
     }
 
-    public String readCommand() {
-        return in.nextLine();
+    public String readCommand() throws EmptyLineException {
+
+        String info = in.nextLine();
+        if(info.isEmpty()){
+            throw new EmptyLineException();
+        }
+        return info;
     }
 
     public void greetUser() {
@@ -141,5 +148,12 @@ public class UiText {
         System.out.print("Edited. New data:\n" + newModule);
     }
 
+    public void printException(Exception e) {
+        System.out.print(e.getMessage());
+    }
+
+    public void warnAboutBlankLine() {
+        System.out.print("Blank line entered please retry\n");
+    }
 
 }

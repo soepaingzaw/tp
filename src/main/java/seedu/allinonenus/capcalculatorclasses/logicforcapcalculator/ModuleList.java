@@ -1,6 +1,8 @@
 package seedu.allinonenus.capcalculatorclasses.logicforcapcalculator;
 
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.StringIndexOutOfBoundsException;
 
 import java.util.ArrayList;
 
@@ -140,13 +142,18 @@ public class ModuleList {
         return points;
     }
 
-    public int computeSem(String yearAndSem) {
+    public int computeSem(String yearAndSem) throws InvalidYearAndSemException {
 
         int year;
         int sem;
 
+
         year = Character.getNumericValue(yearAndSem.charAt(1));
         sem = Character.getNumericValue(yearAndSem.charAt(3));
+
+        if(sem>2) {
+            throw new InvalidYearAndSemException();
+        }
 
         return year * 2 - (2 - sem);
 

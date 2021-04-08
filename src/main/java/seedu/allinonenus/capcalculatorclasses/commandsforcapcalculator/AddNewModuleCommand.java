@@ -6,9 +6,13 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class AddNewModuleCommand extends CommandsForCapCalculator {
+
+    private final static Logger logr = Logger.getLogger(AddNewModuleCommand.class.getName());
 
     public AddNewModuleCommand() {
         super();
@@ -21,6 +25,9 @@ public class AddNewModuleCommand extends CommandsForCapCalculator {
      * @param fullCommand
      */
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
+
+        logr.log(Level.FINE, "Add Command Log\n");
+
         String[] moduleInfo = fullCommand.split(" ");
         int currentSem = storage.getSem();
         ModuleData modules = new ModuleData(moduleInfo[1], moduleInfo[2], Integer.parseInt(moduleInfo[3]), currentSem);

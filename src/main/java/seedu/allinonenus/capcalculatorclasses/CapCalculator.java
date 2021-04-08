@@ -1,6 +1,9 @@
 package seedu.allinonenus.capcalculatorclasses;
 
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.CommandsForCapCalculator;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.EmptyLineException;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.StringIndexOutOfBoundsException;
 import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 import seedu.allinonenus.capcalculatorclasses.parserforcapcalculator.ParserForCapCalculator;
 import seedu.allinonenus.capcalculatorclasses.storageforcapcalculator.ModuleStorage;
@@ -27,6 +30,13 @@ public class CapCalculator {
             moduleList = new ModuleList(storage.load());
 
         } catch (NoSuchElementException | FileNotFoundException e) {
+            prepareForNewUser();
+        }
+
+    }
+
+    public void prepareForNewUser() {
+        try {
             uiText.explainStepsForNewUser();
             uiText.promptForCommand();
             moduleList = new ModuleList();
@@ -35,9 +45,14 @@ public class CapCalculator {
             storage.totalSem = storage.currentSem;
             uiText.separationLine();
             uiText.listManual();
-
+        } catch (InvalidYearAndSemException e) {
+            uiText.printException(e);
+            prepareForNewUser();
+        } catch (EmptyLineException e) {
+            uiText.printException(e);
+            //uiText.warnAboutBlankLine();
+            prepareForNewUser();
         }
-
     }
 
     public void run() {
@@ -52,18 +67,26 @@ public class CapCalculator {
             uiText.printStudentProfile(studentProfile);
             uiText.currentSemView(currentSemView);
             uiText.promptForCommand();
-            fullCommand = uiText.readCommand();
-            uiText.separationLine();
             try {
+                fullCommand = uiText.readCommand();
+                uiText.separationLine();
                 CommandsForCapCalculator command = parser.parse(fullCommand);
                 command.executeCommand(moduleList, storage, uiText, fullCommand);
                 Exit = command.isExit();
             } catch (NullPointerException e) {
                 uiText.getHelp();
-            }
 
+            } catch (InvalidYearAndSemException e) {
+                uiText.printException(e);
+            } catch (EmptyLineException e) {
+                //uiText.warnAboutBlankLine();
+                uiText.printException(e);
+                prepareForNewUser();
+            }
         }
 
+
     }
+
 
 }
