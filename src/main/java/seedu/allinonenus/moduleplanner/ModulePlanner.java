@@ -116,7 +116,7 @@ public class ModulePlanner {
                 try {
                     line = line.replace("delete", "").trim();
                     int i = Parser.parserToInteger(line);
-                    System.out.println(students.get(i).getName() + " has been removed.");
+                    System.out.println(students.get(i-1).getName() + " has been removed.");
                     students.remove(i - 1);
                 } catch (java.lang.ArrayIndexOutOfBoundsException e) {
                     Ui.showFormatErrorException();
