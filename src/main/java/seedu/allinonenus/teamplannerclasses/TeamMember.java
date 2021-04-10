@@ -20,12 +20,13 @@ public class TeamMember {
     }
 
     public void addTask(Task task) {
-
         tasks.addTask(task);
     }
 
     public void deleteTask(int taskNum) {
-        tasks.deleteTask(taskNum);
+        int taskIndex = tasks.getTaskIndex(taskNum);
+        int priorityGroup = tasks.getTaskPriority(taskNum);
+        tasks.deleteTask(taskNum,taskIndex,priorityGroup);
     }
 
     public void markTaskAsDone(int taskNum) {

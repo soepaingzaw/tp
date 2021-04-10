@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class FoodRecommendation {
 
+    private final static String OUT_OF_BOUNDS_MESSAGE = "Selected location has no stores, please try again.";
 
     private final ArrayList<FoodStore> foodStoreList = new ArrayList<>();
     FoodStoreParser foodStoreParser = new FoodStoreParser();
@@ -33,7 +34,7 @@ public class FoodRecommendation {
         foodStoreList.clear();
     }
 
-    public void recommendStore() {
+    public void recommendStore() throws FoodExceptions{
         foodStoreUi.showRecommendAvailableLocations();
         Scanner in = new Scanner(System.in);
         String userLocationInput = in.nextLine();
@@ -73,6 +74,9 @@ public class FoodRecommendation {
             if (foodStore.toString().contains(userLocationInput)) {
                 foodStores.add(foodStore);
             }
+        }
+        if (foodStores.isEmpty()) {
+            throw new FoodExceptions(OUT_OF_BOUNDS_MESSAGE);
         }
         Random random = new Random();
         FoodStore foodStore = foodStores.get(random.nextInt(foodStores.size()));
@@ -180,7 +184,11 @@ public class FoodRecommendation {
             } else if (isList) {
                 foodStoreUi.printList(foodStoreList);
             } else if (isRecommend) {
-                recommendStore();
+                try {
+                    recommendStore();
+                } catch (FoodExceptions e) {
+                    foodStoreUi.showToUser(e.getMessage());
+                }
             } else if (isClear) {
                 clearList();
             } else if (isHelp) {

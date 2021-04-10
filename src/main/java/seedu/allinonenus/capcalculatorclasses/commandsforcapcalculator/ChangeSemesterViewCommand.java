@@ -8,19 +8,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
-public class ChangeSemesterViewCommand extends CommandsForCapCalculator{
+public class ChangeSemesterViewCommand extends CommandsForCapCalculator {
     public ChangeSemesterViewCommand() {
         super();
 
     }
 
-    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
-        uiText.separationLine();
+    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
+        String[] moduleData = fullCommand.split(" ");
+        String newSem = moduleData[1];
 
-        System.out.print("What is the semester you want to view?\n"
-                + "Enter in the following format: YxSy\n");
-        String newSem = uiText.readCommand();
-        //storage.currentSem;
         int newSemNum = moduleList.computeSem(newSem);
         if (newSemNum > storage.totalSem) {
             System.out.print("Please update your student status before proceeding\n");
@@ -28,8 +25,7 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator{
             storage.currentSem = newSemNum;
         }
 
-        System.out.print("You are currently viewing in " + newSem + "\n");
-        saveToStorage(storage,moduleList);
+        saveToStorage(storage, moduleList);
     }
 
     public void saveToStorage(ModuleStorage storage, ModuleList moduleList) {
@@ -44,7 +40,7 @@ public class ChangeSemesterViewCommand extends CommandsForCapCalculator{
         }
     }
 
-    public boolean isExit(){
+    public boolean isExit() {
         return exit;
     }
 }

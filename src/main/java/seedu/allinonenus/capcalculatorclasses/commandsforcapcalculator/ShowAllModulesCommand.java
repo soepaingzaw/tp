@@ -26,7 +26,7 @@ public class ShowAllModulesCommand extends CommandsForCapCalculator{
                 }
 
             }
-            System.out.print("\n");
+            uiText.separationLine();
 
             currentSemIndex++;
         }

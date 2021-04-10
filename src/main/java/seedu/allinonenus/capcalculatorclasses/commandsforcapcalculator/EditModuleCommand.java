@@ -7,30 +7,31 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class EditModuleCommand extends CommandsForCapCalculator{
+public class EditModuleCommand extends CommandsForCapCalculator {
 
-        public EditModuleCommand() {
-            super();
-        }
+    public EditModuleCommand() {
+        super();
+    }
 
-        public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
-            String[] moduleInfo = fullCommand.split(" ");
-            String moduleToEdit = moduleInfo[1];
-            int index;
+    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
+        String[] moduleInfo = fullCommand.split(" ");
+        String moduleToEdit = moduleInfo[1];
+        int index;
 
-            System.out.print("Enter your desired grade:\n");
-            String newGrade = uiText.readCommand();
 
-            index = moduleList.edit(moduleToEdit, newGrade);
+        uiText.requestForGrade();
+        String newGrade = uiText.readCommand();
 
-            System.out.print("Edited. New data:\n" + moduleList.get(index)
-                    + "This is your new list:\n");
-            //printModuleList();
-            saveToStorage(storage,moduleList);
-        }
+        index = moduleList.edit(moduleToEdit, newGrade);
+
+        uiText.showEditedData(moduleList.get(index));
+
+
+        saveToStorage(storage, moduleList);
+        uiText.separationLine();
+    }
 
     public void saveToStorage(ModuleStorage storage, ModuleList moduleList) {
-        // String filepath = storage.storageFilePath;
         int currentSem = storage.currentSem;
         int totalSem = storage.totalSem;
         try {
@@ -43,7 +44,7 @@ public class EditModuleCommand extends CommandsForCapCalculator{
     }
 
 
-    public boolean isExit(){
-            return exit;
-        }
+    public boolean isExit() {
+        return exit;
+    }
 }

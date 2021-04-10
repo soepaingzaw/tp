@@ -40,11 +40,13 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
       * [recommend](#recommend-food-store)
   * [FAQ](#FAQ)
   * [Command Summary](#Command-Summary)
+  
 ***
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-2. Download the latest version of `Duke` from [here](https://github.com/AY2021S2-CS2113T-T09-3/tp/releases).
+2. Download the latest version of `All-in-One-NUS` from [here](https://github.com/AY2021S2-CS2113T-T09-3/tp/releases).
+
 ***
 ## Features
 
@@ -57,14 +59,30 @@ Format: `[NUMBER]`
 * Entering `2` directs you to the Module Planner
 * Entering `3` directs you to the Cap Calculator
 * Entering `4` directs you to the Food Recommendation app
+
 ***
+
 ### Team Planner
 
-When the TeamPlanner feature is selected, the program will prompt and display to the user the following:
+#### Outline
+
+In the TeamPlanner interface, you will be able to add/delete team members as well as assign tasks to each
+team member. The exact specifics of each command can be found in this section. 
+
+Please take note that if you are a first time user that have not used the TeamPlanner inteface before, 
+you will be required to filled in the following fields before gaining full access to the TeamPlanner interface:
+
 - Input the name of the team leader
 - Input the size of the team excluding the leader
 - Input a password and re-input the password to confirm the password
 - Shows the user the list of commands available
+
+The TeamPlanner interface is a team management application that provides a team with the ability to track the
+team and individual progress by providing a macroscopic overview of the team and tasks. In general, the commands
+that handles the modification of the team members requires only a single line of input while the commands
+that handles the modification of tasks assigned to each team member will require multiple lines of input as
+you will be required to specify the team member as well as the relevant task index(As compared to keying in the
+exact task, the use of a task index is simpler).
 
 The following are the commands that are available in the TeamPlanner feature
 
@@ -78,6 +96,11 @@ Deletes a team member from the team
 
 Format: `delete member [member index]`
 
+#### Show team
+Shows the current members in the team
+
+Format: `show members`
+
 #### Clear team (Requires Password)
 Clears the members in the team.
 This will prompt the user to re-enter all information fields, such as
@@ -85,15 +108,46 @@ the team leader, size of the team, team members, as well as the password.
 
 Format: `clear members`
 
-#### Show team
-Shows the current members in the team
-
-Format: `show members`
-
 #### Show commands
 Lists the commands available
 
-Format: `show commands`
+Format: `help`
+
+#### Add a task to a team member
+Adds a task to a team member on the team.
+
+When the command is entered into the CLI, the following prompts will appear:
+1. Member to add task to: Key in a team member on the team to assign the task to.
+2. Task to be added: Key in the task to assign to the team member.
+3. Priority level of the task: Key in the priority level of the task(HIGH/MED/LOW). Take note that the input has to
+be capitalised.
+   
+Format: `add task`
+
+#### Delete a task from a team member
+Deletes a task from a team member on the team
+
+When the command is entered into the CLI, the following prompts will appear:
+1. Member to delete task from: Key in the member the relevant task has been assigned to.
+2. Index of task to be deleted: Key in the index of the task to be deleted. The task index can be retrieved by using 
+   the show tasks command.
+   
+Format: `delete task`
+
+#### Mark task as done
+Marks a task assigned to a team member as done
+
+When the command is entered into the CLI, the following prompts will appear:
+1. Member the task is assigned to: Key in the member the relevant task has been assigned to.
+2. Index of task to be marked as done: Key in the index of the task to be marked as done. 
+   The task index can be retrieved by using the show tasks command.
+
+Format: `mark done`
+
+#### Show tasks
+Displays the tasks assigned to each team member.
+
+Format: `show tasks`
 
 #### Quit
 Quits the Team Planner interface
@@ -103,29 +157,89 @@ Format: `quit`
 ### Cap Calculator
 
 #### Add
-Enter the module code followed by your grade and then the MCs
+Adds your module data
 
-Format: `[Module Code] [Grade] [MCs]`
+Format: `add [Module Code] [Grade] [MCs]`
+
+Example:
+
+Indicate your desired grade:
+1. `add CS1231 A- 4`
+   
+For pass/fail modules indicate a CS or CU
+2. `add GES1035 CS 4`
+   
+For modules you have SUed indicate an S or a U
+3. `add GET1028 S 4`
+
 
 #### Delete
-Enter delete first. The program will then prompt which module you want to delete. Enter the module
+Delete specified module data
 
-Format: `delete [MODULE CODE]`
+Format: `delete [Module code]`
+
+Example: `delete CS1010`
 
 #### List
-Lists out all modules you have for the semester
+Lists your current semester's module data, CAP for your current semester
+and overall CAP for Sem 1 to your current semester
 
 Format: `list`
 
 #### Edit
-Enter edit then enter the Module which you want the grade to be changed
+Make edits to your grades for a module
 
-Format: `edit [Module Code] [new grade]`
+Format: 
+1. `edit [Module code]` 
 
-#### Calculate
-Calculates your CAP for the semester
+2. `new grade`
 
-Format: `calculate`
+Example: 
+1. `edit CS1231`
+
+2. `A-`
+#### View
+View module and CAP information for Year a Semester b
+
+Format: `view [YaSb]`
+
+Example: `view Y1S1`
+
+#### Show
+Show all modules from semester 1 to your current sem
+
+Format: `show`
+
+#### Goal
+Simulate the CAP you should get in order to attain your desired overall CAP
+
+IMPORTANT NOTE: Please fill your current semester with modules you are currently taking
+
+This includes arbitrary grades and the number of MCs of the modules
+
+Format: `goal [Desired Overall CAP]`
+
+Example: `goal 4.5`
+
+#### Update
+Update your current student status should you commence to the next semester
+
+Format: `update YaSb`
+
+If you are going to be a year 3 sem 1 student, you will have to type:
+
+Example: `update Y3S1`
+
+#### Exit
+Exit CAP Calculator
+
+Format: `exit`
+
+#### Help
+
+Lists out all options available
+
+Format: `help`
 
 ***
 
@@ -135,6 +249,7 @@ Format: `calculate`
 Enter the module code followed by the number of slots available.
 
 Format: `module [module code],[slots]`
+
 
 #### Student
 Enter the student information and the rank they want to put for bidding the module. 

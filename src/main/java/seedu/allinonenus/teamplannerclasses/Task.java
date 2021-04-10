@@ -15,7 +15,7 @@ public class Task {
         return task;
     }
 
-    public int priorityLevel() {
+    public int getPriority() {
         return priority;
     }
 

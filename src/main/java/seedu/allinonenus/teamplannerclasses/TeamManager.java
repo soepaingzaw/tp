@@ -37,7 +37,7 @@ public class TeamManager {
 
     public int getIndexOfTeamMember(String teamMemberName) {
         for(int i=0;i<memberCount;i++){
-            if(team.get(i).getName().equals(teamMemberName)){
+            if(team.get(i).getName().trim().equals(teamMemberName)){
                 return i;
             }
         }

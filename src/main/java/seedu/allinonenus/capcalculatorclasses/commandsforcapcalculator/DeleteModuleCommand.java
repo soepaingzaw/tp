@@ -7,22 +7,21 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class DeleteModuleCommand extends CommandsForCapCalculator{
+public class DeleteModuleCommand extends CommandsForCapCalculator {
     public DeleteModuleCommand() {
         super();
     }
 
-    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
+    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
         String[] moduleInfo = fullCommand.split(" ");
         String moduleToDelete = moduleInfo[1];
         moduleList.delete(moduleToDelete);
-        System.out.print("Deleted " + moduleToDelete + "\n"
-                + "This is your new list:\n");
-        saveToStorage(storage,moduleList);
+        System.out.print("Deleted " + moduleToDelete + "\n");
+        saveToStorage(storage, moduleList);
+        uiText.separationLine();
     }
 
     public void saveToStorage(ModuleStorage storage, ModuleList moduleList) {
-        // String filepath = storage.storageFilePath;
         int currentSem = storage.currentSem;
         int totalSem = storage.totalSem;
         try {
@@ -34,7 +33,7 @@ public class DeleteModuleCommand extends CommandsForCapCalculator{
         }
     }
 
-    public boolean isExit(){
+    public boolean isExit() {
         return exit;
     }
 }

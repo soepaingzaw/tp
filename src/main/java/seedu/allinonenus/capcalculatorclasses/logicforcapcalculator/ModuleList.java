@@ -87,20 +87,17 @@ public class ModuleList {
         return summationOfMCsTimesGrade;
     }
 
-    public double calculate(int start,int end) {
-        return totalMcsTimesGrade(start,end)/totalMcs(start,end);
+    public double calculate(int start, int end) {
+        return totalMcsTimesGrade(start, end) / totalMcs(start, end);
 
     }
-
-
 
 
     public double suggest(int currentSem, double desiredGrade) {
 
-        return (desiredGrade * (totalMcs(1,currentSem))-totalMcsTimesGrade(1,currentSem-1))
-                /totalMcs(currentSem,currentSem);
+        return (desiredGrade * (totalMcs(1, currentSem)) - totalMcsTimesGrade(1, currentSem - 1))
+                / totalMcs(currentSem, currentSem);
     }
-
 
 
     public double gradesToPoints(String letterGrade) {
@@ -170,6 +167,27 @@ public class ModuleList {
             list.append(moduleData.fileFormat());
         }
         return list.toString();
+    }
+
+    public boolean checkOverallCap(int currentSem) {
+
+        for (int checkingSem = 1; checkingSem <= currentSem; checkingSem++) {
+
+            boolean semExists = false;
+
+            for (int i = 0; i < moduleList.size(); i++) {
+
+                if (moduleList.get(i).sem == checkingSem) {
+                    semExists = true;
+                }
+            }
+
+            if (!semExists) {
+                return false;
+            }
+        }
+        return true;
+
     }
 
 

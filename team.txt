@@ -1,3 +1,6 @@
-1. [M] m1 
-2. [M] m2
+1. [L] leader 1
+  1. [HIGH] [X] a
+2. [M] m1 1
+  1. [MED] [X] b
+3. [M] m2 0
 [P] p
