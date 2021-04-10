@@ -1,7 +1,6 @@
 package seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator;
 
 import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
-import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.StringIndexOutOfBoundsException;
 import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 import seedu.allinonenus.capcalculatorclasses.storageforcapcalculator.ModuleStorage;
 import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;

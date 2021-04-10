@@ -1,9 +1,7 @@
 package seedu.allinonenus.capcalculatorclasses;
 
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.CommandsForCapCalculator;
-import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.EmptyLineException;
-import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
-import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.StringIndexOutOfBoundsException;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.*;
 import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 import seedu.allinonenus.capcalculatorclasses.parserforcapcalculator.ParserForCapCalculator;
 import seedu.allinonenus.capcalculatorclasses.storageforcapcalculator.ModuleStorage;
@@ -45,12 +43,16 @@ public class CapCalculator {
             storage.totalSem = storage.currentSem;
             uiText.separationLine();
             uiText.listManual();
-        } catch (InvalidYearAndSemException e) {
+        } catch (InvalidYearAndSemException | EmptyLineException e) {
+            uiText.separationLine();
             uiText.printException(e);
+            uiText.separationLine();
             prepareForNewUser();
-        } catch (EmptyLineException e) {
-            uiText.printException(e);
-            //uiText.warnAboutBlankLine();
+
+        } catch (StringIndexOutOfBoundsException e){
+            uiText.separationLine();
+            uiText.tryAgain();
+            uiText.separationLine();
             prepareForNewUser();
         }
     }
@@ -73,15 +75,15 @@ public class CapCalculator {
                 CommandsForCapCalculator command = parser.parse(fullCommand);
                 command.executeCommand(moduleList, storage, uiText, fullCommand);
                 Exit = command.isExit();
-            } catch (NullPointerException e) {
+            } catch (NullPointerException | ArrayIndexOutOfBoundsException | NumberFormatException
+                    | StringIndexOutOfBoundsException e) {
                 uiText.getHelp();
 
-            } catch (InvalidYearAndSemException e) {
+            } catch (InvalidYearAndSemException | EmptyLineException |IncorrectCommandsException|
+                    InvalidGradeException | WrongModuleFormatException e) {
+                //uiText.separationLine();
                 uiText.printException(e);
-            } catch (EmptyLineException e) {
-                //uiText.warnAboutBlankLine();
-                uiText.printException(e);
-                prepareForNewUser();
+                uiText.separationLine();
             }
         }
 

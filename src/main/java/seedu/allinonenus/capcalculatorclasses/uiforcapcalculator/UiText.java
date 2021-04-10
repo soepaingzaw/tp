@@ -2,7 +2,6 @@ package seedu.allinonenus.capcalculatorclasses.uiforcapcalculator;
 
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
 import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.EmptyLineException;
-import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
 
 import java.util.Scanner;
 
@@ -133,7 +132,7 @@ public class UiText {
     }
 
     public void currentSemView(String sem) {
-        System.out.print("You are viewing " + sem + "\n");
+        System.out.print("You are viewing: " + sem + "\n");
     }
 
     public void requestUsertoUpdatePriorSem() {
@@ -152,8 +151,17 @@ public class UiText {
         System.out.print(e.getMessage());
     }
 
-    public void warnAboutBlankLine() {
-        System.out.print("Blank line entered please retry\n");
+    public void tryAgain() {
+        System.out.print("That input was not right, please try again\n");
+    }
+    public void moduleAlreadyExists(){
+        System.out.print("Sorry! This module already exists for this semester!\n");
+    }
+    public void deletedModule(String moduleToDelete) {
+        System.out.print("Deleted " + moduleToDelete + "\n");
+    }
+    public void moduleDoesntExist(){
+        System.out.print("Sorry! This module doesn't exist for this semester!\n");
     }
 
 }

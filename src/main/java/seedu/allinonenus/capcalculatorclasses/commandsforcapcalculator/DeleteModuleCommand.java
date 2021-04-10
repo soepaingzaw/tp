@@ -14,10 +14,17 @@ public class DeleteModuleCommand extends CommandsForCapCalculator {
 
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
         String[] moduleInfo = fullCommand.split(" ");
+        int currentSem = storage.getSem();
         String moduleToDelete = moduleInfo[1];
-        moduleList.delete(moduleToDelete);
-        System.out.print("Deleted " + moduleToDelete + "\n");
-        saveToStorage(storage, moduleList);
+        if (checkIfModuleExists(moduleList, moduleInfo[1], currentSem)){
+            moduleList.delete(moduleToDelete);
+            uiText.deletedModule(moduleToDelete);
+            saveToStorage(storage, moduleList);
+        }
+        else {
+            uiText.moduleDoesntExist();
+        }
+
         uiText.separationLine();
     }
 
@@ -31,6 +38,17 @@ public class DeleteModuleCommand extends CommandsForCapCalculator {
         } catch (IOException e) {
             System.out.print("File Error\n");
         }
+    }
+
+    public boolean checkIfModuleExists(ModuleList modList, String module, int sem) {
+        for (int i = 0; i < modList.size(); i++) {
+            String checkMod = modList.get(i).moduleCode;
+            int checkSem = modList.get(i).sem;
+            if (checkMod.equals(module) && checkSem == sem) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isExit() {

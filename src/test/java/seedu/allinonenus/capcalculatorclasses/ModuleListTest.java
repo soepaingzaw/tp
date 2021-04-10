@@ -1,3 +1,4 @@
+/*
 package seedu.allinonenus.capcalculatorclasses;
 
 import org.junit.jupiter.api.Test;
@@ -14,3 +15,5 @@ class ModuleListTest {
         assertEquals(4.5,ml.gradesToPoints(inputString));
     }
 }
+
+ */
