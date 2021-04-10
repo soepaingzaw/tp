@@ -32,6 +32,7 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
       * [list down](#list-down)
       * [recommendation](#recommendation)
       * [Delete](#Delete-student)
+      * [Exit](#Exit-module-planner)
     * [Food Recommendation app](#Food-Recommendation-app)
       * [add](#add-food-store)
       * [delete](#delete-food-store)
@@ -275,6 +276,10 @@ Removes the student from the list.
 
 Format: `delete [index]`
 
+#### Exit module planner
+Exit module planner
+
+Format: 'bye'
 ***
 ### Food Recommendation app
 
