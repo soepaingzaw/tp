@@ -1,6 +1,7 @@
 package seedu.allinonenus.capcalculatorclasses.parserforcapcalculator;
 
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.*;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.IncorrectCommandsException;
 
 public class ParserForCapCalculator {
 
@@ -8,9 +9,9 @@ public class ParserForCapCalculator {
 
     }
 
-    public CommandsForCapCalculator parse(String line) {
+    public CommandsForCapCalculator parse(String line) throws IncorrectCommandsException {
         String[] moduleInfo = line.split(" ");
-        CommandsForCapCalculator newCommands = null;
+        CommandsForCapCalculator newCommands;
 
         switch (moduleInfo[0]) {
         case "list":
@@ -52,6 +53,7 @@ public class ParserForCapCalculator {
             break;
 
         default:
+            throw new IncorrectCommandsException();
 
         }
 

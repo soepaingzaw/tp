@@ -1,5 +1,6 @@
 package seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator;
 
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
 import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 import seedu.allinonenus.capcalculatorclasses.storageforcapcalculator.ModuleStorage;
 import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
@@ -7,13 +8,14 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class UpdateStudentSemesterCommand extends ChangeSemesterViewCommand{
+public class UpdateStudentSemesterCommand extends CommandsForCapCalculator{
 
     public UpdateStudentSemesterCommand() {
         super();
     }
 
-    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
+    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand)
+            throws InvalidYearAndSemException {
         String[] moduleInfo = fullCommand.split(" ");
         storage.currentSem = moduleList.computeSem(moduleInfo[1]);
         if (storage.totalSem < storage.currentSem) {

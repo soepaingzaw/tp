@@ -1,6 +1,8 @@
 package seedu.allinonenus.capcalculatorclasses.logicforcapcalculator;
 
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.ModuleData;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidGradeException;
+import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.InvalidYearAndSemException;
 
 import java.util.ArrayList;
 
@@ -75,7 +77,7 @@ public class ModuleList {
         return summationOfMCs;
     }
 
-    public double totalMcsTimesGrade(int beginSem, int finalSem) {
+    public double totalMcsTimesGrade(int beginSem, int finalSem) throws InvalidGradeException {
         double summationOfMCsTimesGrade = 0.0;
         String score;
         for (int j = 0; j < moduleList.size(); j++) {
@@ -87,66 +89,97 @@ public class ModuleList {
         return summationOfMCsTimesGrade;
     }
 
-    public double calculate(int start, int end) {
+    public double calculate(int start, int end) throws InvalidGradeException {
         return totalMcsTimesGrade(start, end) / totalMcs(start, end);
 
     }
 
 
-    public double suggest(int currentSem, double desiredGrade) {
+    public double suggest(int currentSem, double desiredGrade) throws InvalidGradeException {
 
         return (desiredGrade * (totalMcs(1, currentSem)) - totalMcsTimesGrade(1, currentSem - 1))
                 / totalMcs(currentSem, currentSem);
     }
 
 
-    public double gradesToPoints(String letterGrade) {
+    public double gradesToPoints(String letterGrade) throws InvalidGradeException {
         double points;
 
         switch (letterGrade) {
         case "A+":
         case "A":
+        case "a+":
+        case "a":
             points = 5.0;
             break;
         case "A-":
+        case "a-":
             points = 4.5;
             break;
         case "B+":
+        case "b+":
             points = 4.0;
             break;
         case "B":
+        case "b":
             points = 3.5;
             break;
         case "B-":
+        case "b-":
             points = 3.0;
             break;
         case "C+":
+        case "c+":
             points = 2.5;
             break;
         case "C":
+        case "c":
             points = 2.0;
             break;
         case "D+":
+        case "d+":
             points = 1.5;
             break;
         case "D":
+        case "d":
             points = 1.0;
             break;
-        default:
+        case "F":
+        case "f":
+        case "S":
+        case "s":
+        case "U":
+        case "u":
+        case "CS":
+        case "CU":
+
             points = 0.0;
             break;
+        default:
+            throw new InvalidGradeException();
         }
 
         return points;
     }
 
-    public int computeSem(String yearAndSem) {
+    public int computeSem(String yearAndSem) throws InvalidYearAndSemException {
 
         int year;
         int sem;
 
+
         year = Character.getNumericValue(yearAndSem.charAt(1));
         sem = Character.getNumericValue(yearAndSem.charAt(3));
+
+        char charY = yearAndSem.charAt(0);
+        char charS = yearAndSem.charAt(2);
+
+        char isY = Character.toLowerCase(charY);
+        char isS = Character.toLowerCase(charS);
+
+        if (sem > 2 || isY != 'y' || isS != 's' || yearAndSem.length() != 4 || year > 4) {
+            throw new InvalidYearAndSemException();
+        }
 
         return year * 2 - (2 - sem);
 
