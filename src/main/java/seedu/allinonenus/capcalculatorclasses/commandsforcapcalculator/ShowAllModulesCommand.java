@@ -16,20 +16,41 @@ public class ShowAllModulesCommand extends CommandsForCapCalculator{
         while (currentSemIndex <= totalSem) {
 
             System.out.print("Modules for " + moduleList.printYearAndSem(currentSemIndex) + ":\n");
-            System.out.print("[MODULES] [GRADEs] [MCs]\n");
-            for (int i = 0; i < moduleList.size(); i++) {
 
-                if (moduleList.get(i).sem == currentSemIndex) {
+            if(modulesExist(moduleList,currentSemIndex)) {
 
-                    System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
-                            moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
+
+                System.out.print("[MODULES] [GRADEs] [MCs]\n");
+                for (int i = 0; i < moduleList.size(); i++) {
+
+                    if (moduleList.get(i).sem == currentSemIndex) {
+
+                        System.out.printf("[%-7s]   [%-2s]    [%1d]%n",
+                                moduleList.get(i).moduleCode, moduleList.get(i).grade, moduleList.get(i).mcs);
+                    }
+
                 }
 
-            }
-            uiText.separationLine();
 
+            }
+            else {
+                uiText.warnUserOfEmptySemester();
+
+            }
             currentSemIndex++;
+            uiText.separationLine();
         }
+
+    }
+
+    public boolean modulesExist(ModuleList moduleList, int currentSem) {
+        boolean exists = false;
+        for (int i = 0; i < moduleList.size(); i++) {
+            if (moduleList.get(i).sem == currentSem) {
+                exists = true;
+            }
+        }
+        return exists;
     }
 
     public boolean isExit(){

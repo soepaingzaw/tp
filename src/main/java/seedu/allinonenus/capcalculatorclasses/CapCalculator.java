@@ -1,5 +1,6 @@
 package seedu.allinonenus.capcalculatorclasses;
 
+import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.AddNewModuleCommand;
 import seedu.allinonenus.capcalculatorclasses.commandsforcapcalculator.CommandsForCapCalculator;
 import seedu.allinonenus.capcalculatorclasses.exceptionsforcapcalculator.*;
 import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
@@ -9,8 +10,12 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 
 import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
+import java.util.logging.*;
 
 public class CapCalculator {
+
+    private final static Logger logr = Logger.getLogger(AddNewModuleCommand.class.getName());
+
 
     private final UiText uiText;
     private final ModuleStorage storage;
@@ -81,14 +86,12 @@ public class CapCalculator {
 
             } catch (InvalidYearAndSemException | EmptyLineException |IncorrectCommandsException|
                     InvalidGradeException | WrongModuleFormatException e) {
-                //uiText.separationLine();
                 uiText.printException(e);
+                logr.log(Level.FINE, "Customised Exception has occurred\n");
+
                 uiText.separationLine();
             }
         }
-
-
     }
-
 
 }

@@ -84,6 +84,8 @@ public class ModuleList {
             if (moduleList.get(j).sem >= beginSem && moduleList.get(j).sem <= finalSem) {
                 score = moduleList.get(j).grade;
                 summationOfMCsTimesGrade += gradesToPoints(score) * moduleList.get(j).mcs;
+
+                assert summationOfMCsTimesGrade >= 0.0 : "The summation is negative";
             }
         }
         return summationOfMCsTimesGrade;
@@ -159,6 +161,8 @@ public class ModuleList {
             throw new InvalidGradeException();
         }
 
+        assert points <= 5.0 : "The grade point is larger than 5.0";
+
         return points;
     }
 
@@ -177,7 +181,7 @@ public class ModuleList {
         char isY = Character.toLowerCase(charY);
         char isS = Character.toLowerCase(charS);
 
-        if (sem > 2 || isY != 'y' || isS != 's' || yearAndSem.length() != 4 || year > 4) {
+        if (sem > 2 || isY != 'y' || isS != 's' || yearAndSem.length() != 4 || year > 4 || year == 0 || sem == 0) {
             throw new InvalidYearAndSemException();
         }
 
