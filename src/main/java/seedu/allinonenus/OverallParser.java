@@ -25,10 +25,11 @@ public class OverallParser {
     void greetUserAndDisplayFeatures() {
         System.out.print("Welcome to All-in-OneNUS app!\n");
         System.out.print(
-                "Press 1 to access Team Planner\n"
-                        + "Press 2 to access Cap Calculator\n"
-                        + "Press 3 to access Module Planner\n"
-                        + "Press 4 to access Food Recommendation app\n");
+                "Enter 1 to access Team Planner\n"
+                        + "Enter 2 to access Cap Calculator\n"
+                        + "Enter 3 to access Module Planner\n"
+                        + "Enter 4 to access Food Recommendation app\n"
+                        + "Enter bye to exit app\n");
     }
 
     void requestForFeatureMode() {
@@ -36,7 +37,8 @@ public class OverallParser {
             greetUserAndDisplayFeatures();
             Scanner choice = new Scanner(System.in);
             String chosen = choice.nextLine();
-            switch (chosen) {
+
+            switch (chosen.toLowerCase()) {
             case "bye":
                 return;
             case "1":
@@ -52,7 +54,7 @@ public class OverallParser {
                 new FoodRecommendation().run();
                 break;
             default:
-                System.out.print("Invalid Try again!\n");//replace this line with exception in the future
+                System.out.print("Invalid input. Please try again!\n");
                 break;
             }
         }
