@@ -21,11 +21,14 @@ public class ModuleStorage {
 
     }
 
-    public ModuleStorage(String storageFilePath,int currentSem,int totalSem) {
+    public ModuleStorage(String storageFilePath, int currentSem, int totalSem) {
 
         this.storageFilePath = storageFilePath;
         this.currentSem = currentSem;
         this.totalSem = totalSem;
+
+        assert currentSem > 0 : "Current Semester is stored wrongly";
+        assert totalSem > 0 : "Total Semester is stored wrongly";
 
     }
 
@@ -41,7 +44,7 @@ public class ModuleStorage {
         while (scan.hasNext()) {
             String textString = scan.nextLine();
             String[] textData = textString.split("\\|");
-            modules = new ModuleData(textData[0], textData[1], Integer.parseInt(textData[2]),Integer.parseInt(textData[3]));
+            modules = new ModuleData(textData[0], textData[1], Integer.parseInt(textData[2]), Integer.parseInt(textData[3]));
             moduleList.add(modules);
 
         }

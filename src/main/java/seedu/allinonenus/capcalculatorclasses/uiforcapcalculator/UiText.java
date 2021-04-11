@@ -19,7 +19,7 @@ public class UiText {
     public String readCommand() throws EmptyLineException {
 
         String info = in.nextLine();
-        if(info.isEmpty()){
+        if (info.isEmpty()) {
             throw new EmptyLineException();
         }
         return info;
@@ -112,11 +112,20 @@ public class UiText {
     }
 
     public void printCurrentSemCap(double currCap) {
-        System.out.printf("CAP for this semester is %.2f\n", currCap);
+        if (currCap == currCap) {
+            System.out.printf("CAP for this semester is %.2f\n", currCap);
+        } else {
+            System.out.printf("Please enter more graded modules to calculate semester CAP\n");
+        }
     }
 
     public void printOverallCap(double overallCap) {
-        System.out.printf("Overall CAP is: %.2f\n", overallCap);
+        if (overallCap == overallCap) {
+            System.out.printf("Overall CAP is: %.2f\n", overallCap);
+        } else {
+            System.out.printf("Please enter more graded modules to calculate overall CAP\n");
+        }
+
     }
 
     public void confirmModuleUpdate(String moduleCode) {
@@ -140,9 +149,11 @@ public class UiText {
                 + "from sem 1 to your current semester. Use the \"view\" command to update in those semesters\n");
 
     }
+
     public void requestForGrade() {
         System.out.print("Enter your desired grade:\n");
     }
+
     public void showEditedData(ModuleData newModule) {
         System.out.print("Edited. New data:\n" + newModule);
     }
@@ -154,13 +165,16 @@ public class UiText {
     public void tryAgain() {
         System.out.print("That input was not right, please try again\n");
     }
-    public void moduleAlreadyExists(){
+
+    public void moduleAlreadyExists() {
         System.out.print("Sorry! This module already exists for this semester!\n");
     }
+
     public void deletedModule(String moduleToDelete) {
         System.out.print("Deleted " + moduleToDelete + "\n");
     }
-    public void moduleDoesntExist(){
+
+    public void moduleDoesntExist() {
         System.out.print("Sorry! This module doesn't exist for this semester!\n");
     }
 
