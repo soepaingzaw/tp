@@ -1,6 +1,10 @@
 # User Guide
 
+___
+
 ## Introduction
+
+***
 
 All-in-OneNUS is a **desktop application for making university life easier in NUS.** 
 It has 4 different tools, and is optimized for use via a Command Line Interface (CLI). 
@@ -13,9 +17,10 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 - The FoodRecommendation feature allows users to review food choices at a single glance and 
   recommends the user a food store accordingly.
 
+___
 
-##Table of Contents
-  
+## Table of Contents
+ 
   
 ***
 
@@ -81,7 +86,7 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 2. Save the Jar file into your desired folder.
 3. Open your windows search bar and type `cmd` to open command prompt.
 4. Navigate to the folder you stored your Jar file in.
-  - You can open a folder by typing `cd` followed by space then the name of your folder.
+   - You can open a folder by typing `cd` followed by space then the name of your folder.
 5. Once you are in the folder, enter `java -jar All-in-One-NUS.jar` to run the application.
 
 ##### 1.1.2 Mac OS
@@ -90,7 +95,7 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 2. Save the Jar file into your desired folder.
 3. Open the terminal by clicking on `Launchpad`, then `Utilities`, then `terminal`.
 4. Navigate to the folder you stored your Jar file in.
-  - You can open a folder by typing `cd` followed by space then the name of your folder.
+   - You can open a folder by typing `cd` followed by space then the name of your folder.
 5. Once you are in the folder, enter `java -jar All-in-One-NUS.jar` to run the application.
 
 
@@ -101,13 +106,16 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 ### 2.1 How to use user guide
 1. Single sentences in code blocks `like this` are meant to be written on the Command Line Interface (CLI)
 2. Words that are in brackets [**Like this**] are your own personal inputs
-> **IMPORTANT**: Certain features may contain similar commands. However, as long as you are in one feature while using 
-> **All-in-One-NUS** just refer to that section
+> **IMPORTANT**: Certain features may contain **similar commands**. However, as long as you are in one feature while using 
+> **All-in-One-NUS** you may just refer to that section of the user guide
 > 
-> ***Example:***  If you are using the Team Planner refer to section 
-> 
+> ***Example:***  If you are currently using the Team Planner refer to the instruction section [2.3 Team Planner](#23-team-planner)
+ etc. The summary of all commands can be found here [4.Command Summary](#4command-summary)
+___
 
 ### 2.2 Main Menu
+
+***
 
 This is the first thing you will see upon opening the app. It allows you the access to the respective tools
 
@@ -140,9 +148,7 @@ BYE
 Thank you for using All-in-oneNUS, we hope to see you again!
 ````
 
-
-
-***
+___
 
 ### 2.3 Team Planner
 
@@ -235,7 +241,7 @@ Format: `show tasks`
 Quits the Team Planner interface
 Format: `quit`
 
-***
+___
 ### 2.4 CAP Calculator
 ***
 In the CAP Calculator interface you will be able to:
@@ -277,6 +283,16 @@ For pass/fail modules indicate a CS or CU
 For modules you have "S/Ued" indicate an S or a U
 3. `add GET1028 S 4`
 
+Sample Output:
+````
+Your profile: Year 2 Semester 2 student
+You are viewing: Year 2 Semester 2
+Please enter command: add CS2113T A- 4
+------------------------------------------------------------------------
+Added CS2113T
+------------------------------------------------------------------------
+````
+
 ***
 
 #### 2.4.2 Delete
@@ -286,12 +302,40 @@ Format: `delete [Module code]`
 
 Example: `delete CS1010`
 
+Sample Output:
+````
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 2
+Please enter command: delete CS2040C
+------------------------------------------------------------------------
+Deleted CS2040C
+------------------------------------------------------------------------
+````
+
 ***
 #### 2.4.3 List
 Lists your current semester's module data, CAP for your current semester
 and overall CAP for Sem 1 to your current semester
 
 Format: `list`
+
+Sample Output:
+````
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 2
+Please enter command: list
+------------------------------------------------------------------------
+[MODULES] [GRADEs] [MCs]
+[CG1112 ]   [A-]    [6]
+[GEQ1000]   [CS]    [4]
+[MA1508E]   [A-]    [4]
+[EE2026 ]   [A ]    [4]
+[GEH1032]   [S ]    [4]
+CAP for this semester is 4.64
+Overall CAP is: 4.50
+------------------------------------------------------------------------
+````
+
 ***
 #### 2.4.4 Edit
 Make edits to your grades for a module
@@ -306,6 +350,24 @@ Example:
 
 2. `A-`
 
+
+
+Sample Output:
+````
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 2
+Please enter command: edit MA1508E
+------------------------------------------------------------------------
+Enter your desired grade:
+A
+Edited. New data:
+[MA1508E] [A] [4]
+------------------------------------------------------------------------
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 2
+Please enter command: 
+````
+
 ***
 #### 2.4.5 View
 View module and CAP information for Year a Semester b
@@ -314,12 +376,48 @@ Format: `view Y[a]S[b]`
 
 Example: `view Y1S1`
 
+Sample Output:
+````
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 2
+Please enter command: view Y1S1
+------------------------------------------------------------------------
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 1
+Please enter command:
+````
+
 ***
 
 #### 2.4.6 Show
 Show all modules from semester 1 to your current sem
 
 Format: `show`
+
+Sample Output:
+````
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 1
+Please enter command: show
+------------------------------------------------------------------------
+Modules for Year 1 Semester 1:
+[MODULES] [GRADEs] [MCs]
+[CG1111 ]   [A-]    [6]
+[CS1010 ]   [B+]    [4]
+[CS1231 ]   [S ]    [4]
+[GER1000]   [A-]    [4]
+[MA1511 ]   [A ]    [2]
+[MA1512 ]   [B+]    [2]
+------------------------------------------------------------------------
+Modules for Year 1 Semester 2:
+[MODULES] [GRADEs] [MCs]
+[CG1112 ]   [A-]    [6]
+[GEQ1000]   [CS]    [4]
+[MA1508E]   [A ]    [4]
+[EE2026 ]   [A ]    [4]
+[GEH1032]   [S ]    [4]
+------------------------------------------------------------------------
+````
 
 
 ***
@@ -333,7 +431,18 @@ Simulate the CAP you should get in order to attain your desired overall CAP
 
 Format: `goal [Desired Overall CAP]`
 
-Example: `goal 4.5`
+Example: `goal 4.60`
+
+Sample Output:
+````
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 2
+Please enter command: goal 4.60
+------------------------------------------------------------------------
+You should aim to get a CAP of 4.87 for your graded modules this semester
+in order to get an overall CAP of 4.60
+------------------------------------------------------------------------
+````
 
 ***
 
@@ -342,9 +451,23 @@ Update your current student status should you commence to the next semester
 
 Format: `update Y[a]S[b]`
 
-If you are going to be a year 3 sem 1 student, you will have to type:
+If you are going to be a year 2 sem 1 student, you will have to type:
 
-Example: `update Y3S1`
+Example: `update Y2S1`
+
+Sample Output:
+````
+Your profile: Year 1 Semester 2 student
+You are viewing: Year 1 Semester 2
+Please enter command: update Y2S1
+------------------------------------------------------------------------
+You are now viewing Year 2 Semester 1
+Your profile: Year 2 Semester 1 student
+You are viewing: Year 2 Semester 1
+Please enter command: 
+------------------------------------------------------------------------
+````
+
 
 ***
 
@@ -352,6 +475,15 @@ Example: `update Y3S1`
 Exit CAP Calculator
 
 Format: `exit`
+
+Sample Output:
+````
+Your profile: Year 2 Semester 1 student
+You are viewing: Year 2 Semester 1
+Please enter command: exit
+------------------------------------------------------------------------
+Exiting CAP Calculator
+````
 
 ***
 
@@ -361,7 +493,66 @@ Lists out all options available
 
 Format: `help`
 
-***
+Sample Output:
+````
+You are now viewing Year 2 Semester 1
+Your profile: Year 2 Semester 1 student
+You are viewing: Year 2 Semester 1
+Please enter command: help
+------------------------------------------------------------------------
+Here are the list of commands available :
+------------------------------------------------------------------------
+1. [add] - adds your module data
+   Format: add [Module Code] [Grade] [MCs]
+   Example: add CS1231 A- 4
+------------------------------------------------------------------------
+2. [delete] - delete specified module data
+   Format: delete [Module Code]
+   Example: delete CS1231
+------------------------------------------------------------------------
+3. [list] - lists your current semester's module data, CAP for your
+   current semester and overall CAP for Sem 1 to your current semester
+   Format: list
+------------------------------------------------------------------------
+4. [edit] - make edits to your module data
+   Format: 1. edit [Module code]
+           2. [new grade]
+   Example: edit CS1231
+        A+
+------------------------------------------------------------------------
+5. [view] - view module and CAP information for Year a Semester b
+   Format: view YaSb
+   Example: as a Year 2 sem 2 student you will have to type:
+   view Y2S2
+------------------------------------------------------------------------
+6. [show] - Show all modules from semester 1 to your current sem
+   Format: show
+------------------------------------------------------------------------
+7. [goal] - simulate the CAP you should get in order to attain your desired overall CAP
+   IMPORTANT NOTE: Please fill your current semester with modules you are currently taking
+   This includes arbitrary grades and the number of MCs of the modules
+   Format: goal [Desired overall CAP]
+   Example: goal 4.5
+-----------------------------------------------------------------------
+8. [update] - update your current student status should you commence to the next semester
+   Format: update YaSb
+   Example: if you are going to be a year 3 sem 1 student you will have to type:
+   update Y3S1
+-----------------------------------------------------------------------
+9. [exit] - exit CAP Calculator
+   Format: exit
+-----------------------------------------------------------------------
+10.[help] - lists out all options available
+   Format: help
+-----------------------------------------------------------------------
+Your profile: Year 2 Semester 1 student
+You are viewing: Year 2 Semester 1
+Please enter command: 
+-----------------------------------------------------------------------
+````
+
+
+___
 
 ### 2.5 Module Planner
 
