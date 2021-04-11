@@ -2,12 +2,16 @@
 
 ## Introduction
 
-All-in-oneNUS is a **desktop application for making university life easier in NUS.** 
+All-in-OneNUS is a **desktop application for making university life easier in NUS.** 
 It has 4 different tools, and is optimized for use via a Command Line Interface (CLI). 
-- The TeamPlanner feature allows for quick and easy management of team members and the tasks assigned to each team member. 
-- The ModulePlanner feature is a module management tool to allow students gain more insights into the modules that they are interested in. 
-- The CapCalculator feature is a calculation tool that has the ability to assign a module to be non-graded during the calculation. 
-- The FoodRecommendation feature allows users to review food choices at a single glance and recommends the user a food store accordingly.
+- The TeamPlanner feature allows for quick and easy management of team members and the tasks 
+  assigned to each team member. 
+- The ModulePlanner feature is a module management tool to allow students gain more insights
+  into the modules that they are interested in. 
+- The CapCalculator feature is a calculation tool that has the ability to assign a module to 
+  be non-graded during the calculation and simulate your grades to maximize your desired CAP. 
+- The FoodRecommendation feature allows users to review food choices at a single glance and 
+  recommends the user a food store accordingly.
 
 * Table of Contents
   * [Quick Start](#Quick-Start)
@@ -60,6 +64,9 @@ Format: `[NUMBER]`
 * Entering `2` directs you to the Module Planner
 * Entering `3` directs you to the Cap Calculator
 * Entering `4` directs you to the Food Recommendation app
+* Entering `bye` enables you to exit the app 
+* Below is a sample output when you type "bye" (not case-sensitive):
+![image](https://user-images.githubusercontent.com/77471508/114294111-ac531a80-9ace-11eb-84d2-357490fefc53.png)
 
 ***
 
