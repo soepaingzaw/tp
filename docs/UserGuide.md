@@ -275,12 +275,15 @@ Format: `add [Module Code] [Grade] [MCs]`
 Example:
 
 Indicate your desired grade:
+
 1. `add CS1231 A- 4`
    
 For pass/fail modules indicate a CS or CU
+
 2. `add GES1035 CS 4`
    
 For modules you have "S/Ued" indicate an S or a U
+
 3. `add GET1028 S 4`
 
 Sample Output:
@@ -316,6 +319,11 @@ Deleted CS2040C
 #### 2.4.3 List
 Lists your current semester's module data, CAP for your current semester
 and overall CAP for Sem 1 to your current semester
+
+>**IMPORTANT NOTE**: 
+>Please fill all your semesters (From sem 1 to current sem) with modules you have taken
+>or will be taking. This includes grades you predict you will get this semester.
+
 
 Format: `list`
 
@@ -426,7 +434,6 @@ Modules for Year 1 Semester 2:
 Simulate the CAP you should get in order to attain your desired overall CAP
 
 >**IMPORTANT NOTE**: Please fill your current semester with modules you are currently taking
-
 >This includes arbitrary grades and the number of MCs of the modules
 
 Format: `goal [Desired Overall CAP]`
