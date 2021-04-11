@@ -17,17 +17,17 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
   
 ***
 
-* [1. Quick Start](#1.Quick-Start)
+* [1. Quick Start](#1.quick-start)
   * [1.1 System Requirements](#1.1-System-Requirements)
     * [1.1.1 Windows 7 and Above](#1.1.1-Windows-7-and-Above)
     * [1.1.2 Mac OS](#1.1.2-Mac-OS)
 
 * [2. Features](#2.Features)
   * [2.1 How to use user guide](#2.1-How-to-use-user-guide)
-  * [2.2 Main Menu](#2.2-Main-Menu)
+  * [2.2 Main Menu](#22-main-menu)
   * [2.3 Team Planner](#2.3-Team-Planner)
     * [2.3.1 Outline](#2.3.1-Outline)
-    * [2.3.2 Add team member](#2.3.2-Add-team member-(Requires-Password))
+    * [2.3.2 Add team member](#2.3.2-Add-team-member-(Requires-Password))
     * [2.3.3 Delete team member](#2.3.3-Delete-team-member-(Requires-Password))
     * [2.3.4 Show team](#2.3.4-Show-team)
     * [2.3.5 Clear team](#2.3.5-Clear-team-(Requires-Password))
@@ -51,14 +51,14 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
   * [2.5 Module Planner](#2.5-Module-Planner)
     * [2.5.1 Module](#2.5.1-Module)
     * [2.5.2 Student](#2.5.2-Student)
-    * [2.5.3 List down](#2.5.3 List-down)
+    * [2.5.3 List down](#2.5.3-List-down)
     * [2.5.4 Recommendation](#2.5.4-Recommendation)
-    * [2.5.5 Delete student](#2.5.5-Delete student)
+    * [2.5.5 Delete student](#2.5.5-Delete-student)
     * [2.5.6 Exit module planner](#2.5.6-Exit-module-planner)
-  * [2.6 Food Recommendation app](#2.6-Food-Recommendation app)
+  * [2.6 Food Recommendation app](#2.6-Food-Recommendation-app)
     * [2.6.1 Add Food Store](#2.6.1-Add-Food-Store)
-    * [2.6.2 Delete Food Store](#2.6.2-Delete-Food Store)
-    * [2.6.3 List Food Stores](#2.6.3-List Food-Stores)
+    * [2.6.2 Delete Food Store](#2.6.2-Delete-Food-Store)
+    * [2.6.3 List Food Stores](#2.6.3-List-Food-Stores)
     * [2.6.4 Clear Food Stores](#2.6.4-Clear-Food-Stores)
     * [2.6.5 Recommend Food Store](#2.6.5-Recommend-Food-Store)
   * [3.FAQ](#3.FAQ)
@@ -442,15 +442,15 @@ Format: `recommend`
 
   Features|From | Command to enter
 ----|-----|-------
-[Enter Team Planner](#Enter Team Planner) | Main Menu | `1`
-[Enter CAP Calculator](#Enter CAP Calculator) | Main Menu | `2`
-[Add](#add) | CAP Calculator | `add [Module Code] [Grade] [MCs]`
-[Delete](#delete) | CAP Calculator | `delete [Module code]`
-[List](#list) | CAP Calculator | `list`
-[Edit](#Edit) | CAP Calculator | 1. `edit [Module code]` 2. `[new grade]`
-[View](#View) | CAP Calculator | `view Y[a]S[b]`
-[Show](#Show) | CAP Calculator | `show`
-[Goal](#Goal) | CAP Calculator | `goal`
-[Update](#Update) | CAP Calculator | `update Y[a]S[b]`
-[Exit](#Exit) | CAP Calculator | `exit`
-[Help](#Help) | CAP Calculator | `help`
+[Enter Team Planner](#22-main-menu) | Main Menu | `1`
+[Enter CAP Calculator](#22-main-menu) | Main Menu | `2`
+[2.4.1 Add](#241-add) | CAP Calculator | `add [Module Code] [Grade] [MCs]`
+[2.4.2 Delete](#242-delete)| CAP Calculator | `delete [Module code]`
+[2.4.3 List](#243-list) | CAP Calculator | `list`
+[2.4.4 Edit](#244-edit)| CAP Calculator | 1. `edit [Module code]` 2. `[new grade]`
+[2.4.5 View](#245-view) | CAP Calculator | `view Y[a]S[b]`
+[2.4.6 Show](#246-show)| CAP Calculator | `show`
+[2.4.7 Goal](#247-goal)  | CAP Calculator | `goal`
+[2.4.8 Update](#248-update) | CAP Calculator | `update Y[a]S[b]`
+[2.4.9 Exit](#249-exit)  | CAP Calculator | `exit`
+[2.4.10 Help](#2410-help) | CAP Calculator | `help`
