@@ -13,7 +13,9 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 - The FoodRecommendation feature allows users to review food choices at a single glance and 
   recommends the user a food store accordingly.
 
+
 ##Table of Contents
+  
   
 ***
 
@@ -107,7 +109,7 @@ It has 4 different tools, and is optimized for use via a Command Line Interface 
 
 ### 2.2 Main Menu
 
-This is the first thing you will see upon opening the app. It allows you the acc  ess to the respective tools
+This is the first thing you will see upon opening the app. It allows you the access to the respective tools
 
 ````
 Welcome to All-in-OneNUS app!
