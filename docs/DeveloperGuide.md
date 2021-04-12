@@ -197,6 +197,16 @@ to retrieve any information about the store. There are 4 classes that inherits f
 ***
 #### Implementation
 
+![ImplementationDiagram](./FoodStoreDiagrams/AddCommand-addStore.png)
+
+A general explanation for the adding a food store to the list.
+
+1. addStore method from FoodRecommendation class takes in a FoodStore class as a parameter.
+2. The method then calls the addStore method from FoodStoreUi class.
+3. The addStore method from FoodStoreUi class calls the showToUser method, which shows the FoodStore as an output to the user.
+4. The method will terminate and return to the addStore from FoodRecommendation, which will now call the add method from FoodStoreList, which is the ArrayList that stores all the FoodStore classes.
+5. The add method will terminate and return to the addStore from FoodRecommendation, which will also terminate.
+
 ***
 ***
 
@@ -230,11 +240,13 @@ to retrieve any information about the store. There are 4 classes that inherits f
 |v1.0|CAP Calculator|student|exit CAP Calculator| use other tools in All-in-OneNUS|
 |v1.0|CAP Calculator|student|request help within CAP |navigate the app better|
 |v1.0|CAP Calculator|student|change the semester I am viewing|view my module data in a different semester|
-|v1.0| |food savvy individual|view my food options|make better choices when selecting places to eat|
+|v1.0|Food Recommendation |food savvy individual|view my food options|make better choices when selecting places to eat|
 |v1.0| |team leader|view the team members at one glance|manage my team better|
 |v1.0| |team leader|exclusively be able to add and delete members|ensure that the members list is updated and accurate|
 |v1.0| |team leader|delegate tasks to my team members|distribute the work evenly|
 |v1.0| |student|gather more insights about modules offered|know if I stand a chance in getting that module|
+|v1.0|Food Recommendation|student|get a recommendation on what food store to buy from|save time on deciding what to eat|
+|v2.0|Food Recommendation|student|know which food stores around me are halal|know what I can and cannot eat|
 |v2.0| |team member|mark a task as completed|inform my team members that the task has been completed|
 |v2.0| |team member|view at one glance which tasks are more important|prioritise my tasks efficiently|
 |v2.0| |team member|track team members progress|ensure that I do not do a task that has already been completed|
