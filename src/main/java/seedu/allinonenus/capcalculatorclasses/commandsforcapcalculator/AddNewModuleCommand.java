@@ -8,6 +8,7 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Locale;
 
 public class AddNewModuleCommand extends CommandsForCapCalculator {
 
@@ -26,7 +27,9 @@ public class AddNewModuleCommand extends CommandsForCapCalculator {
 
         String[] moduleInfo = fullCommand.split(" ");
         int currentSem = storage.getSem();
-        ModuleData modules = new ModuleData(moduleInfo[1], moduleInfo[2], Integer.parseInt(moduleInfo[3]), currentSem);
+        String moduleCodeUpper = moduleInfo[1].toUpperCase();
+        String gradeUpper = moduleInfo[2].toUpperCase();
+        ModuleData modules = new ModuleData(moduleCodeUpper, gradeUpper, Integer.parseInt(moduleInfo[3]), currentSem);
         checkGradeFormat(moduleList, moduleInfo[2]);
         if (/*!checkForModuleFormat(moduleInfo[1]) || */!checkMcFormat(Integer.parseInt(moduleInfo[3]))) {
             throw new WrongModuleFormatException();
