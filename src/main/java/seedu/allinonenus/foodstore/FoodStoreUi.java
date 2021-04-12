@@ -65,7 +65,11 @@ public class FoodStoreUi {
     }
 
     public void clearList() {
-        showToUser(CLEAR_MESSAGE);
+        showToUser(DIVIDER, CLEAR_MESSAGE, DIVIDER);
+    }
+
+    public void printDivider() {
+        showToUser(DIVIDER);
     }
 
     public void recommendStore(FoodStore foodStore) {

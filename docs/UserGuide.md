@@ -105,7 +105,8 @@ ___
 
 ### 2.1 How to use user guide
 1. Single sentences in code blocks `like this` are meant to be written on the Command Line Interface (CLI)
-2. Words that are in brackets [**Like this**] are your own personal inputs
+2. Words that are in brackets [**Like this**] are your own personal inputs. 
+   Keep in mind they have to be there for the command to work
 > **IMPORTANT**: Certain features may contain **similar commands**. However, as long as you are in one feature while using 
 > **All-in-One-NUS** you may just refer to that section of the user guide
 > 
@@ -825,30 +826,218 @@ Format: 'bye'
 ### 2.6 Food Recommendation app
 
 #### 2.6.1 Add Food Store
-Adds a food store with the desired description
 
-Format: `add [Name], [Description]`
+Adds a food store with the desired description and location
+>**NOTE**: Every food store's  default status is non-halal.
+> More information about halal/non-halal status can be found at the [Halal Command](#266-toggle-food-store-halal-status)
+> 
 
+Format: `add [Name] d/[Description]`
+
+Example: `add Chicken Rice d/Roasted Chicken`
+
+Sample Output:
+````
+add Chicken Rice d/Roasted Chicken
+____________________________________________________________
+Please choose a location
+The locations available for choice are: 
+1. Frontier Canteen(Located near Science)
+2. The Deck (Located near FASS)
+3. University Town
+4. Techno Edge (Located near Engineering)
+____________________________________________________________
+````
+You will then have to input another command to set the location of the food store.
+ The location can be chosen from the output that the app provides. 
+Additionally, you can enter `help` to show all available locations again.
+
+Format: `[Location index]`
+
+Example: `1`
+
+Sample Output:
+````
+1
+____________________________________________________________
+This food store has been added to the list:
+Location: Frontier [Non-Halal] Chicken Rice: Roasted Chicken
+____________________________________________________________
+````
+>**IMPORTANT NOTE** : The location index input has to be valid before the add command is complete.
+> This is regardless of whether the add command is valid. 
 
 #### 2.6.2 Delete Food Store
-Deletes a food store with the indicated index
+
+Deletes a food store with the indicated store index
+>**IMPORTANT**: Please get the store index of each food store from the [List Command](#263-list-food-stores) 
 
 Format: `delete [store index]`
 
+Example: `delete 1`
+
+Sample Output:
+````
+delete 1
+____________________________________________________________
+This store has been removed:
+Location: Techno Edge [Halal] chicken rice: white chicken
+____________________________________________________________
+````
+
 #### 2.6.3 List Food Stores
+
 Prints the list of food stores that are stored in the app
 
 Format: `list`
 
+Sample Output:
+````
+list
+____________________________________________________________
+Here is the list of food stores:
+1. Location: Techno Edge [Non-Halal] western: chicken chop
+2. Location: Techno Edge [Non-Halal] taiwan food: chicken cutlet
+3. Location: Techno Edge [Non-Halal] curry rice: pork cutlet
+4. Location: Techno Edge [Non-Halal] muslim food: nasi lemak
+5. Location: Frontier [Non-Halal] Chicken Rice: Roasted Chicken
+____________________________________________________________
+````
+
 #### 2.6.4 Clear Food Stores
+
 Clears the entire list of food stores
 
 Format: `clear`
 
+Sample output:
+````
+clear
+____________________________________________________________
+All food stores have been cleared from the list.
+____________________________________________________________
+````
+
 #### 2.6.5 Recommend Food Store
+
 Prints a random food store from the list to recommend to the user
 
 Format: `recommend`
+
+Sample Output:
+````
+recommend
+____________________________________________________________
+Please choose a location
+The locations available for choice are: 
+1. Frontier Canteen(Located near Science)
+2. The Deck (Located near FASS)
+3. University Town
+4. Techno Edge (Located near Engineering)
+5. Everything
+____________________________________________________________
+````
+You will then have to input another command to set the location of the food store.
+The location can be chosen from the output that the app provides.
+Additionally, you can enter `help` to show all available locations again
+
+Format: `[Location index]`
+
+Example: `5`
+
+Sample Output:
+````
+5
+____________________________________________________________
+I recommend this store for you to try!
+Location: Techno Edge [Halal] chicken rice: white chicken
+____________________________________________________________
+````
+>**IMPORTANT NOTE** : The location index input has to be valid before the recommend command is complete.
+
+#### 2.6.6 Toggle Food Store Halal Status
+
+Sets the status of the store to halal if the current status is non-halal,
+ and sets it to non-halal if the current status is halal.
+
+Format: `halal [Store index]`
+
+Example: `halal 1`
+
+Sample Output:
+````
+halal 1
+____________________________________________________________
+I have updated the following food store:
+Location: Techno Edge [Non-Halal] chicken rice: white chicken
+____________________________________________________________
+halal 1
+____________________________________________________________
+I have updated the following food store:
+Location: Techno Edge [Halal] chicken rice: white chicken
+____________________________________________________________
+````
+
+#### 2.6.7 Find Food Store
+
+Searches the food store list for any store that contains the keyword and prints it out
+
+Format: `find [keyword]`
+
+Example: `find chicken`
+
+Sample Output:
+````
+find chicken
+____________________________________________________________
+These are the food stores that contains the keyword: 
+1: Location: Techno Edge [Halal] chicken rice: white chicken
+2: Location: Techno Edge [Non-Halal] western: chicken chop
+3: Location: Techno Edge [Non-Halal] taiwan food: chicken cutlet
+````
+
+#### 2.6.8 Help
+
+Shows the list of available commands for the food recommendation bot
+
+Format: `help`
+
+Sample Output:
+````
+help
+____________________________________________________________
+Here are the list of commands: 
+1. help - Displays the list of commands available
+2. add [store name] d/[store description] - Adds a new food store
+3. list - Displays out all the food stores
+4. delete [store index] - Deletes the store with that index
+5. recommend - Recommends a random food store
+6. clear - Clears all the food stores in the list
+7. find [keyword] - Displays all the food stores that contains the keyword
+8. halal [store index] - Sets a food store to halal status if it is non-halal, and vice versa
+9. bye - Exits the Food Recommendation bot and returns to the Main Menu
+____________________________________________________________
+````
+
+#### 2.6.9 Bye
+
+Exits the food recommendation bot and returns to the main menu of the program
+
+Format: `bye`
+
+Sample Output:
+````
+bye
+____________________________________________________________
+Goodbye, hope to see you again!
+____________________________________________________________
+Welcome to All-in-OneNUS app!
+Enter 1 to access Team Planner
+Enter 2 to access Cap Calculator
+Enter 3 to access Module Planner
+Enter 4 to access Food Recommendation app
+Enter bye to exit app
+````
 
 ***
 ## 3.FAQ
