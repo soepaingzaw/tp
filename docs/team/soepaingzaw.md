@@ -54,6 +54,7 @@ Given below are my contributions to the project.
 ### Project Management
 
 * Managed releases <code> v1.0-v2.0</code> (2 releases) on GitHub
+* Setting up the GitHub team repository
 
 ***
 
@@ -67,4 +68,4 @@ Given below are my contributions to the project.
     * Initiated user stories section
     * Preliminary class diagrams
     * Overall architecture diagrams for CAP Calculator
-    * Finalized class diagram for CAP Calculator
+    * Initialized class diagram for CAP Calculator
