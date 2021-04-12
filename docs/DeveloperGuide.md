@@ -37,6 +37,7 @@ The Architecture Diagram given above explains the high-level design of the CAP C
 to the user interface on the command line.
 
 2. ParserForCapCalculator 
+
    
 * The ParserForCapCalculator component sieves out all the different commands based on the user input
 and passes it to CommandsForCapCalculator Component
@@ -58,7 +59,12 @@ More will be elaborated in **this section**
 
 ##### UiText Component
 
+![DesignDiagram](./capcalculatordiagrams/UiTextDiagram.png)
+
 #### ParserForCapCalculator Component
+
+
+![DesignDiagram](./capcalculatordiagrams/ParserForCapCalculator.png)
 
 #### CommandsForCapCalculator Component
 
@@ -67,21 +73,49 @@ More will be elaborated in **this section**
 
 #### ModuleStorage Component
 
+
+
 #### ModuleList Component
 
 ***
 
 #### Implementation
 
+This section describes some unique details on how certain features are implemented
+
 #### Add 
 
-#### Delete
+![ImplementationDiagram](./capcalculatordiagrams/AddNewModuleCommand.png)
 
-#### Edit
+A general explanation of how this feature works:
+
+1. When the user calls this feature by adding in his module data (e.g. CS2113T A 4)
+2. The AddNewModuleCommand calls ModuleList#gradesToPoints() method which handles the logic of converting
+the grades to points. So in this case A is translated to a 5.00.
+3. It thens calls ModuleList#add method to add the moduleData to the list of modules.
+4. It then calls UiText#moduleAlreadyUpdate() to inform the user that the input is verified and added.
+5. AddNewModuleCommand then calls ModuleStorage#writeToFile() to store the updated data to hard disk.
 
 
+#### PrintModuleList
 
+![ImplementationDiagram](./capcalculatordiagrams/PrintModuleListCommand.png)
 
+A general explanation of how this feature works:
+
+1. When the user calls this feature by requesting for "list" in the user interface
+2. The PrintModuleListCommand calls UiText#printModuleData() to display the list of modules in the current semester
+3. The PrintModuleListCommand starts and calls ModuleList#calculate() method twice which handles the logic of 
+   computing the current semester CAP and the overall CAP respectively.
+4. It then calls ModuleList#printCurrentSemCap and ModuleList#printOverallCap to display
+the current semester's CAP and the overall CAP respectively.
+   
+>The calculation of the cap is given by this formula:
+> 
+> ![image](https://user-images.githubusercontent.com/77471508/114402527-7e58fd80-9bd6-11eb-87dd-b99d2e471769.png)
+> 
+>This is handled by ModuleList#calculate() which also self invocates ModuleList#totalMcsTimesGrade(), 
+> ModuleList#totalMcs() in order to output the correct computation
 
 ***
 ***
