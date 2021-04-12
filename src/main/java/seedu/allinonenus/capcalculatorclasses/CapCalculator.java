@@ -54,7 +54,7 @@ public class CapCalculator {
             uiText.separationLine();
             prepareForNewUser();
 
-        } catch (StringIndexOutOfBoundsException e){
+        } catch (StringIndexOutOfBoundsException e) {
             uiText.separationLine();
             uiText.tryAgain();
             uiText.separationLine();
@@ -84,7 +84,7 @@ public class CapCalculator {
                     | StringIndexOutOfBoundsException e) {
                 uiText.getHelp();
 
-            } catch (InvalidYearAndSemException | EmptyLineException |IncorrectCommandsException|
+            } catch (InvalidYearAndSemException | EmptyLineException | IncorrectCommandsException |
                     InvalidGradeException | WrongModuleFormatException e) {
                 uiText.printException(e);
                 logr.log(Level.FINE, "Customised Exception has occurred\n");
