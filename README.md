@@ -54,6 +54,7 @@ Given below are my contributions to the project.
 ### Project Management
 
 * Managed releases <code> v1.0-v2.0</code> (2 releases) on GitHub
+* Setting up the GitHub team repository
 
 ***
 
