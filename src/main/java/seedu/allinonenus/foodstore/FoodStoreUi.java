@@ -15,7 +15,8 @@ public class FoodStoreUi {
             + "5. recommend - Recommends a random food store\n"
             + "6. clear - Clears all the food stores in the list\n"
             + "7. find [keyword] - Displays all the food stores that contains the keyword\n"
-            + "8. halal [store index] - Sets a food store to halal status if it is non-halal, and vice versa";
+            + "8. halal [store index] - Sets a food store to halal status if it is non-halal, and vice versa\n"
+            + "9. bye - Exits the Food Recommendation bot and returns to the Main Menu";
     private static final String EXIT_MESSAGE = "Goodbye, hope to see you again!";
     private static final String RECOMMEND_MESSAGE = "I recommend this store for you to try!";
     private static final String CLEAR_MESSAGE = "All food stores have been cleared from the list.";
@@ -40,6 +41,8 @@ public class FoodStoreUi {
     private static final String UPDATE_STORE_MESSAGE = "I have updated the following food store:";
     private static final String DIVIDER = "____________________________________________________________";
     private static final String FIND_MESSAGE = "These are the food stores that contains the keyword: ";
+    private static final String UNKNOWN_COMMAND_MESSAGE = "Sorry, I do not understand that command"
+            + "Enter help to view available commands again";
 
     public void printExitMessage() {
         showToUser(DIVIDER, EXIT_MESSAGE, DIVIDER);
@@ -81,12 +84,16 @@ public class FoodStoreUi {
         showToUser(DIVIDER);
     }
 
+    public void printUnknownCommand() {
+        showToUser(DIVIDER, UNKNOWN_COMMAND_MESSAGE, DIVIDER);
+    }
+
     public void printFileNotFound() {
-        showToUser(FILE_NOT_FOUND_MESSAGE);
+        showToUser(DIVIDER, FILE_NOT_FOUND_MESSAGE, DIVIDER);
     }
 
     public void printFindError() {
-        showToUser(FIND_ERROR_MESSAGE);
+        showToUser(DIVIDER, FIND_ERROR_MESSAGE, DIVIDER);
     }
 
     public void printStore(FoodStore foodStore) {
@@ -102,7 +109,7 @@ public class FoodStoreUi {
     }
 
     public void printInvalidLocationInput() {
-        showToUser(INVALID_LOCATION_INPUT_MESSAGE);
+        showToUser(DIVIDER, INVALID_LOCATION_INPUT_MESSAGE, DIVIDER);
     }
 
     public void printUpdatedStore(FoodStore foodStore) {
