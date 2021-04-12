@@ -14,7 +14,34 @@ The AllinOneNus class contains the main method of the program, which will call t
 ### Team Planner
 ***
 #### Design
-![TeamPlannerUMLDiagram](https://user-images.githubusercontent.com/77476414/112349123-6f7fd900-8d03-11eb-9b6b-5cebe73ed50e.jpg)
+![TeamPlannerUMLDiagram](https://user-images.githubusercontent.com/77476414/114419907-6b4e2980-9be6-11eb-831d-e43896670a11.png)
+
+The architecture Diagram displayed above explains the high level design of the Team Planner. There are a few core components to the TeamPlanner feature
+
+1. TeamPlanner
+
+* This is the main class of the team planner feature. It creates an instance of the TeamUi and TeamParser and supplies the inputs to be processed by the TeamParser class
+
+2. TeamUi
+
+* This is the class where the bulk of the methods are stored. Methods that add/delete the members/tasks are found in this class. If the user has not used
+the team planner feature before, an initialisation method will be called by TeamUi and the user will be requested to fill in information about the team.
+
+3. TeamParser
+
+* As the name implies, this class processes the input and supplies the parameters to TeamUi
+
+4. TeamManager
+
+* This class keeps track of the team members in the team
+
+5. TaskManager
+
+* This class keeps track of the task of each team member
+
+6. TeamPlannerStorage
+
+* This class handles the saving and loading of the data. It creates a "team.txt" file if no file can be found and loads from a "team.txt" file if "team.txt" can be found.
 
 ***
 #### Implementation
@@ -215,15 +242,15 @@ A general explanation for the adding a food store to the list.
 |v1.0|CAP Calculator|student|change the semester I am viewing|view my module data in a different semester|
 |v1.0|Food Recommendation |food savvy individual|view my food options|make better choices when selecting places to eat|
 |v1.0| |team leader|view the team members at one glance|manage my team better|
-|v1.0| |team leader|track the tasks that have been completed|ensure deliverables are completed on time|
 |v1.0| |team leader|exclusively be able to add and delete members|ensure that the members list is updated and accurate|
 |v1.0| |team leader|delegate tasks to my team members|distribute the work evenly|
-|v1.0| |team member|track team members progress|ensure that I do not do a task that has already been completed|
-|v1.0| |team member|mark a task as completed|inform my team members that the task has been completed|
-|v1.0| |team member|view at one glance which tasks are more important|prioritise my tasks efficiently|
 |v1.0| |student|gather more insights about modules offered|know if I stand a chance in getting that module|
 |v1.0|Food Recommendation|student|get a recommendation on what food store to buy from|save time on deciding what to eat|
 |v2.0|Food Recommendation|student|know which food stores around me are halal|know what I can and cannot eat|
+|v2.0| |team member|mark a task as completed|inform my team members that the task has been completed|
+|v2.0| |team member|view at one glance which tasks are more important|prioritise my tasks efficiently|
+|v2.0| |team member|track team members progress|ensure that I do not do a task that has already been completed|
+|v2.0| |team leader|track the tasks that have been completed|ensure deliverables are completed on time|
 |v2.0|CAP Calculator|student|display all my module data|view all my modules at a glance|
 |v2.0|CAP Calculator|student|update my student year status|update my module data when I commence to the next semester|
 |v2.0|CAP Calculator|student|know what my semester CAP has to be|achieve the desired overall CAP|
