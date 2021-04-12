@@ -5,7 +5,7 @@ import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 import seedu.allinonenus.capcalculatorclasses.storageforcapcalculator.ModuleStorage;
 import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 
-public class SuggestGoalCommand extends CommandsForCapCalculator{
+public class SuggestGoalCommand extends CommandsForCapCalculator {
 
     public SuggestGoalCommand() {
         super();
@@ -22,7 +22,7 @@ public class SuggestGoalCommand extends CommandsForCapCalculator{
         uiText.separationLine();
     }
 
-    public boolean isExit(){
+    public boolean isExit() {
         return exit;
     }
 

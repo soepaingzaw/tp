@@ -8,7 +8,6 @@ import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Locale;
 
 public class AddNewModuleCommand extends CommandsForCapCalculator {
 
@@ -31,7 +30,7 @@ public class AddNewModuleCommand extends CommandsForCapCalculator {
         String gradeUpper = moduleInfo[2].toUpperCase();
         ModuleData modules = new ModuleData(moduleCodeUpper, gradeUpper, Integer.parseInt(moduleInfo[3]), currentSem);
         checkGradeFormat(moduleList, moduleInfo[2]);
-        if (/*!checkForModuleFormat(moduleInfo[1]) || */!checkMcFormat(Integer.parseInt(moduleInfo[3]))) {
+        if (!checkForModuleFormat(moduleCodeUpper) || !checkMcFormat(Integer.parseInt(moduleInfo[3]))) {
             throw new WrongModuleFormatException();
         }
 
@@ -75,55 +74,22 @@ public class AddNewModuleCommand extends CommandsForCapCalculator {
 
     public boolean checkForModuleFormat(String mod) {
         boolean modCorrect = true;
+        int startingIndexofChar = 0;
+        int endingIndexofChar = 1;
+        int startingIndexofNum = 3;
+        int endingIndexofNum = 5;
 
-        int count = 0;
-        int numLetters = 0;
-        int numNumerals = 0;
-
-
-        if (Character.isLetter(mod.charAt(count))) {
-
-            while (Character.isLetter(mod.charAt(count))) {
-                count++;
-
-                if (count > 3) {
-                    modCorrect = false;
-
-                }
+        for (int i = startingIndexofChar; i <= endingIndexofChar; i++) {
+            if (!Character.isLetter(mod.charAt(i))) {
+                modCorrect = false;
             }
-
-
-            numLetters = count;
-
-            while (Character.isDigit(mod.charAt(count))) {
-                count++;
-
-                if (count - numLetters > 4) {
-                    modCorrect = false;
-
-                }
-                System.out.print(count - numLetters + "\n");
-
-            }
-
-            if(modCorrect){
-                System.out.print("Here\n");
-            }
-
-            numNumerals = count - numLetters;
-
-        } else {
-
-            modCorrect = false;
         }
 
-
-        if (numLetters < 2 || numNumerals != 4) {
-
-            modCorrect =  false;
+        for (int j = startingIndexofNum; j <= endingIndexofNum; j++) {
+            if (!Character.isDigit(mod.charAt(j))) {
+                modCorrect = false;
+            }
         }
-
-
 
         return modCorrect;
 
