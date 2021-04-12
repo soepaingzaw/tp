@@ -24,24 +24,24 @@ The architecture Diagram displayed above explains the high level design of the T
 
 2. TeamUi
 
-*This is the class where the bulk of the methods are stored. Methods that add/delete the members/tasks are found in this class. If the user has not used
+* This is the class where the bulk of the methods are stored. Methods that add/delete the members/tasks are found in this class. If the user has not used
 the team planner feature before, an initialisation method will be called by TeamUi and the user will be requested to fill in information about the team.
 
 3. TeamParser
 
-*As the name implies, this class processes the input and supplies the parameters to TeamUi
+* As the name implies, this class processes the input and supplies the parameters to TeamUi
 
 4. TeamManager
 
-*This class keeps track of the team members in the team
+* This class keeps track of the team members in the team
 
 5. TaskManager
 
-*This class keeps track of the task of each team member
+* This class keeps track of the task of each team member
 
 6. TeamPlannerStorage
 
-*This class handles the saving and loading of the data. It creates a "team.txt" file if no file can be found and loads from a "team.txt" file if "team.txt" can be found.
+* This class handles the saving and loading of the data. It creates a "team.txt" file if no file can be found and loads from a "team.txt" file if "team.txt" can be found.
 
 ***
 #### Implementation
