@@ -1,64 +1,70 @@
-# Duke project template
+# Soe Paing Zaw - Project Portfolio Page
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+## Project: All-in-oneNUS
 
-## Setting up in Intellij
+All-in-oneNUS is a desktop application for making university life easier in NUS. It has 4 different tools, and is
+optimized for use via a Command Line Interface (CLI). It is written in Java and has about 4 kLoC
 
-Prerequisites: JDK 11 (use the exact version), update Intellij to the most recent version.
+Given below are my contributions to the project.
 
-1. **Configure Intellij for JDK 11**, as described [here](https://se-education.org/guides/tutorials/intellijJdk.html).
-1. **Import the project _as a Gradle project_**, as described [here](https://se-education.org/guides/tutorials/intellijImportGradleProject.html).
-1. **Verify the set up**: After the importing is complete, locate the `src/main/java/seedu/duke/Duke.java` file, right-click it, and choose `Run Duke.main()`. If the setup is correct, you should see something like the below:
-   ```
-   > Task :compileJava
-   > Task :processResources NO-SOURCE
-   > Task :classes
-   
-   > Task :Duke.main()
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   
-   What is your name?
-   ```
-   Type some word and press enter to let the execution proceed to the end.
+## CAP Calculator
 
-## Build automation using Gradle
+***
 
-* This project uses Gradle for build automation and dependency management. It includes a basic build script as well (i.e. the `build.gradle` file).
-* If you are new to Gradle, refer to the [Gradle Tutorial at se-education.org/guides](https://se-education.org/guides/tutorials/gradle.html).
+### Noteable Features
 
-## Testing
+* **List Feature**: Added ability to display modules and CAP
+    * What it does: lists student's current semester's module data, CAP for your current semester and overall CAP
+    * Justification: This feature outputs the main items of the CAP Calculator , the CAP for the semester and the
+      overall CAP
 
-### I/O redirection tests
+    * Highlights: Calculates the CAP which requires arithmetic manipulation. Calculation of overall CAP is not trivial
+      since we have to consider
 
-* To run _I/O redirection_ tests (aka _Text UI tests_), navigate to the `text-ui-test` and run the `runtest(.bat/.sh)` script.
 
-### JUnit tests
+* **View Feature**: Added a view command to allow student to view semesters
+    * What it does: View module and CAP information for a certain year and semester
+    * Justification: This feature enables the student to edit future modules to set the goal for his cap in advance
 
-* A skeleton JUnit test (`src/test/java/seedu/duke/DukeTest.java`) is provided with this project template. 
-* If you are new to JUnit, refer to the [JUnit Tutorial at se-education.org/guides](https://se-education.org/guides/tutorials/junit.html).
 
-## Checkstyle
+* **Goal Feature**: Added a feature to compute the CAP required in a semester in order to reach a desired CAP
+    * Justification: Allows the student to be aware of the average grade band he needs to score in order to reach a
+      certain grade level. Also allows student to simulate CAP to reach a certain grade level.
 
-* A sample CheckStyle rule configuration is provided in this project.
-* If you are new to Checkstyle, refer to the [Checkstyle Tutorial at se-education.org/guides](https://se-education.org/guides/tutorials/checkstyle.html).
 
-## CI using GitHub Actions
+* **Show**: Added a show feature to display all modules from semester 1 to current sem
+    * Justification: Allows the student to view all modules at a glance
 
-The project uses [GitHub actions](https://github.com/features/actions) for CI. When you push a commit to this repo or PR against it, GitHub actions will run automatically to build and verify the code as updated by the commit/PR.
 
-## Documentation
+* **Update**: Added an update feature for the student to increment their year of study
+    * Justification: CAP Calculator will evolve together with the student as more modules will be taken.
 
-`/docs` folder contains a skeleton version of the project documentation.
+* **Edit**: Add an edit feature so that the student can modify their grades
+    * Justification: Allows the student to simulate their CAP and customize their grades to maximize their CAP. Enabling
+      them to strategize each individual module grades
 
-Steps for publishing documentation to the public: 
-1. If you are using this project template for an individual project, go your fork on GitHub.<br>
-   If you are using this project template for a team project, go to the team fork on GitHub.
-1. Click on the `settings` tab.
-1. Scroll down to the `GitHub Pages` section.
-1. Set the `source` as `master branch /docs folder`.
-1. Optionally, use the `choose a theme` button to choose a theme for your documentation.
+***
+
+### Code Contribution:
+
+[Soe Paing Zaw reposense](https://nus-cs2113-ay2021s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&since=&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=soepaingzaw&tabRepo=AY2021S2-CS2113T-T09-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
+
+***
+
+### Project Management
+
+* Managed releases <code> v1.0-v2.0</code> (2 releases) on GitHub
+
+***
+
+### Documentation
+
+* User Guide:
+    * Documented features of CAP Calculator
+
+* Developer Guide:
+    * Documented target user profile
+    * Initiated user stories section
+    * Preliminary class diagrams
+    * Overall architecture diagrams for CAP Calculator
+    *
