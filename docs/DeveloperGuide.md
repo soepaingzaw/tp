@@ -14,7 +14,7 @@ The AllinOneNus class contains the main method of the program, which will call t
 ### Team Planner
 ***
 #### Design
-![TeamPlannerUMLDiagram](https://user-images.githubusercontent.com/77476414/112349123-6f7fd900-8d03-11eb-9b6b-5cebe73ed50e.jpg)
+![TeamPlannerUMLDiagram](https://user-images.githubusercontent.com/77476414/114419907-6b4e2980-9be6-11eb-831d-e43896670a11.png)
 
 ***
 #### Implementation
