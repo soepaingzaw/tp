@@ -864,8 +864,8 @@ Format: `recommend`
 
   Features|From | Command to enter
 ----|-----|-------
-[Enter Team Planner](#22-main-menu) | Main Menu | `1`
-[Enter CAP Calculator](#22-main-menu) | Main Menu | `2`
+[2.3 Enter Team Planner](#23-team-planner) | Main Menu | `1`
+[2.4 CAP Calculator](#24-cap-calculator) | Main Menu | `2`
 [2.3.2 Add Team Member](#232-add-team-member-(requires-password)) | Team Planner | `add member [member]`
 [2.3.3 Delete Team Member](#233-delete-team-member-(requires-password)) | Team Planner | `delete member [member]`
 [2.3.4 Show team](#234-show-team) | Team Planner | `show members`
