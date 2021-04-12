@@ -71,6 +71,7 @@ More will be elaborated in **this section**
 ![ImplementationDiagram](./capcalculatordiagrams/CommandsForCapCalculator.png)
 
 
+
 #### ModuleStorage Component
 
 
@@ -133,7 +134,38 @@ the current semester's CAP and the overall CAP respectively.
 ***
 #### Design
 
-![foodrecommendationUMLdiagram](https://user-images.githubusercontent.com/57632786/112334326-4c9af800-8cf6-11eb-892f-5599f927b551.png)
+![foodrecommendationUMLdiagram](./FoodStoreDiagrams/FoodRecommendationDiagram.png)
+
+The Architecture Diagram shown above explains the high-level design of the Food Recommendation feature. 
+There are 5 main components to the feature.
+
+1. FoodRecommendation
+
+* This is the main class of the Food Recommendation Feature. It contains all the methods for all the commands.
+  It also handles the user input, stores the FoodStore class in an Arraylist, and is responsible for calling the methods
+  for all the other classes. It creates an instance of FoodStoreUi and FoodStoreParser.
+  
+2. FoodStoreUi
+
+* The FoodStoreUi class is responsible for all the outputs to the user. It contains all the methods required to show any
+output to the user.
+
+3. FoodStoreParser
+
+* The FoodStoreParser class is responsible for parsing all the inputs from the user into the correct arguments for the 
+methods in FoodRecommendation class.
+  
+4. FoodStoreStorage
+
+* The FoodStoreStorage class is responsible for saving and loading the FoodStore class into a single `.txt`file. 
+It will create a new `.txt` file if there is no such file to be found.
+  
+5. FoodStore
+
+* The FoodStore class contains all the information about a food store that the user inputs. It contains all the methods 
+to retrieve any information about the store. There are 4 classes that inherits from the FoodStore class, which is the 
+  main class. The 4 classes are DeckStore, FrontierStore, TechnoStore and UTownStore.
+
 
 ***
 #### Implementation
