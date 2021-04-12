@@ -162,6 +162,7 @@ the relevant task index(As compared to keying in the exact task, the use of a ta
 
 In the TeamPlanner interface, you will be able to add/delete team members as well as assign tasks to each
 team member. The exact specifics of each command can be found in this section.
+___
 
 #### 2.3.1 Initialisation
 
@@ -865,6 +866,16 @@ Format: `recommend`
 ----|-----|-------
 [Enter Team Planner](#22-main-menu) | Main Menu | `1`
 [Enter CAP Calculator](#22-main-menu) | Main Menu | `2`
+[2.3.2 Add Team Member](#232-add-team-member-(requires-password)) | Team Planner | `add member [member]`
+[2.3.3 Delete Team Member](#233-delete-team-member-(requires-password)) | Team Planner | `delete member [member]`
+[2.3.4 Show team](#234-show-team) | Team Planner | `show members`
+[2.3.5 Clear team](#235-clear-team-(requires-password)) | Team Planner | `clear members`
+[2.3.6 Show commands](#236-show-commands) | Team Planner | `help`
+[2.3.7 Add a task to a team member](#237-add-a-task-to-a-team-member) | Team Planner | `add task`
+[2.3.8 Delete a task from a team member](#238-delete-a-task-from-a-team-member) | Team Planner | `delete task`
+[2.3.9 Mark task as done](#239-mark-task-as-done) | Team Planner | `mark done`
+[2.3.10 Show tasks](#2310-show-tasks) | Team Planner | `show tasks`
+[2.3.11 Quit](#2311-quit) | Team Planner | `quit`
 [2.4.1 Add](#241-add) | CAP Calculator | `add [Module Code] [Grade] [MCs]`
 [2.4.2 Delete](#242-delete)| CAP Calculator | `delete [Module code]`
 [2.4.3 List](#243-list) | CAP Calculator | `list`
