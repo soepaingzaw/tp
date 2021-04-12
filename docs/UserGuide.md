@@ -33,7 +33,7 @@ ___
   * [2.1 How to use user guide](#21-how-to-use-user-guide)
   * [2.2 Main Menu](#22-main-menu)
   * [2.3 Team Planner](#23-team-planner)
-    * [2.3.1 Outline](#231-outline)
+    * [2.3.1 Initialisation](#231-Initialisation)
     * [2.3.2 Add team member](#232-add-team-member-(requires-password))
     * [2.3.3 Delete team member](#233-delete-team-member-(requires-password))
     * [2.3.4 Show team](#234-show-team)
@@ -149,21 +149,28 @@ Thank you for using All-in-oneNUS, we hope to see you again!
 ````
 
 ___
-
 ### 2.3 Team Planner
+___
 
-#### 2.3.1 Outline
+The TeamPlanner interface is a **team management** application that provides a team with the ability to track the
+team and individual progress by **providing a macroscopic overview of the team and tasks**. 
+
+In general, the commands that handles the modification of the team members requires only a single line of input 
+while the commands that handles the modification of tasks assigned to each team member will require 
+multiple lines of input (guided by prompts) as you will be required to specify the team member as well as 
+the relevant task index(As compared to keying in the exact task, the use of a task index is simpler).
 
 In the TeamPlanner interface, you will be able to add/delete team members as well as assign tasks to each
-team member. The exact specifics of each command can be found in this section. 
+team member. The exact specifics of each command can be found in this section.
+
+#### 2.3.1 Initialisation
 
 Please take note that if you are a first time user that have not used the TeamPlanner inteface before, 
-you will be required to filled in the following fields before gaining full access to the TeamPlanner interface:
+you will be required to provide inputs in the following fields before gaining full access to the TeamPlanner interface:
 
-- Input the name of the team leader
-- Input the size of the team excluding the leader
-- Input a password and re-input the password to confirm the password
-- Shows the user the list of commands available
+- Name of the team leader
+- Size of the team excluding the leader
+- Password
 
 Sample output:
 
@@ -203,15 +210,6 @@ Here are the list of commands available :
 > **[M]** Denotes the individual is a team member
 > 
 > **[L]** Denotes the individual is a team lead
-> 
-The TeamPlanner interface is a team management application that provides a team with the ability to track the
-team and individual progress by providing a macroscopic overview of the team and tasks. In general, the commands
-that handles the modification of the team members requires only a single line of input while the commands
-that handles the modification of tasks assigned to each team member will require multiple lines of input as
-you will be required to specify the team member as well as the relevant task index(As compared to keying in the
-exact task, the use of a task index is simpler).
-
-The following are the commands that are available in the TeamPlanner feature
 
 #### 2.3.2 Add team member (Requires Password)
 >**IMPORTANT NOTE**: Avoid adding a team member with the same name as a member on the team.
@@ -219,7 +217,7 @@ The following are the commands that are available in the TeamPlanner feature
 Adds a team member to the team. A password prompt will appear and user will have to input the password for the team
 member to be added.
 
-Format: `add member [member name]`
+Format: `add member [member]`
 
 Example: `add member Bob`
 
@@ -233,8 +231,8 @@ password
 
 #### 2.3.3 Delete team member (Requires Password)
 >**IMPORTANT NOTES**: 
-> - If two or more members on the team have the same name,the member that is higher up the team list will be deleted.
-> - The team leader can be deleted, but can only be added again by clearing the team.
+> - If two or more members on the team have the same name, the member that is higher up the team list will be deleted.
+> - The team leader can be deleted, but can only be added again by clearing the team, in the initialisation phase.
 
 Deletes a team member from the team. A password prompt will appear and user will have to input the password for the team
 member to be deleted.
@@ -270,7 +268,7 @@ The team details are as follows:
 
 #### 2.3.5 Clear team (Requires Password)
 >**IMPORTANT NOTE:**
-> This command will clear all the members as well as the tasks assigned to each member.
+> This command will clear all the members(including the team leader) as well as the tasks assigned to each member.
 
 Clears all the members in the team and all the tasks in the team. A password prompt will appear and user will have to 
 input the password for the team details to be cleared.
@@ -341,8 +339,8 @@ Here are the list of commands available :
 > - If two or more members on the team have the same name,
     the task will be added to the member that is higher up the team list.
 
-Adds a task to a team member on the team. The output wil show the task added to the member with a priority level,
-the lower the priority level value, the higher the priority of the task
+Adds a task to a team member on the team. The output will show the task added to the member with a priority level.
+ The lower the priority level value, the higher the priority of the task.
 
 When the command is entered into the CLI, the following prompts will appear:
 1. Member to add task to: Key in a team member on the team to assign the task to.
@@ -371,7 +369,7 @@ Read book has been assigned to [L] Gary with a priority level of 1
 > If two or more members on the team have the same name,
 the specified task will be deleted from the member that is higher up the team list.
 
-Deletes a task from a team member on the team
+Deletes a task from a team member on the team.
 
 When the command is entered into the CLI, the following prompts will appear:
 1. Member to delete task from: Key in the member the relevant task has been assigned to.
