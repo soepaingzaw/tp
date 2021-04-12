@@ -106,6 +106,8 @@ public class FoodRecommendation {
         }
         if (index == 1) {
             foodStoreUi.printFindError();
+        } else {
+            foodStoreUi.printDivider();
         }
     }
 

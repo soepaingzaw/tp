@@ -57,7 +57,7 @@ public class FoodStoreParser {
             throw new FoodExceptions(INVALID_DELETE_MESSAGE);
         }
         boolean isEmpty = input.isEmpty();
-        boolean validIndex = (index < listSize) && (index > 0);
+        boolean validIndex = (index < listSize) && (index >= 0);
         boolean validInput = !isEmpty && validIndex;
         if (!validInput) {
             throw new FoodExceptions(OUT_OF_BOUNDS_MESSAGE);
@@ -76,7 +76,7 @@ public class FoodStoreParser {
             throw new FoodExceptions(INVALID_HALAL_MESSAGE);
         }
         boolean isEmpty = input.isEmpty();
-        boolean validIndex = (index < listSize) && (index > 0);
+        boolean validIndex = (index < listSize) && (index >= 0);
         boolean validInput = !isEmpty && validIndex;
         if (!validInput) {
             throw new FoodExceptions(OUT_OF_BOUNDS_MESSAGE);
