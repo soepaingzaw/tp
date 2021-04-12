@@ -165,6 +165,45 @@ you will be required to filled in the following fields before gaining full acces
 - Input a password and re-input the password to confirm the password
 - Shows the user the list of commands available
 
+Sample output:
+
+````
+Welcome to All-In-One-NUS team manager
+No saved file found
+Please enter the name of the team lead (No spaces)
+Aaron
+Please enter the size of your team (excluding the team lead)
+2
+Please enter the names of your team members,one per line (No spaces)
+Barry
+Larry
+The team details are as follows:
+1. [L] Aaron
+2. [M] Barry
+3. [M] Larry
+[Team Lead] Please enter a password (No spaces)
+password
+[Team Lead] Please re-enter the password
+password
+The password has been set
+Here are the list of commands available :
+1. add member [member] - adds a member (requires password)
+2. delete member [member] - deletes a member (requires password)
+3. show members - shows current members
+4. clear members - clears the current team and resets the password (requires password)
+5. help - lists the commands available
+6. add task
+7. delete task
+8. mark done
+9. show tasks
+10. quit - quits the program
+````
+>Take note:
+> 
+> **[M]** Denotes the individual is a team member
+> 
+> **[L]** Denotes the individual is a team lead
+> 
 The TeamPlanner interface is a team management application that provides a team with the ability to track the
 team and individual progress by providing a macroscopic overview of the team and tasks. In general, the commands
 that handles the modification of the team members requires only a single line of input while the commands
@@ -175,44 +214,163 @@ exact task, the use of a task index is simpler).
 The following are the commands that are available in the TeamPlanner feature
 
 #### 2.3.2 Add team member (Requires Password)
-Adds a team member to the team
+>**IMPORTANT NOTE**: Avoid adding a team member with the same name as a member on the team.
+
+Adds a team member to the team. A password prompt will appear and user will have to input the password for the team
+member to be added.
 
 Format: `add member [member name]`
 
-#### 2.3.3 Delete team member (Requires Password)
-Deletes a team member from the team
+Example: `add member Bob`
 
-Format: `delete member [member index]`
+Sample output:
+````
+add member Bob
+Please enter the password
+password
+[M] Bob has been added to the team
+````
+
+#### 2.3.3 Delete team member (Requires Password)
+>**IMPORTANT NOTES**: 
+> - If two or more members on the team have the same name,the member that is higher up the team list will be deleted.
+> - The team leader can be deleted, but can only be added again by clearing the team.
+
+Deletes a team member from the team. A password prompt will appear and user will have to input the password for the team
+member to be deleted.
+
+Format: `delete member [member]`
+
+Example: `delete member Barry`
+
+Sample output:
+````
+[M] Bob has been added to the team
+delete member Barry
+Please enter the password
+password
+[M] Barry has been removed
+````
 
 #### 2.3.4 Show team
-Shows the current members in the team
+Shows the current members in the team.
 
 Format: `show members`
 
+Example: `show members`
+
+Sample output:
+````
+show members
+The team details are as follows:
+1. [L] Aaron
+2. [M] Larry
+3. [M] Bob
+````
+
 #### 2.3.5 Clear team (Requires Password)
-Clears the members in the team.
+>**IMPORTANT NOTE:**
+> This command will clear all the members as well as the tasks assigned to each member.
+
+Clears all the members in the team and all the tasks in the team. A password prompt will appear and user will have to 
+input the password for the team details to be cleared.
 This will prompt the user to re-enter all information fields, such as
 the team leader, size of the team, team members, as well as the password.
 
 Format: `clear members`
+
+Example: `clear members`
+
+Sample output:
+````
+clear members
+Please enter the password
+password
+Please enter the name of the team lead (No spaces)
+Gary
+Please enter the size of your team (excluding the team lead)
+6
+Please enter the names of your team members,one per line (No spaces)
+Alex
+Bob
+Tom
+John
+Keith
+Tim
+The team details are as follows:
+1. [L] Gary
+2. [M] Alex
+3. [M] Bob
+4. [M] Tom
+5. [M] John
+6. [M] Keith
+7. [M] Tim
+[Team Lead] Please enter a password (No spaces)
+passWord
+[Team Lead] Please re-enter the password
+passWord
+The password has been set
+````
+
 
 #### 2.3.6 Show commands
 Lists the commands available
 
 Format: `help`
 
+Example: `help`
+
+Sample output:
+````
+help
+Here are the list of commands available :
+1. add member [member] - adds a member (requires password)
+2. delete member [member] - deletes a member (requires password)
+3. show members - shows current members
+4. clear members - clears the current team and resets the password (requires password)
+5. help - lists the commands available
+6. add task
+7. delete task
+8. mark done
+9. show tasks
+10. quit - quits the program
+````
 #### 2.3.7 Add a task to a team member
-Adds a task to a team member on the team.
+>**IMPORTANT NOTES**:
+> - The options for the priority level of the task can only be HIGH/MED/LOW (fully capitalised).
+> - If two or more members on the team have the same name,
+    the task will be added to the member that is higher up the team list.
+
+Adds a task to a team member on the team. The output wil show the task added to the member with a priority level,
+the lower the priority level value, the higher the priority of the task
 
 When the command is entered into the CLI, the following prompts will appear:
 1. Member to add task to: Key in a team member on the team to assign the task to.
 2. Task to be added: Key in the task to assign to the team member.
 3. Priority level of the task: Key in the priority level of the task(HIGH/MED/LOW). Take note that the input has to
 be capitalised.
-   
+
 Format: `add task`
 
+Example: `add task`
+
+Sample output:
+````
+add task
+Member to add task to:
+Gary
+Task to be added:
+Read book
+Priority level of the task(HIGH/MED/LOW):
+HIGH
+Read book has been assigned to [L] Gary with a priority level of 1
+````
+
 #### 2.3.8 Delete a task from a team member
+>**IMPORTANT NOTE**:
+> If two or more members on the team have the same name,
+the specified task will be deleted from the member that is higher up the team list.
+
 Deletes a task from a team member on the team
 
 When the command is entered into the CLI, the following prompts will appear:
@@ -222,7 +380,23 @@ When the command is entered into the CLI, the following prompts will appear:
    
 Format: `delete task`
 
+Example: `delete task`
+
+Sample output:
+````
+delete task
+Member to delete task from:
+Gary
+Index of task to be deleted:
+1
+ [ ] Read book has been removed
+````
+
 #### 2.3.9 Mark task as done
+>**IMPORTANT NOTE**:
+> If two or more members on the team have the same name,
+the specified task from the member that is higher up the team list will be marked as done.
+
 Marks a task assigned to a team member as done
 
 When the command is entered into the CLI, the following prompts will appear:
@@ -232,14 +406,63 @@ When the command is entered into the CLI, the following prompts will appear:
 
 Format: `mark done`
 
+Example: `mark done`
+
+Sample output :
+````
+mark done
+Member the task is assigned to:
+Gary
+Index of task to be marked as done:
+1
+ [X] Read book has been marked as done for [L] Gary
+````
+
 #### 2.3.10 Show tasks
-Displays the tasks assigned to each team member.
+Displays the tasks assigned to each team member. Tasks with a higher priority for a member will be
+higher up the list while tasks with a lower priority will be lower down the list.
 
 Format: `show tasks`
 
+Example: `show tasks`
+
+Sample output:
+````
+show tasks
+1. [L] Gary
+  1. [HIGH] [X] Read book
+  2. [HIGH] [ ] Buy bookmark
+  3. [MED]  [ ] Go library
+  4. [LOW]  [ ] Organize bookshelf
+2. [M] Alex
+  1. [HIGH] [ ] Go Town
+  2. [LOW]  [ ] Organize books
+3. [M] Bob
+  1. [HIGH] [ ] Build Library
+4. [M] Tom
+  1. [LOW]  [ ] Meet with Jerry
+5. [M] John
+6. [M] Keith
+  1. [LOW]  [ ] Go library
+7. [M] Tim
+  1. [MED]  [ ] Return book
+````
+
 #### 2.3.11 Quit
-Quits the Team Planner interface
+Quits the Team Planner interface and brings you back to the main interface.
 Format: `quit`
+
+Example: `quit`
+
+Sample output:
+````
+quit
+Welcome to All-in-OneNUS app!
+Press 1 to access Team Planner
+Press 2 to access Cap Calculator
+Press 3 to access Module Planner
+Press 4 to access Food Recommendation app
+````
 
 ___
 ### 2.4 CAP Calculator

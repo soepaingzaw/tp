@@ -20,7 +20,7 @@ public class TeamConstants {
             + "7. delete task\n"
             + "8. mark done\n"
             + "9. show tasks\n"
-            + "10. quit - quits the program\n";
+            + "10. quit - quits the program";
     public static final String requestPassword = "Please enter the password";
     public static final String emptyPasswordField = "The password field cannot be empty";
     public static final String emptyLeaderField = "The team leader field cannot be empty";
@@ -28,7 +28,8 @@ public class TeamConstants {
     public static final String emptyMemberField = "The team member field cannot be empty";
     public static final String errorSavingFile = "Unable to save current content as a text file";
     public static final String errorFileNotFound = "No saved file found";
-    public static final String missingInputParameter = "Missing parameter in the input. Please specify a member to add";
+    public static final String missingInputParameter = "Missing parameter in the input."+
+            " Please specify a member on the team";
     public static final String errorInvalidMemberDeleted = "Please specify a valid team member to be deleted";
     public static final String requestMemberNameToAddTask = "Member to add task to:";
     public static final String errorInvalidMemberAdded = "Please specify a valid team member to add a task to";
@@ -38,9 +39,10 @@ public class TeamConstants {
     public static final String requestMemberNameToDeleteTask = "Member to delete task from:";
     public static final String requestTaskIndexToDeleteTask = "Index of task to be deleted:";
     public static final String errorTaskIndexNumber = "Please enter a number as the index of task";
-    public static final String errorTaskIndex ="Please enter a valid task index";
+    public static final String errorTaskIndex = "Please enter a valid task index";
     public static final String requestMemberNameToMarkDone = "Member the task is assigned to:";
     public static final String requestTaskIndexToMarkDone = "Index of task to be marked as done:";
     public static final String displayTeamDetails = "The team details are as follows:";
     public static final String errorInvalidTeamMember = "Please specify a valid team member";
+    public static final String emptyTaskList = "There are no tasks assigned to this member";
 }

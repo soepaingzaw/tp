@@ -12,9 +12,9 @@ public class TeamParser {
         String[] commandArguments = command.split(" ");
         try {
             if (commandArguments[0].equals("add") && commandArguments[1].equals("member")) {
-                ui.addMember(team,commandArguments);
+                ui.addMember(team, commandArguments);
             } else if (commandArguments[0].equals("delete") && commandArguments[1].equals("member")) {
-                ui.deleteMember(team,commandArguments);
+                ui.deleteMember(team, commandArguments);
             } else if (commandArguments[0].equals("show") && commandArguments[1].equals("members")) {
                 ui.showTeamMembers(team);
             } else if (commandArguments[0].equals("clear") && commandArguments[1].equals("members")) {
@@ -37,7 +37,7 @@ public class TeamParser {
         } catch (TeamPlannerException e) {
             System.out.println("Invalid input");
             System.out.println(constants.displayCommandsAvailable);
-        } catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Invalid input");
             System.out.println(constants.displayCommandsAvailable);
         }

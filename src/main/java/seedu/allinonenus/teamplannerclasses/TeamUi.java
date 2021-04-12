@@ -88,7 +88,6 @@ public class TeamUi {
             TeamMember teamMember = new TeamMember(teamMemberName, false);
             team.addMember(teamMember);
         }
-        System.out.println(constants.displayTeamDetails);
         showTeamMembers(team);
     }
 
@@ -236,7 +235,7 @@ public class TeamUi {
         System.out.println(constants.requestPriorityLevel);
         String priorityLevelInput = in.nextLine();
         int priorityLevel = 0;
-        while (priorityLevel==0) {
+        while (priorityLevel == 0) {
             if (priorityLevelInput.equals("HIGH")) {
                 priorityLevel = 1;
                 break;
@@ -248,6 +247,7 @@ public class TeamUi {
                 break;
             }
             System.out.println(constants.errorPriorityLevel);
+            priorityLevelInput = in.nextLine();
         }
         Task task = new Task(taskDescription, priorityLevel, false);
         (team.getTeamMember(memberIndex)).addTask(task);
@@ -275,11 +275,19 @@ public class TeamUi {
             memberIndex = team.getIndexOfTeamMember(teamMemberName);
         }
         TeamMember teamMember = team.getTeamMember(memberIndex);
+        if(teamMember.getTaskCount()==0){
+            System.out.println(constants.emptyTaskList);
+            return;
+        }
         System.out.println(constants.requestTaskIndexToDeleteTask);
         int taskIndex = -1;
         while (taskIndex == -1) {
             try {
                 taskIndex = Integer.parseInt(in.nextLine()) - 1;
+                if (taskIndex < 0 || taskIndex + 1 > teamMember.getTaskCount()) {
+                    System.out.println(constants.errorTaskIndex);
+                    taskIndex = -1;
+                }
             } catch (NumberFormatException e) {
                 System.out.println(constants.errorTaskIndexNumber);
             }
@@ -332,9 +340,9 @@ public class TeamUi {
     }
 
     /*
-    * The showTask method shows the current members on the team as well as the task assigned to each member
-    * @team contains the details to be retrieved to show the team and task details.
-    * */
+     * The showTask method shows the current members on the team as well as the task assigned to each member
+     * @team contains the details to be retrieved to show the team and task details.
+     * */
     public static void showTask(TeamManager team) {
         for (int i = 0; i < team.getMemberCount(); i++) {
             System.out.println((i + 1) + ". " + team.getTeamMember(i));
