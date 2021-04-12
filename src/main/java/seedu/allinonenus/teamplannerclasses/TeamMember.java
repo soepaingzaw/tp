@@ -26,7 +26,7 @@ public class TeamMember {
     public void deleteTask(int taskNum) {
         int taskIndex = tasks.getTaskIndex(taskNum);
         int priorityGroup = tasks.getTaskPriority(taskNum);
-        tasks.deleteTask(taskNum,taskIndex,priorityGroup);
+        tasks.deleteTask(taskNum, taskIndex, priorityGroup);
     }
 
     public void markTaskAsDone(int taskNum) {

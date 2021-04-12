@@ -25,13 +25,9 @@ public class TaskManager {
     }
 
     public void deleteTask(int taskNum, int taskIndex, int priorityGroup) {
-        if (taskNum < taskCount && taskCount >= 0) {
             System.out.println(taskList.get(priorityGroup).get(taskIndex) + " has been removed");
             taskList.get(priorityGroup).remove(taskIndex);
             taskCount--;
-        } else {
-            System.out.println("Index out of range");
-        }
     }
 
     public int getTaskCount() {
