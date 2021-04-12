@@ -68,6 +68,10 @@ ___
     * [2.6.3 List Food Stores](#263-list-food-stores)
     * [2.6.4 Clear Food Stores](#264-clear-food-stores)
     * [2.6.5 Recommend Food Store](#265-recommend-food-store)
+    * [2.6.6 Halal Food Store](#266-toggle-food-store-halal-status)
+    * [2.6.7 Find Food Store](#267-find-food-store)
+    * [2.6.8 Food Store Help](#268-food-store-help)
+    * [2.6.9 Food Store Bye](#269-food-store-bye)
   * [3.FAQ](#3faq)
   * [4.Command Summary](#4command-summary)
   
@@ -996,7 +1000,7 @@ These are the food stores that contains the keyword:
 3: Location: Techno Edge [Non-Halal] taiwan food: chicken cutlet
 ````
 
-#### 2.6.8 Help
+#### 2.6.8 Food Store Help
 
 Shows the list of available commands for the food recommendation bot
 
@@ -1019,7 +1023,7 @@ Here are the list of commands:
 ____________________________________________________________
 ````
 
-#### 2.6.9 Bye
+#### 2.6.9 Food Store Bye
 
 Exits the food recommendation bot and returns to the main menu of the program
 
@@ -1075,3 +1079,12 @@ Enter bye to exit app
 [2.4.8 Update](#248-update) | CAP Calculator | `update Y[a]S[b]`
 [2.4.9 Exit](#249-exit)  | CAP Calculator | `exit`
 [2.4.10 Help](#2410-help) | CAP Calculator | `help`
+[2.6.1 Add Food Store](#261-add-food-store) | Food Recommendation | `add [Name] d/[Description]`,`[Location Index]`
+[2.6.2 Delete Food Store](#262-delete-food-store) | Food Recommendation | `delete [Store Index]`
+[2.6.3 List Food Stores](#263-list-food-stores) | Food Recommendation | `list`
+[2.6.4 Clear Food Stores](#264-clear-food-stores) | Food Recommendation | `clear`
+[2.6.5 Recommend Food Store](#265-recommend-food-store) | Food Recommendation | `recommend`, `[Location index]`
+[2.6.6 Halal Food Store](#266-toggle-food-store-halal-status) | Food Recommendation | `halal [Store Index]`
+[2.6.7 Find Food Store](#267-find-food-store) | Food Recommendation | `find [keyword]`
+[2.6.8 Food Store Help](#268-food-store-help) | Food Recommendation | `help`
+[2.6.9 Food Store Bye](#269-food-store-bye) | Food Recommendation | `bye`
