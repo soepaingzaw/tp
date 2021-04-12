@@ -115,7 +115,7 @@ public class UiText {
         if (currCap == currCap) {
             System.out.printf("CAP for this semester is %.2f\n", currCap);
         } else {
-            System.out.printf("Please enter more graded modules to calculate semester CAP\n");
+            System.out.print("Please enter more graded modules to calculate semester CAP\n");
         }
     }
 
@@ -123,7 +123,7 @@ public class UiText {
         if (overallCap == overallCap) {
             System.out.printf("Overall CAP is: %.2f\n", overallCap);
         } else {
-            System.out.printf("Please enter more graded modules to calculate overall CAP\n");
+            System.out.print("Please enter more graded modules to calculate overall CAP\n");
         }
 
     }
