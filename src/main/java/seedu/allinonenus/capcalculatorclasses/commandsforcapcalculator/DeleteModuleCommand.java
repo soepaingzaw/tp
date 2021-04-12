@@ -16,12 +16,11 @@ public class DeleteModuleCommand extends CommandsForCapCalculator {
         String[] moduleInfo = fullCommand.split(" ");
         int currentSem = storage.getSem();
         String moduleToDelete = moduleInfo[1];
-        if (checkIfModuleExists(moduleList, moduleInfo[1], currentSem)){
+        if (checkIfModuleExists(moduleList, moduleInfo[1], currentSem)) {
             moduleList.delete(moduleToDelete);
             uiText.deletedModule(moduleToDelete);
             saveToStorage(storage, moduleList);
-        }
-        else {
+        } else {
             uiText.moduleDoesntExist();
         }
 

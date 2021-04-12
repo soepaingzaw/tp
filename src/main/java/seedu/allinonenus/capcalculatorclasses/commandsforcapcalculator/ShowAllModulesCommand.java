@@ -4,20 +4,20 @@ import seedu.allinonenus.capcalculatorclasses.logicforcapcalculator.ModuleList;
 import seedu.allinonenus.capcalculatorclasses.storageforcapcalculator.ModuleStorage;
 import seedu.allinonenus.capcalculatorclasses.uiforcapcalculator.UiText;
 
-public class ShowAllModulesCommand extends CommandsForCapCalculator{
+public class ShowAllModulesCommand extends CommandsForCapCalculator {
 
     public ShowAllModulesCommand() {
         super();
     }
 
-    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand){
-       int totalSem = storage.totalSem;
+    public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand) {
+        int totalSem = storage.totalSem;
         int currentSemIndex = 1;
         while (currentSemIndex <= totalSem) {
 
             System.out.print("Modules for " + moduleList.printYearAndSem(currentSemIndex) + ":\n");
 
-            if(modulesExist(moduleList,currentSemIndex)) {
+            if (modulesExist(moduleList, currentSemIndex)) {
 
 
                 System.out.print("[MODULES] [GRADEs] [MCs]\n");
@@ -30,10 +30,7 @@ public class ShowAllModulesCommand extends CommandsForCapCalculator{
                     }
 
                 }
-
-
-            }
-            else {
+            } else {
                 uiText.warnUserOfEmptySemester();
 
             }
@@ -53,7 +50,7 @@ public class ShowAllModulesCommand extends CommandsForCapCalculator{
         return exists;
     }
 
-    public boolean isExit(){
+    public boolean isExit() {
         return exit;
     }
 }

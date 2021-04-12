@@ -15,7 +15,7 @@ public class EditModuleCommand extends CommandsForCapCalculator {
     }
 
     public void executeCommand(ModuleList moduleList, ModuleStorage storage, UiText uiText, String fullCommand)
-    throws EmptyLineException {
+            throws EmptyLineException {
         String[] moduleInfo = fullCommand.split(" ");
         String moduleToEdit = moduleInfo[1];
         int index;
@@ -44,7 +44,6 @@ public class EditModuleCommand extends CommandsForCapCalculator {
             System.out.print("File Error\n");
         }
     }
-
 
     public boolean isExit() {
         return exit;

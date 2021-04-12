@@ -28,7 +28,6 @@ public class UpdateStudentSemesterCommand extends CommandsForCapCalculator {
                     + " and it is an increment from your previous semester\n");
         }
 
-
     }
 
     public void saveToStorage(ModuleStorage storage, ModuleList moduleList) {
