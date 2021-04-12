@@ -207,6 +207,8 @@ public class FoodRecommendation {
                 } catch (FoodExceptions e) {
                     foodStoreUi.showToUser(e.getMessage());
                 }
+            } else {
+                foodStoreUi.printUnknownCommand();
             }
             userInput = in.nextLine();
             isExit = userInput.equals("bye");
